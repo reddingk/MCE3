@@ -1,0 +1,41 @@
+@import (reference) "../../variables.less";
+
+.nav-header {
+    width: 100%;
+    &.fixed-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+    .nav-container {
+        padding: 2px 5%;
+        display: flex;
+        justify-content: space-between;
+        .navbar-header {
+            max-width: 80px;
+            position: relative;
+            display: inline-block;
+            margin-right: 30px;
+            .navbar-brand { 
+                padding: 5px; 
+                position: relative; 
+                overflow: hidden;
+                img { width: 100%;}
+            }
+        }
+
+        .navbar-items {
+            &.full {
+                display: flex;
+            }
+            &.sidebar { display: none; }
+            .nav-link { 
+                font-size: 1.2rem;
+                padding: 0px 10px;
+                position: relative;
+                margin: auto 0px;
+                &+.nav-link { margin-left: 30px;}            
+            }
+        }
+    }
+}
