@@ -2,15 +2,20 @@
 
 .nav-header {
     width: 100%;
+    background: rgba(0,0,0,0.2);
+    min-height: 87px;
     &.fixed-header {
         position: fixed;
         top: 0;
         left: 0;
     }
     .nav-container {
-        padding: 2px 5%;
+        padding: 5px 10px;
         display: flex;
-        justify-content: space-between;
+        justify-content: start;
+        max-width: 1350px;
+        margin: 0px auto;
+
         .navbar-header {
             max-width: 80px;
             position: relative;
@@ -27,14 +32,40 @@
         .navbar-items {
             &.full {
                 display: flex;
+                justify-content: flex-end;
+                width: 100%;                
+                @media @mobile-device { display: none; }
             }
-            &.sidebar { display: none; }
+            &.sidebar { 
+                display: none;
+                @media @mobile-device { display: flex; }
+            }
             .nav-link { 
-                font-size: 1.2rem;
+                font-size: 1.1rem;
                 padding: 0px 10px;
                 position: relative;
                 margin: auto 0px;
+                transition: 0.5s all ease;
+                cursor: pointer;
+                &:hover { color: @color1; }
                 &+.nav-link { margin-left: 30px;}            
+            }
+            .social-links-container {
+                margin: auto 0px auto 50px;
+                .social-link {
+                    color: rgba(255,255,255,1);
+                    transition: 0.5s all ease;
+                    i { 
+                        border-radius: 50%;
+                        font-size: 1.4rem;
+                    }
+                    &+.social-link { margin-left: 20px; }
+
+                    &.youtube{ &:hover { color: rgba(255,0,0,1);}}
+                    &.instagram{ &:hover { color: rgba(195,42,163,1);}}
+                    &.facebook{ &:hover { color: rgba(59,89,152,1);}}
+                    &.twitter{ &:hover { color: rgba(0,182,241,1);}}
+                }
             }
         }
     }

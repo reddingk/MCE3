@@ -15,5 +15,7 @@ export class HeaderComponent {
       new NavItem('Media', ''),
       new NavItem('News', ''),
       new NavItem('Releases', ''),
-      new NavItem('Contact Us', '')]   
+      new NavItem('Contact Us', '')];
+      
+    
 }
