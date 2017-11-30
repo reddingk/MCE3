@@ -1,4 +1,4 @@
-/*import {NgModule} from '@angular/core';
+import {NgModule} from '@angular/core';
 
 import {
     MatAutocompleteModule,
@@ -72,4 +72,4 @@ import {
       MatTooltipModule,
     ]
   })
-  export class AGMaterialModule {}*/
+  export class AGMaterialModule {}

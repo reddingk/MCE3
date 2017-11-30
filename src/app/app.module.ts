@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule }        from '@angular/platform-browser';
-//import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
-//import { AGMaterialModule } from './components/_app/material';
+import { AGMaterialModule } from './components/_app/material';
 import { HttpModule } from '@angular/http';
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome'
 
@@ -19,8 +19,8 @@ const appRoutes: Routes = [
     imports: [
       BrowserModule,      
       HttpModule,
-      //NoopAnimationsModule,
-      //AGMaterialModule,      
+      NoopAnimationsModule,
+      AGMaterialModule,      
       Angular2FontawesomeModule,
       RouterModule.forRoot(appRoutes,{ enableTracing: true } )
     ],

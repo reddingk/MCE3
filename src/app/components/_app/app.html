@@ -1,13 +1,21 @@
+<mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav mode="side" align="end" fixedInViewport="true" disableClose>
+        Sidenav content
+        <button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button>
+    </mat-sidenav>
 
-            <section class="main-content">
-                <!-- Header -->
-                <my-app-header></my-app-header>
-    
-                <!-- Body -->
-                <div class="body-container">
-                    <router-outlet></router-outlet>
-                </div>
-                <!-- Footer -->
-                <p>{{footerTitle}}</p>
-            </section>
+    <mat-sidenav-content>
+        <section class="main-content">
+            <!-- Header -->
+            <my-app-header></my-app-header>
         
+            <!-- Body -->
+            <div class="body-container">
+                <button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button>
+                <router-outlet></router-outlet>
+            </div>
+            <!-- Footer -->
+            <p>{{footerTitle}}</p>
+        </section>
+    </mat-sidenav-content>
+</mat-sidenav-container>
