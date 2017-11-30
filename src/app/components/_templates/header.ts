@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, Input, EventEmitter } from '@angular/core';
 import { NavItem } from '../../datamodels/navitem';
 
 @Component({
@@ -7,15 +7,10 @@ import { NavItem } from '../../datamodels/navitem';
   styleUrls: ['./header.less']
 })
 export class HeaderComponent {
-    title = 'This is the Header Template';
-    navitems: NavItem[] = [
-      new NavItem('Artists', ''),
-      new NavItem('The Empire', ''),
-      new NavItem('Events', ''),
-      new NavItem('Media', ''),
-      new NavItem('News', ''),
-      new NavItem('Releases', ''),
-      new NavItem('Contact Us', '')];
-      
+    @Output() toggleEvent = new EventEmitter<string>();
+    @Input() navitems: NavItem[];    
     
+    toggleSideNav() {
+      this.toggleEvent.next();
+    }    
 }

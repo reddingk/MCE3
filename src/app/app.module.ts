@@ -20,7 +20,7 @@ const appRoutes: Routes = [
       BrowserModule,      
       HttpModule,
       NoopAnimationsModule,
-      AGMaterialModule,      
+      AGMaterialModule,  
       Angular2FontawesomeModule,
       RouterModule.forRoot(appRoutes,{ enableTracing: true } )
     ],

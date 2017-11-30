@@ -1,17 +1,20 @@
 <mat-sidenav-container class="example-container">
-    <mat-sidenav #sidenav mode="side" align="end" fixedInViewport="true" disableClose>
-        Sidenav content
-        <button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button>
+    <mat-sidenav #sidenav mode="side" class="sideNav-container" align="end" fixedInViewport="true" disableClose>
+        <div class="side-header">
+            <div class="nav-link"><a (click)="sidenav.toggle()"><i class="material-icons">&#xE5CD;</i></a></div>
+        </div>
+        <div class="side-body">
+            <div class="nav-link" *ngFor="let item of navitems"><a>{{item.name}}</a></div>
+        </div>        
     </mat-sidenav>
 
     <mat-sidenav-content>
         <section class="main-content">
             <!-- Header -->
-            <my-app-header></my-app-header>
+            <my-app-header (toggleEvent)="sidenav.toggle()" [navitems]="navitems"></my-app-header>
         
             <!-- Body -->
-            <div class="body-container">
-                <button mat-button (click)="sidenav.toggle()">sidenav.toggle()</button>
+            <div class="body-container">                
                 <router-outlet></router-outlet>
             </div>
             <!-- Footer -->

@@ -15,7 +15,7 @@
         justify-content: start;
         max-width: 1350px;
         margin: 0px auto;
-
+        @media @mobile-device { justify-content: space-between; }
         .navbar-header {
             max-width: 80px;
             position: relative;
@@ -37,7 +37,7 @@
                 @media @mobile-device { display: none; }
             }
             &.sidebar { 
-                display: none;
+                display: none;                
                 @media @mobile-device { display: flex; }
             }
             .nav-link { 

@@ -1,7 +1,7 @@
 @import (reference) "./app/variables.less";
-@import url('https://fonts.googleapis.com/css?family=Fjalla+One|Open+Sans+Condensed:300|Oswald|Oxygen');
+@import url('https://fonts.googleapis.com/css?family=Material+Icons|Fjalla+One|Open+Sans+Condensed:300|Oswald|Oxygen');
 
-body {
+body, html {
     height: 100%;
     color: rgba(255,255,255,1);
     background-color: @color5;
@@ -16,4 +16,39 @@ body {
 
 .body-container {
     padding-top: 87px;
+    min-height: 100vh;
+}
+
+.sideNav-container {
+    background: rgba(0,0,0,1);
+    min-width: 50% !important;
+    .side-header {
+        height: 93px;
+        text-align: center;
+        .color5(background, 0.5);      
+        display: flex;
+        .nav-link {
+            font-size: 1.5rem;            
+            width: 100%;
+            text-align: center;
+            position: relative;
+            margin: auto 0px;
+            transition: 0.5s all ease;
+            text-align: center;
+            cursor: pointer;
+            &:focus { color: @color1; .color5(background, 0.5); }            
+        }       
+    }
+    .side-body {
+        .nav-link {
+            font-size: 1.4rem;            
+            padding: 20px;
+            position: relative;
+            margin: auto 0px;
+            transition: 0.5s all ease;
+            text-align: center;
+            cursor: pointer;
+            &:hover { color: @color1; .color5(background, 0.5); }            
+        }
+    }
 }
