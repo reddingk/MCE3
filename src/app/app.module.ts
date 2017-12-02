@@ -6,6 +6,8 @@ import { AGMaterialModule } from './components/_app/material';
 import { HttpModule } from '@angular/http';
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxCarouselModule } from 'ngx-carousel';
+import 'hammerjs';
 
 import { AppComponent }  from './components/_app/app';
 import { HomeComponent } from './components/home/home';
@@ -24,6 +26,7 @@ const appRoutes: Routes = [
       NoopAnimationsModule,
       AGMaterialModule,  
       Angular2FontawesomeModule,
+      NgxCarouselModule,
       NgbModule.forRoot(),
       RouterModule.forRoot(appRoutes,{ enableTracing: true } )
     ],

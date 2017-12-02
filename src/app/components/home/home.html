@@ -2,37 +2,47 @@
     <div class="carousel-container header-section dark-gradient">
         <div class="carousel-background"><gravity-template></gravity-template></div>
 
-        <ngb-carousel class="home-carousel" interval="7000">
-            <!-- Empty Page -->
-            <ng-template ngbSlide>            
+        <ngx-carousel [inputs]="carouselOne" (carouselLoad)="loadCarousel('home', $event)" class="mc-carousels home-carousel">
+            <ngx-item NgxCarouselItem>
                 <div class="carousel-page empty-page"></div>
-            </ng-template>
-            
-            <!-- Carousel Items -->
-            <ng-template *ngFor="let item of carouselItems" ngbSlide>
-            <div class="carousel-page">
-                <div class="carousel-card">
-                    <img src="{{item.image}}" class="carousel-card-img" alt="">
-                    <img src="{{item.image}}" class="special-card-img" alt="">
-                    <div class="card-caption">
-                        <h1>{{item.title}}</h1>
-                        <p>{{item.text}}</p>
+            </ngx-item>
+
+            <ngx-item *ngFor="let item of carouselItems" NgxCarouselItem>
+                <div class="carousel-page">
+                    <div class="carousel-card">
+                        <img src="{{item.image}}" class="carousel-card-img" alt="">
+                        <img src="{{item.image}}" class="special-card-img" alt="">
+                        <div class="card-caption">
+                            <h1>{{item.title}}</h1>
+                            <p>{{item.text}}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            </ng-template>
-            
-            <!-- Nav Items -->
-            <div class="carousel-ctrl prev"><i class="material-icons">&#xE5CB;</i></div>
-            <div class="carousel-ctrl next"><i class="material-icons">&#xE5CC;</i></div>
-        </ngb-carousel>
+            </ngx-item>
+
+            <div NgxCarouselPrev class="carousel-ctrl prev"><i class="material-icons">&#xE5CB;</i></div>
+            <div NgxCarouselNext class="carousel-ctrl next"><i class="material-icons">&#xE5CC;</i></div>
+        </ngx-carousel>
     </div>
 
     <!-- Spotlight Videos -->
     <div class="home-section">
         <h1 class="section-title">Spotlight Videos</h1>
         <div class="video-container">
+            <ngx-carousel [inputs]="carouselTwo" class="mc-carousels tile-carousel spotlight-carousel">        
+                <ngx-item *ngFor="let spotlight of spotlightItems" NgxCarouselItem>
+                    <div class="spotlight-page">
+                        <div class="spotlight-video"><iframe src="https://www.youtube.com/embed/LUHaEGtSHmc" frameborder="0" allowfullscreen></iframe></div>
+                        <div class="spotlight-info">
+                            <div class="spotlight-title">{{spotlight.title}}</div>
+                            <div class="spotlight-artist">{{spotlight.artist}}</div>
+                        </div>
+                    </div>
+                </ngx-item>
 
+                <div NgxCarouselPrev class="carousel-ctrl prev c1"><i class="material-icons">&#xE5CB;</i></div>
+                <div NgxCarouselNext class="carousel-ctrl next c1"><i class="material-icons">&#xE5CC;</i></div>
+            </ngx-carousel>
         </div>
     </div>
 </section>
