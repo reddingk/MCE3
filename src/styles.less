@@ -3,8 +3,8 @@
 
 body, html {
     height: 100%;
-    color: rgba(255,255,255,1);
-    background-color: @color5;
+    color: rgba(0,0,0,1);
+    background-color: rgba(255,255,255,1);
     font-size: @font-size;
     margin: 0px;
 
@@ -14,8 +14,11 @@ body, html {
     font-family: 'Oxygen', sans-serif;
 }
 
+
+*:focus { outline: none;}
+
 .body-container {
-    padding-top: 87px;
+    //padding-top: 90px;
     min-height: 100vh;
 }
 
@@ -51,4 +54,46 @@ body, html {
             &:hover { color: @color1; .color5(background, 0.5); }            
         }
     }
+}
+
+.page-body {
+    min-height: 100vh;
+    .header-section {
+        padding-top: 90px;
+    }
+}
+
+// carousel
+.carousel {
+    .carousel-inner {
+        height: 100%;
+        overflow: visible;
+        .carousel-item { 
+            height: 100%;
+            display: flex !important;
+            position: absolute;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 2s ease-in-out, visibility 2s;
+            z-index: -1;
+
+            &.active {
+                opacity: 1;
+                visibility: visible;
+                z-index: 1;
+            }
+        }
+    }
+    .carousel-control-prev { z-index: 3; }
+    .carousel-control-next { z-index: 3; }
+    .carousel-indicators{ z-index: 3;  }
+}
+
+/* Background Themes */
+.dark-gradient {
+    background: @color5; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(135deg, rgba(30,30,30,1), @color5, rgba(30,30,30,1)); 
+    background: -o-linear-gradient(135deg, rgba(30,30,30,1), @color5, rgba(30,30,30,1)); 
+    background: -moz-linear-gradient(135deg, rgba(30,30,30,1), @color5, rgba(30,30,30,1)); 
+    background: linear-gradient(135deg, rgba(30,30,30,1), @color5, rgba(30,30,30,1)); 
 }

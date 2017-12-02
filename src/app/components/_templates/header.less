@@ -3,14 +3,16 @@
 .nav-header {
     width: 100%;
     background: rgba(0,0,0,0.2);
-    min-height: 87px;
+    color: rgba(255,255,255,1);
+    min-height: 90px;
     &.fixed-header {
         position: fixed;
         top: 0;
         left: 0;
+        z-index: 100;
     }
     .nav-container {
-        padding: 5px 10px;
+        padding: 5px 20px;
         display: flex;
         justify-content: start;
         max-width: 1350px;
@@ -25,6 +27,7 @@
                 padding: 5px; 
                 position: relative; 
                 overflow: hidden;
+                width: 75px;
                 img { width: 100%;}
             }
         }
@@ -41,7 +44,7 @@
                 @media @mobile-device { display: flex; }
             }
             .nav-link { 
-                font-size: 1.1rem;
+                font-size: 1.3rem;
                 padding: 0px 10px;
                 position: relative;
                 margin: auto 0px;

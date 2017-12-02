@@ -1,0 +1,66 @@
+@import (reference) "../../variables.less";
+
+.home {
+    .carousel-container {
+        height: 100vh;
+        position: relative;
+        .carousel-background { 
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+            width: 100%;
+        }
+        .carousel {
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            .carousel-page {
+                height: 100%;
+                width: 100%;
+                padding: 50px 20%;
+                .carousel-card {
+                    background: rgba(0,0,0,0.5);
+                    height: 100%;
+                    border-radius: 10px;
+                    position: relative;
+                    text-align: center;
+                    overflow: hidden;
+                    .carousel-card-img {
+                        position: relative;
+                        height: 100%;
+                    }
+                    .special-card-img {
+                        z-index: -1;
+                        height: 400%;
+                        width: 400%;
+                        position: absolute;
+                        top: -200%;
+                        left: -200%;
+                        -webkit-filter: blur(20px);
+                        filter: blur(20px);
+                    }
+                    .card-caption {
+                        position: absolute;
+                        bottom:0;
+                        left:0;
+                        width: 100%;
+                        background: rgba(0,0,0,0.8);
+                        padding: 10px;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+
+    .home-section {
+        padding: 40px 10px;
+        .section-title {
+            color: @color1;
+            text-align: center;
+        }
+    }
+}

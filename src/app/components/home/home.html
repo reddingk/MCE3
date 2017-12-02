@@ -1,4 +1,38 @@
-<h1>HOME:</h1>
-<h2>{{title}}</h2>
+<section class="page-body home">
+    <div class="carousel-container header-section dark-gradient">
+        <div class="carousel-background"><gravity-template></gravity-template></div>
 
+        <ngb-carousel class="home-carousel" interval="7000">
+            <!-- Empty Page -->
+            <ng-template ngbSlide>            
+                <div class="carousel-page empty-page"></div>
+            </ng-template>
+            
+            <!-- Carousel Items -->
+            <ng-template *ngFor="let item of carouselItems" ngbSlide>
+            <div class="carousel-page">
+                <div class="carousel-card">
+                    <img src="{{item.image}}" class="carousel-card-img" alt="">
+                    <img src="{{item.image}}" class="special-card-img" alt="">
+                    <div class="card-caption">
+                        <h1>{{item.title}}</h1>
+                        <p>{{item.text}}</p>
+                    </div>
+                </div>
+            </div>
+            </ng-template>
+            
+            <!-- Nav Items -->
+            <div class="carousel-ctrl prev"><i class="material-icons">&#xE5CB;</i></div>
+            <div class="carousel-ctrl next"><i class="material-icons">&#xE5CC;</i></div>
+        </ngb-carousel>
+    </div>
 
+    <!-- Spotlight Videos -->
+    <div class="home-section">
+        <h1 class="section-title">Spotlight Videos</h1>
+        <div class="video-container">
+
+        </div>
+    </div>
+</section>
