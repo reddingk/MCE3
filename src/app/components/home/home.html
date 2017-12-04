@@ -1,6 +1,9 @@
 <section class="page-body home">
-    <div class="carousel-container header-section dark-gradient">
-        <div class="carousel-background"><gravity-template></gravity-template></div>
+    <div class="carousel-container home-section header-section dark-gradient">
+        <div class="carousel-background">
+            <div class="color-overlay"></div>
+            <gravity-template></gravity-template>
+        </div>
 
         <ngx-carousel [inputs]="carouselOne" (carouselLoad)="loadCarousel('home', $event)" class="mc-carousels home-carousel">
             <ngx-item NgxCarouselItem>
@@ -26,23 +29,73 @@
     </div>
 
     <!-- Spotlight Videos -->
-    <div class="home-section">
+    <div class="home-section level2">
         <h1 class="section-title">Spotlight Videos</h1>
-        <div class="video-container">
-            <ngx-carousel [inputs]="carouselTwo" class="mc-carousels tile-carousel spotlight-carousel">        
-                <ngx-item *ngFor="let spotlight of spotlightItems" NgxCarouselItem>
-                    <div class="spotlight-page">
-                        <div class="spotlight-video"><iframe src="https://www.youtube.com/embed/LUHaEGtSHmc" frameborder="0" allowfullscreen></iframe></div>
-                        <div class="spotlight-info">
-                            <div class="spotlight-title">{{spotlight.title}}</div>
-                            <div class="spotlight-artist">{{spotlight.artist}}</div>
-                        </div>
+        <ngx-carousel [inputs]="carouselTwo" class="mc-carousels tile-carousel c1 spotlight-carousel">        
+            <ngx-item *ngFor="let spotlight of spotlightItems" NgxCarouselItem>
+                <div class="spotlight-page">
+                    <div class="spotlight-video"><iframe src="https://www.youtube.com/embed/LUHaEGtSHmc" frameborder="0" allowfullscreen></iframe></div>
+                    <div class="spotlight-info">
+                        <div class="spotlight-title">{{spotlight.title}}</div>
+                        <div class="spotlight-artist">{{spotlight.artist}}</div>
                     </div>
-                </ngx-item>
+                </div>
+            </ngx-item>
 
-                <div NgxCarouselPrev class="carousel-ctrl prev c1"><i class="material-icons">&#xE5CB;</i></div>
-                <div NgxCarouselNext class="carousel-ctrl next c1"><i class="material-icons">&#xE5CC;</i></div>
-            </ngx-carousel>
+            <div NgxCarouselPrev class="carousel-ctrl prev c1"><i class="material-icons">&#xE5CB;</i></div>
+            <div NgxCarouselNext class="carousel-ctrl next c1"><i class="material-icons">&#xE5CC;</i></div>
+        </ngx-carousel>
+    </div>
+
+    <!-- Word On The Street -->
+    <div class="news-section">
+        <div class="news-container">
+            <div class="news-item-container" *ngFor="let news of newsItems">
+                <div class="color-overlay"></div>
+                <img src="{{news.img}}" class="back-img main-img">
+
+                <div class="news-item-content">
+                    <div class="section-type">News</div>
+                    <div class="item-title">{{news.title}}</div>
+                </div>
+            </div>
         </div>
+    </div>
+
+    <!-- Featured Artist -->
+    <div class="featured-artist-section">
+        <h1 class="section-title">Featured Artist</h1>
+
+        <div class="feature-banner">
+            <div class="color-overlay"></div>
+            <img src="{{featuredArtist.bannerImg}}" class="banner-img">
+        </div>
+        
+        <div class="artist-content">
+            <h2 class="artist-name">{{ featuredArtist.name }}</h2>
+            <div class="artist-media">
+                <a href="" target="_blank" class="social-link instagram"><div class="link-container"><i fa [name]="'instagram'"></i></div></a>
+                <a href="" target="_blank" class="social-link twitter"><div class="link-container"><i fa [name]="'twitter'"></i></div></a>
+
+                <a href="" target="_blank" class="social-link spotify"><div class="link-container"><i fa [name]="'spotify'"></i></div></a>
+                <a href="" target="_blank" class="social-link soundcloud"><div class="link-container"><i fa [name]="'soundcloud'"></i></div></a>
+            </div>
+            <div class="artist-bio">{{ featuredArtist.bio }}</div>
+
+            <div class="more-info-btn">More Info</div>
+        </div>
+    </div>
+
+    <!-- Follow Us -->
+    <div class="follow-us-section">
+        <h1 class="section-title">Follow Mind Control Empire</h1>
+
+        <!-- Social Media -->
+        <div class="social-links-container">
+            <a href="" class="social-link youtube"><i fa [name]="'youtube-play'"></i></a>
+            <a href="" class="social-link instagram"><i fa [name]="'instagram'"></i></a>
+            <a href="" class="social-link facebook"><i fa [name]="'facebook'"></i></a>
+            <a href="" target="_blank" class="social-link twitter"><i fa [name]="'twitter'"></i></a>
+        </div>  
     </div>
 </section>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from '../_templates/header';
+import { FooterComponent } from '../_templates/footer';
 import { NavItem } from '../../datamodels/navitem';
 
 

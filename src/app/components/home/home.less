@@ -12,6 +12,24 @@
             z-index: 0;
             overflow: hidden;
             width: 100%;
+
+            .color-overlay {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                .color2(background, 0.2);
+            }
+        }
+    }
+
+    .home-section {
+
+        &.level2 { padding: 40px 10px;}
+        .section-title {
+            color: @color1;
+            text-align: center;
         }
         .mc-carousels{
             position: relative;
@@ -56,18 +74,233 @@
                     }
                 }
             }
+
             &.spotlight-carousel { 
-                
+                margin-top: 20px; 
+                .spotlight-page {
+                    text-align: center;
+                    padding: 10px;
+                    .spotlight-video {
+                        height: 200px; 
+                        margin-bottom: 20px;
+                        iframe { height: 100%; width: 100%; }
+                    }
+                    .spotlight-info {
+                        color: @color1;
+                        text-align: center;
+                        .spotlight-title {
+                            color: @color1;
+                            font-size: 1.5rem;
+                            font-weight: bold;
+                        }
+                        .spotlight-artist {
+                            font-size: 1.1rem;
+                        }
+                    }
+                }
             }
         }
     }
 
-    .home-section {
-        padding: 40px 10px;
-        .section-title {
-            color: @color1;
-            text-align: center;
+    .news-section {
+        .color5(background-color, 0.3);
+        .news-container{
+            position: relative;
+            height: 400px;
+            width: 100%;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            white-space: nowrap;
+
+            .news-item-container {
+                width: 450px;
+                height: 100%;
+                margin-left: -75px;
+                display: inline-block;
+                position: relative;
+                overflow: hidden;
+                transform: skew(20deg);
+                -webkit-transform: skew(20deg);
+                -moz-transform: skew(20deg);
+                  -o-transform: skew(20deg);
+                
+                  &+.news-item-container { margin-left: 0px;}
+                .color-overlay{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background-color: rgba(0,0,0,0.4);                    
+                    width: 100%;
+                    height: 100%;
+                    z-index: 2;
+                }
+                .back-img {
+                    position: absolute;
+                    opacity: 0.7;
+                    &.main-img { 
+                        z-index: 1;                       
+                        top: 0;
+                        left: -75px;
+                        width: calc(~"100% + 150px");
+                        height: 100%;
+                        transform: skew(-20deg);
+                        -webkit-transform: skew(-20deg);
+                        -moz-transform: skew(-20deg);
+                        -o-transform: skew(-20deg); //translateX(-50%)
+                    }
+                    &.special-img {
+                        z-index: 0;
+                        height: 200%;
+                        width: 200%;                        
+                        top: -50%;
+                        left: -50%;
+                        -webkit-filter: blur(20px);
+                        filter: blur(20px);
+
+                        transform: skew(-20deg);
+                        -webkit-transform: skew(-20deg);
+                        -moz-transform: skew(-20deg);
+                          -o-transform: skew(-20deg);
+                    }
+                }
+                .news-item-content {
+                    position: absolute;
+                    bottom: 0;
+                    left:0;
+                    transform: skew(-20deg);
+                    -webkit-transform: skew(-20deg);
+                    -moz-transform: skew(-20deg);
+                      -o-transform: skew(-20deg);
+                    z-index: 5;
+                    text-align: center;
+                    padding: 20px 10px;
+                    width: 100%;
+                    white-space: normal;
+                    .section-type { 
+                        color: @color3; 
+                        text-decoration: underline; 
+                        font-weight: bold;
+                        font-size: 1.5rem;
+                    }
+                    .item-title{ color: rgba(255,255,255,1); font-weight: bold; font-size: 1.7rem;}
+                }
+            }
         }
-        .video-container { margin-top: 50px;}
+    }
+
+    .featured-artist-section {
+        position: relative;
+        width: 100%;
+        min-height: 500px;
+        padding: 20px 30px;
+
+        background: @color5;
+        .section-title { 
+            position: relative;
+            font-weight: bold;
+            color: @color3;
+            text-align: center;
+            z-index: 5;
+        }
+        .feature-banner {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            top: 0;
+            left: 0;
+            .color-overlay { position: absolute; background-color: rgba(0,0,0,0.5);}
+            .banner-img { width: 100%; height: 100%;}
+        }
+
+        .artist-content {
+            position: relative;
+            z-index: 2;
+            margin-top: 50px;
+            max-width: 50%;
+            .artist-name { 
+                color: rgba(255,255,255,1);
+                margin-bottom: 30px;
+            }
+            .artist-bio{ color: rgba(255,255,255,1);  font-size: 1.5rem;}
+    
+            .artist-media {
+                display: flex;
+                padding-bottom: 20px;
+                .social-link {
+                    &.instagram{ &:hover { .link-container { background: rgba(195,42,163,1);}}}
+                    &.facebook{ &:hover { .link-container { background: rgba(59,89,152,1);}}}
+                    &.twitter{ &:hover { .link-container { background: rgba(0,182,241,1);}}}
+                    &.spotify{ &:hover { .link-container { background: rgba(29, 185, 84,1);}}}
+                    &.soundcloud{ &:hover { .link-container { background: rgba(255, 85, 0,1);}}}
+                    
+                    .link-container {
+                        color: rgba(0,0,0,1);
+                        background: rgba(255,255,255,1);
+                        border-radius: 50%;
+                        padding: 7px;
+                        position: relative;
+                        height: 39px;
+                        width: 39px;
+                        transition: 0.5s all ease;
+
+                        i { 
+                            font-size: 20px;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                        }
+                    }
+
+                    &+.social-link { margin-left: 20px;}
+                }
+            }
+
+            .more-info-btn {
+                padding: 10px 30px;
+                border: 3px solid @color3;
+                color: @color3;
+                transition: 0.5s all ease;
+                text-align: center;
+                display: inline-block;
+                font-size: 1.5rem;
+                font-weight: bold;
+                margin: 50px 0px 10px;
+                cursor: pointer;
+
+                &:hover { color: rgba(0,0,0,1); background: @color3;}
+            }
+        }
+    }
+
+    .follow-us-section {
+        padding: 50px 30px;
+        .section-title { 
+            font-weight: bold;
+            color: rgba(0,0,0,1);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .social-links-container {
+            text-align: center;
+            padding: 10px;
+            .social-link {
+                color: rgba(0,0,0,1);
+                transition: 0.5s all ease;
+                i { 
+                    border-radius: 50%;
+                    font-size: 30px;
+                }
+                &+.social-link { margin-left: 20px; }
+
+                &.youtube{ &:hover { color: rgba(255,0,0,1);}}
+                &.instagram{ &:hover { color: rgba(195,42,163,1);}}
+                &.facebook{ &:hover { color: rgba(59,89,152,1);}}
+                &.twitter{ &:hover { color: rgba(0,182,241,1);}}
+            }
+        }
     }
 }

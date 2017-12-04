@@ -7,6 +7,8 @@ import { GravityComponent } from '../_templates/gravity';
 /* Data Models */
 import { HighlightItem } from '../../datamodels/highlightItem';
 import { MediaItem } from '../../datamodels/mediaItem';
+import { NewsItem } from '../../datamodels/newsItem';
+import { ArtistItem } from '../../datamodels/artistItem';
 
 
 @Component({
@@ -28,7 +30,18 @@ export class HomeComponent implements OnInit {
     new MediaItem('Test Video 3', 'Test Artist', 'LUHaEGtSHmc'),
     new MediaItem('Test Video 4', 'Test Artist', 'LUHaEGtSHmc'),
     new MediaItem('Test Video 5', 'Test Artist', 'LUHaEGtSHmc')
-  ]
+  ];
+
+  newsItems: NewsItem[] = [
+    new NewsItem('CMOG Releasing Soon!', 'assets/images/demo/CMOG.jpeg', ''),
+    new NewsItem('Tackover Tuesday Performance: Gandhi Ali', 'assets/images/demo/IMG2.jpg', ''),
+    new NewsItem('Gandhi Ali Performing at Panda Play', 'assets/images/demo/panda1.jpeg', ''),
+    new NewsItem('CMOG Releasing Soon!', 'assets/images/demo/CMOG.jpeg', ''),
+    new NewsItem('Tackover Tuesday Performance: Gandhi Ali', 'assets/images/demo/IMG2.jpg', ''),
+    new NewsItem('Gandhi Ali Performing at Panda Play', 'assets/images/demo/panda1.jpeg', '')
+  ];
+
+  featuredArtist: ArtistItem = new ArtistItem("Gandhi Ali", "As Mind Control's first solo artist we have grown around him as an artist.  Get to know Gandhi and see where you can check him out next.", "assets/images/demo/GandhiAli-banner.jpg");
 
     ngOnInit() {
       this.carouselOne = {
@@ -49,13 +62,13 @@ export class HomeComponent implements OnInit {
         grid: {xs: 2, sm: 3, md: 3, lg: 3, all: 0},
         slide: 1,
         speed: 400,
-        interval: 7000,
+        interval: 10000,
         point: {
           visible: true
         },
         load: 2,
         touch: true,
-        loop: true,
+        loop: false,
         easing: 'ease'
       }
     }

@@ -1,0 +1,49 @@
+@import (reference) "../../variables.less";
+
+.footer-body {
+    background: @color5;
+    color: rgba(255,255,255,1);
+    .footer-container {
+        padding: 20px 0px;
+
+        .footer-item {
+            display: block;
+            text-align: center;
+            padding: 10px;
+
+            .footer-logo { width: 150px; }
+            .footer-title { font-size: 2rem; font-weight: bold;}
+            .footer-media {
+                display: inline-flex;
+                padding-bottom: 20px;
+                .social-link {
+                    &.instagram{ &:hover { .link-container { background: rgba(195,42,163,1);}}}
+                    &.facebook{ &:hover { .link-container { background: rgba(59,89,152,1);}}}
+                    &.twitter{ &:hover { .link-container { background: rgba(0,182,241,1);}}}
+                    &.youtube{ &:hover { .link-container { background: rgba(255,0,0,1);}}}
+                   
+                    .link-container {
+                        color: rgba(0,0,0,1);
+                        background: rgba(255,255,255,1);
+                        border-radius: 50%;
+                        padding: 7px;
+                        position: relative;
+                        height: 39px;
+                        width: 39px;
+                        transition: 0.5s all ease;
+
+                        i { 
+                            font-size: 20px;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                        }
+                    }
+
+                    &+.social-link { margin-left: 30px;}
+                }
+            }
+        }
+    }
+}
