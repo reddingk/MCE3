@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe, PipeTransform} from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { NgxCarousel } from 'ngx-carousel';
+import * as $ from 'jquery';
 
 /* Components */
 import { GravityComponent } from '../_templates/gravity';
@@ -10,26 +12,33 @@ import { MediaItem } from '../../datamodels/mediaItem';
 import { NewsItem } from '../../datamodels/newsItem';
 import { ArtistItem } from '../../datamodels/artistItem';
 
+@Pipe({ name: 'safe' })
+export class SafePipe implements PipeTransform {
+  constructor(private sanitizer: DomSanitizer) {}
+  transform(url) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+}
 
 @Component({
   templateUrl: './home.html',
   styleUrls: ['./home.less']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit { 
   public carouselOne: NgxCarousel;
   public carouselTwo: NgxCarousel;
 
   carouselItems: HighlightItem[] = [
-    new HighlightItem('Test','This is a test item','assets/images/demo/CMOG.jpeg'),
-    new HighlightItem('Test2','This is a test item','assets/images/demo/IMG2.jpg'),
-    new HighlightItem('Test3','This is a test item','assets/images/demo/panda1.jpeg')];
+    new HighlightItem("Future Release: 'CMOG'",'CMOG, the album will be released on 11/28 via all platforms','assets/images/demo/CMOG.jpeg'),
+    new HighlightItem("Basement Tuesdays Performance","Gandhi Ali will be performing this tuesday at Pure Lounge's 'Basement Tuesdays'",'assets/images/demo/IMG2.jpg'),
+    new HighlightItem("Panda's Play House II: A Trippy Affair",'Come checkout Gandhi Ali at MilkBoy Arthouse out in College Park, MD. 12/1','assets/images/demo/panda1.jpeg')];
 
   spotlightItems: MediaItem[] = [
-    new MediaItem('Test Video 1', 'Test Artist', 'LUHaEGtSHmc'),
-    new MediaItem('Test Video 2', 'Test Artist', 'LUHaEGtSHmc'),
-    new MediaItem('Test Video 3', 'Test Artist', 'LUHaEGtSHmc'),
-    new MediaItem('Test Video 4', 'Test Artist', 'LUHaEGtSHmc'),
-    new MediaItem('Test Video 5', 'Test Artist', 'LUHaEGtSHmc')
+    new MediaItem('Chocolate City (Teaser)', 'Gandhi Ali', 'LUHaEGtSHmc'),
+    new MediaItem('Freestyle', 'Gandhi Ali', 'BlCM6L4Gbss'),
+    new MediaItem('Lucky', 'Gandhi Ali', 'DJGjXKln8L8'),
+    new MediaItem('Chocolate City (Teaser)', 'Gandhi Ali', 'LUHaEGtSHmc'),
+    new MediaItem('Chocolate City (Teaser)', 'Test Artist', 'LUHaEGtSHmc')
   ];
 
   newsItems: NewsItem[] = [
@@ -59,7 +68,7 @@ export class HomeComponent implements OnInit {
       }
 
       this.carouselTwo = {
-        grid: {xs: 2, sm: 3, md: 3, lg: 3, all: 0},
+        grid: {xs: 1, sm: 3, md: 3, lg: 3, all: 0},
         slide: 1,
         speed: 400,
         interval: 10000,
@@ -71,12 +80,21 @@ export class HomeComponent implements OnInit {
         loop: false,
         easing: 'ease'
       }
-    }
+    }  
+       
 
     public loadCarousel(loadType:string, event: Event) { }
     
-    public youtubeURL(urlcode, type){
-      return (type == "video"? "https://www.youtube.com/embed/"+urlcode : "http://img.youtube.com/vi/"+urlcode+"/default.jpg");
-    }
+    public horizontalScroll(direction:number , container: string){      
+      var containerObj = $("#"+container);
+      let scrollSpace: number = 350;
 
+      if(containerObj != null){
+        if(containerObj[0].scrollLeft < 350 && direction > 0){
+          scrollSpace -= containerObj[0].scrollLeft;
+        }
+        let scrollLoc: number = containerObj[0].scrollLeft + (scrollSpace * direction);
+        containerObj.animate({ scrollLeft: scrollLoc}, "slow");
+      }
+    }
 }

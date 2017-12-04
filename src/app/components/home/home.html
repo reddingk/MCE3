@@ -34,7 +34,7 @@
         <ngx-carousel [inputs]="carouselTwo" class="mc-carousels tile-carousel c1 spotlight-carousel">        
             <ngx-item *ngFor="let spotlight of spotlightItems" NgxCarouselItem>
                 <div class="spotlight-page">
-                    <div class="spotlight-video"><iframe src="https://www.youtube.com/embed/LUHaEGtSHmc" frameborder="0" allowfullscreen></iframe></div>
+                    <div class="spotlight-video"><iframe [src]="spotlight.returnTypeUrl('video') | safe" frameborder="0" allowfullscreen></iframe></div>
                     <div class="spotlight-info">
                         <div class="spotlight-title">{{spotlight.title}}</div>
                         <div class="spotlight-artist">{{spotlight.artist}}</div>
@@ -48,8 +48,10 @@
     </div>
 
     <!-- Word On The Street -->
-    <div class="news-section">
-        <div class="news-container">
+    <div class="news-section">        
+        <div class="news-ctrl prev" (click)="horizontalScroll(-1, 'wordOnTheStreet')"><i class="material-icons">&#xE5CB;</i></div>
+        <div class="news-ctrl next" (click)="horizontalScroll(1, 'wordOnTheStreet')"><i class="material-icons">&#xE5CC;</i></div>        
+        <div class="news-container" id="wordOnTheStreet">            
             <div class="news-item-container" *ngFor="let news of newsItems">
                 <div class="color-overlay"></div>
                 <img src="{{news.img}}" class="back-img main-img">

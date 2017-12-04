@@ -10,7 +10,7 @@ import { NgxCarouselModule } from 'ngx-carousel';
 import 'hammerjs';
 
 import { AppComponent }  from './components/_app/app';
-import { HomeComponent } from './components/home/home';
+import { HomeComponent, SafePipe } from './components/home/home';
 import { HeaderComponent } from './components/_templates/header';
 import { FooterComponent } from './components/_templates/footer';
 import { GravityComponent } from './components/_templates/gravity';
@@ -36,6 +36,7 @@ const appRoutes: Routes = [
         HeaderComponent,
         FooterComponent,
         GravityComponent,
+        SafePipe,
         HomeComponent
     ],
     bootstrap: [ AppComponent ]

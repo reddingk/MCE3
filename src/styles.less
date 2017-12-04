@@ -91,6 +91,7 @@ ngx-carousel{
 
             &.c1 { .color1(color, 0.5); &:hover { color: @color1;}  }
             &:hover { color: rgba(255,255,255,1);}
+            @media @mobile-device { display: none !important; }
 
             i { font-size: 100px !important;}
         }
@@ -105,7 +106,10 @@ ngx-carousel{
 
     &.c1 {
         .ngxcarouselPoint {
-            li { background: @color1 !important;}
+            li { 
+                background: @color1 !important;
+                &.active { background: @color5 !important; }
+            }
         }
     }
 }
