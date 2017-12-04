@@ -27,6 +27,9 @@ export class SafePipe implements PipeTransform {
 export class HomeComponent implements OnInit { 
   public carouselOne: NgxCarousel;
   public carouselTwo: NgxCarousel;
+  public intervalId = null;
+  public mobileCheck = new RegExp('Android|webOS|iPhone|iPad|' + 'BlackBerry|Windows Phone|'  + 'Opera Mini|IEMobile|Mobile' , 'i');
+  
 
   carouselItems: HighlightItem[] = [
     new HighlightItem("Future Release: 'CMOG'",'CMOG, the album will be released on 11/28 via all platforms','assets/images/demo/CMOG.jpeg'),
@@ -57,7 +60,7 @@ export class HomeComponent implements OnInit {
         grid: {xs: 1, sm: 1, md: 1, lg: 1, all: 0},
         slide: 1,
         speed: 400,
-        interval: 7000,
+        interval: 5000,
         point: {
           visible: true
         },
@@ -96,5 +99,23 @@ export class HomeComponent implements OnInit {
         let scrollLoc: number = containerObj[0].scrollLeft + (scrollSpace * direction);
         containerObj.animate({ scrollLeft: scrollLoc}, "slow");
       }
+    }
+
+    public scrollActivate(direction:number , container: string){
+      var containerObj = document.getElementById(container);
+      let scrollSpace: number = 15;
+
+      if(containerObj != null && !this.mobileCheck.test(navigator.userAgent)){
+        clearInterval(this.intervalId);
+
+        this.intervalId = setInterval(function() {
+          let scrollLoc: number = containerObj.scrollLeft + (scrollSpace * direction);
+          containerObj.scrollLeft = scrollLoc;
+        }, 25);
+      }
+    }
+
+    public scrollDeactivate(){
+      clearInterval(this.intervalId);
     }
 }
