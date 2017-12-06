@@ -1,4 +1,4 @@
-import { Component, OnInit, Pipe, PipeTransform} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NgxCarousel } from 'ngx-carousel';
 import * as $ from 'jquery';
@@ -7,18 +7,11 @@ import * as $ from 'jquery';
 import { GravityComponent } from '../_templates/gravity';
 
 /* Data Models */
-import { HighlightItem } from '../../datamodels/highlightItem';
-import { MediaItem } from '../../datamodels/mediaItem';
-import { NewsItem } from '../../datamodels/newsItem';
 import { ArtistItem } from '../../datamodels/artistItem';
-
-@Pipe({ name: 'safe' })
-export class SafePipe implements PipeTransform {
-  constructor(private sanitizer: DomSanitizer) {}
-  transform(url) {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
-  }
-}
+import { NewsItem } from '../../datamodels/newsItem';
+import { VideoReleaseItem } from '../../datamodels/videoReleaseItem';
+import { EventItem } from '../../datamodels/eventItem';
+import { SocialItem } from '../../datamodels/socialItem';
 
 @Component({
   templateUrl: './home.html',
@@ -31,17 +24,16 @@ export class HomeComponent implements OnInit {
   public mobileCheck = new RegExp('Android|webOS|iPhone|iPad|' + 'BlackBerry|Windows Phone|'  + 'Opera Mini|IEMobile|Mobile' , 'i');
   
 
-  carouselItems: HighlightItem[] = [
-    new HighlightItem("Future Release: 'CMOG'",'CMOG, the album will be released on 11/28 via all platforms','assets/images/demo/CMOG.jpeg'),
-    new HighlightItem("Basement Tuesdays Performance","Gandhi Ali will be performing this tuesday at Pure Lounge's 'Basement Tuesdays'",'assets/images/demo/IMG2.jpg'),
-    new HighlightItem("Panda's Play House II: A Trippy Affair",'Come checkout Gandhi Ali at MilkBoy Arthouse out in College Park, MD. 12/1','assets/images/demo/panda1.jpeg')];
+  carouselItems: NewsItem[] = [
+    new NewsItem("Future Release: 'CMOG'",'assets/images/demo/CMOG.jpeg', 'CMOG, the album will be released on 11/28 via all platforms'),
+    new NewsItem("Future Release: 'CMOG'",'assets/images/demo/CMOG.jpeg', 'CMOG, the album will be released on 11/28 via all platforms')];
 
-  spotlightItems: MediaItem[] = [
-    new MediaItem('Chocolate City (Teaser)', 'Gandhi Ali', 'LUHaEGtSHmc'),
-    new MediaItem('Freestyle', 'Gandhi Ali', 'BlCM6L4Gbss'),
-    new MediaItem('Lucky', 'Gandhi Ali', 'DJGjXKln8L8'),
-    new MediaItem('Chocolate City (Teaser)', 'Gandhi Ali', 'LUHaEGtSHmc'),
-    new MediaItem('Chocolate City (Teaser)', 'Test Artist', 'LUHaEGtSHmc')
+  spotlightItems: NewsItem[] = [
+    new NewsItem('Chocolate City (Teaser)', 'Gandhi Ali', 'LUHaEGtSHmc'),
+    new NewsItem('Freestyle', 'Gandhi Ali', 'BlCM6L4Gbss'),
+    new NewsItem('Lucky', 'Gandhi Ali', 'DJGjXKln8L8'),
+    new NewsItem('Chocolate City (Teaser)', 'Gandhi Ali', 'LUHaEGtSHmc'),
+    new NewsItem('Chocolate City (Teaser)', 'Test Artist', 'LUHaEGtSHmc')
   ];
 
   newsItems: NewsItem[] = [
@@ -58,30 +50,16 @@ export class HomeComponent implements OnInit {
     ngOnInit() {
       this.carouselOne = {
         grid: {xs: 1, sm: 1, md: 1, lg: 1, all: 0},
-        slide: 1,
-        speed: 400,
-        interval: 5000,
-        point: {
-          visible: true
-        },
-        load: 2,
-        touch: true,
-        loop: true,
-        custom: 'banner'
+        slide: 1, speed: 400, interval: 5000,
+        point: { visible: true },
+        load: 2, touch: true, loop: true, custom: 'banner'
       }
 
       this.carouselTwo = {
         grid: {xs: 1, sm: 3, md: 3, lg: 3, all: 0},
-        slide: 1,
-        speed: 400,
-        interval: 10000,
-        point: {
-          visible: true
-        },
-        load: 2,
-        touch: true,
-        loop: false,
-        easing: 'ease'
+        slide: 1, speed: 400, interval: 10000,
+        point: { visible: true },
+        load: 2, touch: true, loop: false, easing: 'ease'
       }
     }  
        
