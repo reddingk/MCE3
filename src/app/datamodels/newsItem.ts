@@ -1,5 +1,6 @@
 export class NewsItem {
     public title: string;
+    public spotlight: boolean;
     public date: string;
     public type: string;
     public img: string;

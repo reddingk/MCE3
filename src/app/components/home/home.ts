@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Pipe, PipeTransform} from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NgxCarousel } from 'ngx-carousel';
 import * as $ from 'jquery';
@@ -12,6 +12,14 @@ import { NewsItem } from '../../datamodels/newsItem';
 import { VideoReleaseItem } from '../../datamodels/videoReleaseItem';
 import { EventItem } from '../../datamodels/eventItem';
 import { SocialItem } from '../../datamodels/socialItem';
+
+@Pipe({ name: 'safe' })
+export class SafePipe implements PipeTransform {
+  constructor(private sanitizer: DomSanitizer) {}
+  transform(url) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+}
 
 @Component({
   templateUrl: './home.html',

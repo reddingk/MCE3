@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // Set our api routes
-//app.use('/api', api);
+require('./server/routes.js')(app)
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
