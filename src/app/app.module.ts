@@ -4,6 +4,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { AGMaterialModule } from './components/_app/material';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxCarouselModule } from 'ngx-carousel';
@@ -14,6 +15,8 @@ import { HomeComponent, SafePipe } from './components/home/home';
 import { HeaderComponent } from './components/_templates/header';
 import { FooterComponent } from './components/_templates/footer';
 import { GravityComponent } from './components/_templates/gravity';
+/* Service */
+import { MCEService } from './services/mceService';
 
 
 const appRoutes: Routes = [
@@ -24,6 +27,7 @@ const appRoutes: Routes = [
     imports: [
       BrowserModule,      
       HttpModule,
+      HttpClientModule,
       NoopAnimationsModule,
       AGMaterialModule,  
       Angular2FontawesomeModule,
@@ -39,6 +43,7 @@ const appRoutes: Routes = [
         SafePipe,
         HomeComponent
     ],
+    providers: [MCEService],
     bootstrap: [ AppComponent ]
   })
 

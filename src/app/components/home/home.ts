@@ -13,6 +13,10 @@ import { VideoReleaseItem } from '../../datamodels/videoReleaseItem';
 import { EventItem } from '../../datamodels/eventItem';
 import { SocialItem } from '../../datamodels/socialItem';
 
+/* Service */
+import { MCEService } from '../../services/mceService';
+
+
 @Pipe({ name: 'safe' })
 export class SafePipe implements PipeTransform {
   constructor(private sanitizer: DomSanitizer) {}
@@ -31,31 +35,33 @@ export class HomeComponent implements OnInit {
   public intervalId = null;
   public mobileCheck = new RegExp('Android|webOS|iPhone|iPad|' + 'BlackBerry|Windows Phone|'  + 'Opera Mini|IEMobile|Mobile' , 'i');
   
+  constructor(private mceService: MCEService){ }
 
-  carouselItems: NewsItem[] = [
-    new NewsItem("Future Release: 'CMOG'",'assets/images/demo/CMOG.jpeg', 'CMOG, the album will be released on 11/28 via all platforms'),
-    new NewsItem("Future Release: 'CMOG'",'assets/images/demo/CMOG.jpeg', 'CMOG, the album will be released on 11/28 via all platforms')];
+  carouselItems: NewsItem[] = [];
+  spotlightItems: NewsItem[] = [];
+  newsItems: NewsItem[] = [];
+  featuredArtist: ArtistItem = null;
+  error: any;
 
-  spotlightItems: NewsItem[] = [
-    new NewsItem('Chocolate City (Teaser)', 'Gandhi Ali', 'LUHaEGtSHmc'),
-    new NewsItem('Freestyle', 'Gandhi Ali', 'BlCM6L4Gbss'),
-    new NewsItem('Lucky', 'Gandhi Ali', 'DJGjXKln8L8'),
-    new NewsItem('Chocolate City (Teaser)', 'Gandhi Ali', 'LUHaEGtSHmc'),
-    new NewsItem('Chocolate City (Teaser)', 'Test Artist', 'LUHaEGtSHmc')
-  ];
+  
 
-  newsItems: NewsItem[] = [
-    new NewsItem('CMOG Releasing Soon!', 'assets/images/demo/CMOG.jpeg', ''),
-    new NewsItem('Tackover Tuesday Performance: Gandhi Ali', 'assets/images/demo/IMG2.jpg', ''),
-    new NewsItem('Gandhi Ali Performing at Panda Play', 'assets/images/demo/panda1.jpeg', ''),
-    new NewsItem('CMOG Releasing Soon!', 'assets/images/demo/CMOG.jpeg', ''),
-    new NewsItem('Tackover Tuesday Performance: Gandhi Ali', 'assets/images/demo/IMG2.jpg', ''),
-    new NewsItem('Gandhi Ali Performing at Panda Play', 'assets/images/demo/panda1.jpeg', '')
-  ];
+  getSpotlightItems(): void {
+    var allSpotlights = null;
+    this.mceService.getSpotlightContent()
+    .subscribe(res => {
+      if(res["error"] == null){
+        this.carouselItems = res["response"]["news"];
+        this.spotlightItems = res["response"]["videos"];
+      }
+      else {
+        console.log(res["error"]);
+      }
+    }, error => { 
+      console.log("Error retrieving spotlight data: %s", error.message);
+    });
+  }
 
-  featuredArtist: ArtistItem = new ArtistItem("Gandhi Ali", "As Mind Control's first solo artist we have grown around him as an artist.  Get to know Gandhi and see where you can check him out next.", "assets/images/demo/GandhiAli-banner.jpg");
-
-    ngOnInit() {
+  ngOnInit() :void{
       this.carouselOne = {
         grid: {xs: 1, sm: 1, md: 1, lg: 1, all: 0},
         slide: 1, speed: 400, interval: 5000,
@@ -69,6 +75,7 @@ export class HomeComponent implements OnInit {
         point: { visible: true },
         load: 2, touch: true, loop: false, easing: 'ease'
       }
+      this.getSpotlightItems();
     }  
        
 

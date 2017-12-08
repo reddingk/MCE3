@@ -109,6 +109,7 @@ module.exports = function (app) {
   });
 
   app.get('/api/spotlight', function (req, res) {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
     getSpotlightContent(res);    
   });
 
