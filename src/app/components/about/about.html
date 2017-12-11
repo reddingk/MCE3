@@ -1,0 +1,28 @@
+<section class="page-body innerpage empire">    
+    <div class="inner-banner">
+        <div class="banner-background">
+            <div class="color-overlay"></div>
+            <div class="back-img" [ngStyle]="{ 'background-image':'url('+backimg+')'}"></div>
+        </div>
+        <h1 class="banner-title">The Empire</h1>        
+    </div>
+
+    <div class="inner-section">
+        <div class="inner-container">
+            <div class="staff-member" *ngFor="let member of staff">
+                <div class="img-container">
+                    <img class="member-img" [src]="member.img">
+                    <img class="member-trail-img" [src]="member.img">
+                </div>
+                <div class="member-info">
+                    <div class="member-name">{{ member.name }}</div>
+                    <div class="member-title">{{ member.title }}</div>
+                    <div class="divider"></div>
+                    <div class="member-social-container">
+                        <a *ngFor="let social of member.social" [href]="returnSocialUrl(social)" target="_blank" class="social-link {{social.site}}"><i fa [name]="social.site"></i></a>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

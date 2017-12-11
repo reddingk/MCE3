@@ -37,10 +37,12 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy re
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_hammerjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_hammerjs__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_app_app__ = __webpack_require__("../../../../../src/app/components/_app/app.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_home_home__ = __webpack_require__("../../../../../src/app/components/home/home.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_templates_header__ = __webpack_require__("../../../../../src/app/components/_templates/header.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_templates_footer__ = __webpack_require__("../../../../../src/app/components/_templates/footer.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_templates_gravity__ = __webpack_require__("../../../../../src/app/components/_templates/gravity.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__services_mceService__ = __webpack_require__("../../../../../src/app/services/mceService.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_about_about__ = __webpack_require__("../../../../../src/app/components/about/about.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_artists_artists__ = __webpack_require__("../../../../../src/app/components/artists/artists.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_templates_header__ = __webpack_require__("../../../../../src/app/components/_templates/header.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_templates_footer__ = __webpack_require__("../../../../../src/app/components/_templates/footer.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_templates_gravity__ = __webpack_require__("../../../../../src/app/components/_templates/gravity.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__services_mceService__ = __webpack_require__("../../../../../src/app/services/mceService.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -63,10 +65,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
 /* Service */
 
 var appRoutes = [
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_12__components_home_home__["a" /* HomeComponent */] }
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_12__components_home_home__["a" /* HomeComponent */] },
+    { path: 'theempire', component: __WEBPACK_IMPORTED_MODULE_13__components_about_about__["a" /* AboutComponent */] },
+    { path: 'artists', component: __WEBPACK_IMPORTED_MODULE_14__components_artists_artists__["a" /* ArtistsComponent */] }
 ];
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -86,13 +92,15 @@ var AppModule = /** @class */ (function () {
             ],
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_11__components_app_app__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_13__components_templates_header__["a" /* HeaderComponent */],
-                __WEBPACK_IMPORTED_MODULE_14__components_templates_footer__["a" /* FooterComponent */],
-                __WEBPACK_IMPORTED_MODULE_15__components_templates_gravity__["a" /* GravityComponent */],
+                __WEBPACK_IMPORTED_MODULE_15__components_templates_header__["a" /* HeaderComponent */],
+                __WEBPACK_IMPORTED_MODULE_16__components_templates_footer__["a" /* FooterComponent */],
+                __WEBPACK_IMPORTED_MODULE_17__components_templates_gravity__["a" /* GravityComponent */],
                 __WEBPACK_IMPORTED_MODULE_12__components_home_home__["b" /* SafePipe */],
-                __WEBPACK_IMPORTED_MODULE_12__components_home_home__["a" /* HomeComponent */]
+                __WEBPACK_IMPORTED_MODULE_12__components_home_home__["a" /* HomeComponent */],
+                __WEBPACK_IMPORTED_MODULE_13__components_about_about__["a" /* AboutComponent */],
+                __WEBPACK_IMPORTED_MODULE_14__components_artists_artists__["a" /* ArtistsComponent */]
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_16__services_mceService__["a" /* MCEService */]],
+            providers: [__WEBPACK_IMPORTED_MODULE_18__services_mceService__["a" /* MCEService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_11__components_app_app__["a" /* AppComponent */]]
         })
     ], AppModule);
@@ -106,7 +114,7 @@ var AppModule = /** @class */ (function () {
 /***/ "../../../../../src/app/components/_app/app.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-sidenav-container class=\"example-container\">\r\n    <mat-sidenav #sidenav mode=\"side\" class=\"sideNav-container\" align=\"end\" fixedInViewport=\"true\" disableClose>\r\n        <div class=\"side-header\">\r\n            <div class=\"nav-link\"><a (click)=\"sidenav.toggle()\"><i class=\"material-icons\">&#xE5CD;</i></a></div>\r\n        </div>\r\n        <div class=\"side-body\">\r\n            <div class=\"nav-link\" *ngFor=\"let item of navitems\"><a>{{item.name}}</a></div>\r\n        </div>        \r\n    </mat-sidenav>\r\n\r\n    <mat-sidenav-content>\r\n        <section class=\"main-content\">\r\n            <!-- Header -->\r\n            <my-app-header (toggleEvent)=\"sidenav.toggle()\" [navitems]=\"navitems\"></my-app-header>\r\n        \r\n            <!-- Body -->\r\n            <div class=\"body-container\">                \r\n                <router-outlet></router-outlet>\r\n            </div>\r\n            <!-- Footer -->\r\n            <my-app-footer [navitems]=\"navitems\"></my-app-footer>\r\n        \r\n        </section>\r\n    </mat-sidenav-content>\r\n</mat-sidenav-container>"
+module.exports = "<mat-sidenav-container class=\"example-container\">\r\n    <mat-sidenav #sidenav mode=\"side\" class=\"sideNav-container\" align=\"end\" fixedInViewport=\"true\" mode=\"over\" disableClose>\r\n        <div class=\"side-header\">\r\n            <div class=\"nav-link\"><a (click)=\"sidenav.toggle()\"><i class=\"material-icons\">&#xE5CD;</i></a></div>\r\n        </div>\r\n        <div class=\"side-body\">\r\n            <div class=\"nav-link\" *ngFor=\"let item of navitems\"><a [href]=\"item.url\">{{item.name}}</a></div>\r\n        </div>        \r\n    </mat-sidenav>\r\n\r\n    <mat-sidenav-content>\r\n        <section class=\"main-content\">\r\n            <!-- Header -->\r\n            <my-app-header (toggleEvent)=\"sidenav.toggle()\" [navitems]=\"navitems\"></my-app-header>\r\n        \r\n            <!-- Body -->\r\n            <div class=\"body-container\">                \r\n                <router-outlet></router-outlet>\r\n            </div>\r\n            <!-- Footer -->\r\n            <my-app-footer [navitems]=\"navitems\"></my-app-footer>\r\n        \r\n        </section>\r\n    </mat-sidenav-content>\r\n</mat-sidenav-container>"
 
 /***/ }),
 
@@ -127,12 +135,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
-        this.footerTitle = 'This is the Footer ';
         this.navitems = [
-            new __WEBPACK_IMPORTED_MODULE_1__datamodels_navitem__["a" /* NavItem */]('Artists', ''),
-            new __WEBPACK_IMPORTED_MODULE_1__datamodels_navitem__["a" /* NavItem */]('The Empire', ''),
+            new __WEBPACK_IMPORTED_MODULE_1__datamodels_navitem__["a" /* NavItem */]('Artists', '/artists'),
+            new __WEBPACK_IMPORTED_MODULE_1__datamodels_navitem__["a" /* NavItem */]('The Empire', '/theempire'),
             new __WEBPACK_IMPORTED_MODULE_1__datamodels_navitem__["a" /* NavItem */]('Events', ''),
-            new __WEBPACK_IMPORTED_MODULE_1__datamodels_navitem__["a" /* NavItem */]('Media', ''),
+            //new NavItem('Media', ''),
             new __WEBPACK_IMPORTED_MODULE_1__datamodels_navitem__["a" /* NavItem */]('News', ''),
             new __WEBPACK_IMPORTED_MODULE_1__datamodels_navitem__["a" /* NavItem */]('Releases', ''),
             new __WEBPACK_IMPORTED_MODULE_1__datamodels_navitem__["a" /* NavItem */]('Contact Us', '')
@@ -338,7 +345,7 @@ var GravityComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/components/_templates/header.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"nav-header fixed-header\">\r\n    <div class=\"nav-container\">\r\n        <!-- Logo -->\r\n        <div class=\"navbar-header\">\r\n            <a class=\"navbar-brand\"><img src=\"assets/images/logos/logoW_text.png\" class=\"logo\" alt=\"Mind Control Empire Logo\"></a>\r\n        </div>\r\n\r\n        <!-- Full Menu -->\r\n        <div class=\"navbar-items full\">\r\n            <div class=\"nav-link\" *ngFor=\"let item of navitems\"><a>{{item.name}}</a></div>\r\n            <!-- Social Media -->\r\n            <div class=\"social-links-container\">\r\n                <a href=\"\" class=\"social-link youtube\"><i fa [name]=\"'youtube-play'\"></i></a>\r\n                <a href=\"\" class=\"social-link instagram\"><i fa [name]=\"'instagram'\"></i></a>\r\n                <a href=\"\" class=\"social-link facebook\"><i fa [name]=\"'facebook'\"></i></a>\r\n                <a href=\"\" target=\"_blank\" class=\"social-link twitter\"><i fa [name]=\"'twitter'\"></i></a>\r\n            </div>            \r\n        </div>\r\n\r\n        <!-- Sidebar Menu -->\r\n        <div class=\"navbar-items sidebar\">            \r\n            <div class=\"nav-link\"><a (click)=\"toggleSideNav()\"><i class=\"material-icons\">&#xE5D2;</i></a></div>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"nav-header fixed-header\" #mceHeader>\r\n    <div class=\"nav-container\">\r\n        <!-- Logo -->\r\n        <div class=\"navbar-header\">\r\n            <a href=\"/\" class=\"navbar-brand\"><img src=\"assets/images/logos/logoW_text.png\" class=\"logo\" alt=\"Mind Control Empire Logo\"></a>\r\n        </div>\r\n\r\n        <!-- Full Menu -->\r\n        <div class=\"navbar-items full\">\r\n            <div class=\"nav-link\" *ngFor=\"let item of navitems\"><a [href]=\"item.url\">{{item.name}}</a></div>\r\n            <!-- Social Media -->\r\n            <div class=\"social-links-container\">\r\n                <a href=\"\" class=\"social-link youtube\"><i fa [name]=\"'youtube-play'\"></i></a>\r\n                <a href=\"\" class=\"social-link instagram\"><i fa [name]=\"'instagram'\"></i></a>\r\n                <a href=\"\" class=\"social-link facebook\"><i fa [name]=\"'facebook'\"></i></a>\r\n                <a href=\"\" target=\"_blank\" class=\"social-link twitter\"><i fa [name]=\"'twitter'\"></i></a>\r\n            </div>            \r\n        </div>\r\n\r\n        <!-- Sidebar Menu -->\r\n        <div class=\"navbar-items sidebar\">            \r\n            <div class=\"nav-link\"><a (click)=\"toggleSideNav()\"><i class=\"material-icons\">&#xE5D2;</i></a></div>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -350,7 +357,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".nav-header {\n  width: 100%;\n  background: rgba(0, 0, 0, 0.5);\n  color: #ffffff;\n  min-height: 90px;\n}\n.nav-header.fixed-header {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 100;\n}\n.nav-header .nav-container {\n  padding: 5px 20px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: start;\n  max-width: 1350px;\n  margin: 0px auto;\n}\n@media (max-width: 770px) {\n  .nav-header .nav-container {\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between;\n  }\n}\n.nav-header .nav-container .navbar-header {\n  max-width: 80px;\n  position: relative;\n  display: inline-block;\n  margin-right: 30px;\n}\n.nav-header .nav-container .navbar-header .navbar-brand {\n  padding: 5px;\n  position: relative;\n  overflow: hidden;\n  width: 75px;\n}\n.nav-header .nav-container .navbar-header .navbar-brand img {\n  width: 100%;\n}\n.nav-header .nav-container .navbar-items.full {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: end;\n      -ms-flex-pack: end;\n          justify-content: flex-end;\n  width: 100%;\n}\n@media (max-width: 770px) {\n  .nav-header .nav-container .navbar-items.full {\n    display: none;\n  }\n}\n.nav-header .nav-container .navbar-items.sidebar {\n  display: none;\n}\n@media (max-width: 770px) {\n  .nav-header .nav-container .navbar-items.sidebar {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n  }\n}\n.nav-header .nav-container .navbar-items .nav-link {\n  font-size: 1.3rem;\n  padding: 0px 10px;\n  position: relative;\n  margin: auto 0px;\n  transition: 0.5s all ease;\n  cursor: pointer;\n}\n.nav-header .nav-container .navbar-items .nav-link:hover {\n  color: #b82601;\n}\n.nav-header .nav-container .navbar-items .nav-link + .nav-link {\n  margin-left: 30px;\n}\n.nav-header .nav-container .navbar-items .social-links-container {\n  margin: auto 0px auto 50px;\n}\n.nav-header .nav-container .navbar-items .social-links-container .social-link {\n  color: #ffffff;\n  transition: 0.5s all ease;\n}\n.nav-header .nav-container .navbar-items .social-links-container .social-link i {\n  border-radius: 50%;\n  font-size: 1.4rem;\n}\n.nav-header .nav-container .navbar-items .social-links-container .social-link + .social-link {\n  margin-left: 20px;\n}\n.nav-header .nav-container .navbar-items .social-links-container .social-link.youtube:hover {\n  color: #ff0000;\n}\n.nav-header .nav-container .navbar-items .social-links-container .social-link.instagram:hover {\n  color: #c32aa3;\n}\n.nav-header .nav-container .navbar-items .social-links-container .social-link.facebook:hover {\n  color: #3b5998;\n}\n.nav-header .nav-container .navbar-items .social-links-container .social-link.twitter:hover {\n  color: #00b6f1;\n}\n", ""]);
+exports.push([module.i, ".nav-header {\n  width: 100%;\n  color: #ffffff;\n  min-height: 90px;\n  transition: 0.4s all ease;\n}\n.nav-header.fixed-header {\n  position: fixed;\n  top: 0;\n  left: 0;\n  z-index: 100;\n}\n.nav-header.dark {\n  background: rgba(0, 0, 0, 0.5);\n}\n.nav-header.dark .nav-container .navbar-items .nav-link a:hover,\n.nav-header.dark .nav-container .navbar-items .nav-link a:focus {\n  color: #b82601;\n}\n.nav-header.dark .nav-container .navbar-items .social-links-container .social-link.youtube:hover {\n  color: #ff0000;\n}\n.nav-header.dark .nav-container .navbar-items .social-links-container .social-link.instagram:hover {\n  color: #c32aa3;\n}\n.nav-header.dark .nav-container .navbar-items .social-links-container .social-link.facebook:hover {\n  color: #3b5998;\n}\n.nav-header.dark .nav-container .navbar-items .social-links-container .social-link.twitter:hover {\n  color: #00b6f1;\n}\n.nav-header .nav-container {\n  padding: 5px 20px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: start;\n  max-width: 1350px;\n  margin: 0px auto;\n}\n@media (max-width: 770px) {\n  .nav-header .nav-container {\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between;\n  }\n}\n.nav-header .nav-container .navbar-header {\n  max-width: 80px;\n  position: relative;\n  display: inline-block;\n  margin-right: 30px;\n}\n.nav-header .nav-container .navbar-header .navbar-brand {\n  padding: 5px;\n  position: relative;\n  overflow: hidden;\n  width: 75px;\n}\n.nav-header .nav-container .navbar-header .navbar-brand img {\n  width: 100%;\n}\n.nav-header .nav-container .navbar-items.full {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: end;\n      -ms-flex-pack: end;\n          justify-content: flex-end;\n  width: 100%;\n}\n@media (max-width: 770px) {\n  .nav-header .nav-container .navbar-items.full {\n    display: none;\n  }\n}\n.nav-header .nav-container .navbar-items.sidebar {\n  display: none;\n}\n@media (max-width: 770px) {\n  .nav-header .nav-container .navbar-items.sidebar {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n  }\n}\n.nav-header .nav-container .navbar-items .nav-link {\n  font-size: 1.3rem;\n  padding: 0px 10px;\n  position: relative;\n  margin: auto 0px;\n  transition: 0.5s all ease;\n  cursor: pointer;\n}\n.nav-header .nav-container .navbar-items .nav-link:hover {\n  color: #b82601;\n}\n.nav-header .nav-container .navbar-items .nav-link + .nav-link {\n  margin-left: 30px;\n}\n.nav-header .nav-container .navbar-items .nav-link a {\n  color: #ffffff;\n  transition: 0.5s all ease;\n}\n.nav-header .nav-container .navbar-items .nav-link a:hover,\n.nav-header .nav-container .navbar-items .nav-link a:focus {\n  color: #000000;\n  text-decoration: none;\n}\n.nav-header .nav-container .navbar-items .social-links-container {\n  margin: auto 0px auto 50px;\n}\n.nav-header .nav-container .navbar-items .social-links-container .social-link {\n  color: #ffffff;\n  transition: 0.5s all ease;\n}\n.nav-header .nav-container .navbar-items .social-links-container .social-link i {\n  border-radius: 50%;\n  font-size: 1.4rem;\n}\n.nav-header .nav-container .navbar-items .social-links-container .social-link + .social-link {\n  margin-left: 20px;\n}\n.nav-header .nav-container .navbar-items .social-links-container .social-link:hover {\n  color: #000000;\n}\n", ""]);
 
 // exports
 
@@ -377,11 +384,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 var HeaderComponent = /** @class */ (function () {
-    function HeaderComponent() {
+    function HeaderComponent(renderer) {
+        this.renderer = renderer;
         this.toggleEvent = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
     }
     HeaderComponent.prototype.toggleSideNav = function () {
         this.toggleEvent.next();
+    };
+    HeaderComponent.prototype.onWindowScroll = function ($event) {
+        if (this.el != undefined) {
+            if (window.pageYOffset > 20) {
+                if (!this.el.nativeElement.classList.contains('dark')) {
+                    console.log("add Dark Class");
+                    this.el.nativeElement.classList.add("dark");
+                }
+            }
+            else {
+                if (this.el.nativeElement.classList.contains('dark')) {
+                    console.log('remove Dark Class');
+                    this.el.nativeElement.classList.remove("dark");
+                }
+            }
+        }
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
@@ -391,14 +415,158 @@ var HeaderComponent = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
         __metadata("design:type", Array)
     ], HeaderComponent.prototype, "navitems", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('mceHeader'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
+    ], HeaderComponent.prototype, "el", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('window:scroll', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object]),
+        __metadata("design:returntype", void 0)
+    ], HeaderComponent.prototype, "onWindowScroll", null);
     HeaderComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'my-app-header',
             template: __webpack_require__("../../../../../src/app/components/_templates/header.html"),
             styles: [__webpack_require__("../../../../../src/app/components/_templates/header.less")]
-        })
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"]])
     ], HeaderComponent);
     return HeaderComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/about/about.html":
+/***/ (function(module, exports) {
+
+module.exports = "<section class=\"page-body innerpage empire\">    \r\n    <div class=\"inner-banner\">\r\n        <div class=\"banner-background\">\r\n            <div class=\"color-overlay\"></div>\r\n            <div class=\"back-img\" [ngStyle]=\"{ 'background-image':'url('+backimg+')'}\"></div>\r\n        </div>\r\n        <h1 class=\"banner-title\">The Empire</h1>        \r\n    </div>\r\n\r\n    <div class=\"inner-section\">\r\n        <div class=\"inner-container\">\r\n            <div class=\"staff-member\" *ngFor=\"let member of staff\">\r\n                <div class=\"img-container\">\r\n                    <img class=\"member-img\" [src]=\"member.img\">\r\n                    <img class=\"member-trail-img\" [src]=\"member.img\">\r\n                </div>\r\n                <div class=\"member-info\">\r\n                    <div class=\"member-name\">{{ member.name }}</div>\r\n                    <div class=\"member-title\">{{ member.title }}</div>\r\n                    <div class=\"divider\"></div>\r\n                    <div class=\"member-social-container\">\r\n                        <a *ngFor=\"let social of member.social\" [href]=\"returnSocialUrl(social)\" target=\"_blank\" class=\"social-link {{social.site}}\"><i fa [name]=\"social.site\"></i></a>                        \r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/about/about.less":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".empire .inner-section .inner-container {\n  padding: 30px 50px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n@media (max-width: 770px) {\n  .empire .inner-section .inner-container {\n    display: block;\n    padding: 30px 4%;\n  }\n}\n.empire .inner-section .inner-container .staff-member {\n  position: relative;\n  padding: 40px;\n  overflow: hidden;\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  -ms-flex-positive: 1;\n      flex-grow: 1;\n}\n@media (max-width: 770px) {\n  .empire .inner-section .inner-container .staff-member {\n    padding: 40px 20px;\n  }\n}\n.empire .inner-section .inner-container .staff-member .img-container {\n  position: relative;\n  height: 350px;\n  overflow: hidden;\n  text-align: center;\n}\n.empire .inner-section .inner-container .staff-member .img-container .member-img {\n  height: 100%;\n  position: relative;\n  z-index: 2;\n}\n.empire .inner-section .inner-container .staff-member .img-container .member-trail-img {\n  z-index: 1;\n  height: 400%;\n  width: 400%;\n  position: absolute;\n  top: -200%;\n  left: -200%;\n  -webkit-filter: blur(20px);\n  filter: blur(20px);\n}\n.empire .inner-section .inner-container .staff-member .member-info {\n  padding: 10px;\n}\n.empire .inner-section .inner-container .staff-member .member-info .member-name {\n  font-size: 2.5rem;\n  color: #000000;\n}\n.empire .inner-section .inner-container .staff-member .member-info .member-title {\n  margin-left: 10px;\n  display: block;\n  color: #b82601;\n}\n.empire .inner-section .inner-container .staff-member .member-info .divider {\n  height: 5px;\n  width: 100%;\n  display: block;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.5);\n}\n.empire .inner-section .inner-container .staff-member .member-info .member-social-container .social-link {\n  display: inline-block;\n  padding: 0px 5px;\n  color: #000000;\n  font-size: 30px;\n  transition: 0.5s all ease;\n}\n.empire .inner-section .inner-container .staff-member .member-info .member-social-container .social-link.instagram:hover {\n  color: #c32aa3;\n}\n.empire .inner-section .inner-container .staff-member .member-info .member-social-container .social-link.facebook:hover {\n  color: #3b5998;\n}\n.empire .inner-section .inner-container .staff-member .member-info .member-social-container .social-link.twitter:hover {\n  color: #00b6f1;\n}\n.empire .inner-section .inner-container .staff-member .member-info .member-social-container .social-link.spotify:hover {\n  color: #1db954;\n}\n.empire .inner-section .inner-container .staff-member .member-info .member-social-container .social-link.soundcloud:hover {\n  color: #ff5500;\n}\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/about/about.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AboutComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__datamodels_artistItem__ = __webpack_require__("../../../../../src/app/datamodels/artistItem.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__datamodels_socialItem__ = __webpack_require__("../../../../../src/app/datamodels/socialItem.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_mceService__ = __webpack_require__("../../../../../src/app/services/mceService.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+/* Data Models */
+
+
+/* Service */
+
+var AboutComponent = /** @class */ (function () {
+    function AboutComponent(mceService) {
+        this.mceService = mceService;
+        this.backimg = "assets/images/site/empire.jpg";
+        this.staff = [
+            new __WEBPACK_IMPORTED_MODULE_1__datamodels_artistItem__["a" /* ArtistItem */]('G', 'CEO', 'assets/images/site/empire/GField.jpg', [new __WEBPACK_IMPORTED_MODULE_2__datamodels_socialItem__["a" /* SocialItem */]('twitter', 'Sir_CEO'), new __WEBPACK_IMPORTED_MODULE_2__datamodels_socialItem__["a" /* SocialItem */]('instagram', 'CEO_KING_FIELDMOB')]),
+            new __WEBPACK_IMPORTED_MODULE_1__datamodels_artistItem__["a" /* ArtistItem */]('Dwayne', 'Videographer & Photographer', 'assets/images/site/empire/Dwayne.jpg', [new __WEBPACK_IMPORTED_MODULE_2__datamodels_socialItem__["a" /* SocialItem */]('twitter', 'DWJproduction'), new __WEBPACK_IMPORTED_MODULE_2__datamodels_socialItem__["a" /* SocialItem */]('instagram', 'DWJproduction')]),
+            new __WEBPACK_IMPORTED_MODULE_1__datamodels_artistItem__["a" /* ArtistItem */]('Drty Warhol', 'Producer', 'assets/images/site/empire/Fields.jpg', [new __WEBPACK_IMPORTED_MODULE_2__datamodels_socialItem__["a" /* SocialItem */]('twitter', 'inspiredmindz'), new __WEBPACK_IMPORTED_MODULE_2__datamodels_socialItem__["a" /* SocialItem */]('soundcloud', 'inspiredmindz')])
+        ];
+    }
+    AboutComponent.prototype.ngOnInit = function () { };
+    AboutComponent.prototype.returnSocialUrl = function (social) {
+        return this.mceService.socialLink(social.site, social.handle);
+    };
+    AboutComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            template: __webpack_require__("../../../../../src/app/components/about/about.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/about/about.less")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__services_mceService__["a" /* MCEService */]])
+    ], AboutComponent);
+    return AboutComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/artists/artists.html":
+/***/ (function(module, exports) {
+
+module.exports = "<section class=\"page-body innerpage empire\">  \r\n    <div class=\"inner-banner\">\r\n        <div class=\"banner-background\">\r\n            <div class=\"color-overlay\"></div>\r\n            <div class=\"back-img\" [ngStyle]=\"{ 'background-image':'url('+backimg+')'}\"></div>\r\n        </div>\r\n        <h1 class=\"banner-title\">Artists</h1>        \r\n    </div>\r\n</section>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/artists/artists.less":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/artists/artists.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ArtistsComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var ArtistsComponent = /** @class */ (function () {
+    function ArtistsComponent() {
+        this.backimg = "assets/images/site/empire.jpg";
+    }
+    ArtistsComponent.prototype.ngOnInit = function () { };
+    ArtistsComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            template: __webpack_require__("../../../../../src/app/components/artists/artists.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/artists/artists.less")]
+        })
+    ], ArtistsComponent);
+    return ArtistsComponent;
 }());
 
 
@@ -408,7 +576,7 @@ var HeaderComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/components/home/home.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"page-body home\">    \r\n    <div class=\"carousel-container home-section header-section dark-gradient\">\r\n        <div class=\"carousel-background\">\r\n            <div class=\"color-overlay\"></div>\r\n            <gravity-template></gravity-template>\r\n        </div>\r\n\r\n        <ngx-carousel [inputs]=\"carouselOne\" (carouselLoad)=\"loadCarousel('home', $event)\" class=\"mc-carousels home-carousel\">\r\n            \r\n            <ngx-item *ngFor=\"let item of carouselItems\" NgxCarouselItem>\r\n                <div class=\"carousel-page\">\r\n                    <div class=\"carousel-card\">\r\n                        <img src=\"{{item.img}}\" class=\"carousel-card-img\" alt=\"\">\r\n                        <img src=\"{{item.img}}\" class=\"special-card-img\" alt=\"\">\r\n                        <div class=\"card-caption\">\r\n                            <h1>{{item.title}}</h1>\r\n                            <p>{{item.text}}</p>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </ngx-item>\r\n\r\n            <ngx-item NgxCarouselItem>\r\n                <div class=\"carousel-page empty-page\"></div>\r\n            </ngx-item>\r\n\r\n            <div NgxCarouselPrev class=\"carousel-ctrl prev\"><i class=\"material-icons\">&#xE5CB;</i></div>\r\n            <div NgxCarouselNext class=\"carousel-ctrl next\"><i class=\"material-icons\">&#xE5CC;</i></div>\r\n        </ngx-carousel>\r\n    </div>\r\n\r\n    <!-- Spotlight Videos -->\r\n    <div class=\"home-section level2\">\r\n        <h1 class=\"section-title\">Spotlight Videos</h1>\r\n        <ngx-carousel [inputs]=\"carouselTwo\" class=\"mc-carousels tile-carousel c1 spotlight-carousel\">        \r\n            <ngx-item *ngFor=\"let spotlight of spotlightVideos\" NgxCarouselItem>\r\n                <div class=\"spotlight-page\">\r\n                    <div class=\"spotlight-video\"><iframe [src]=\"returnTypeUrl('video', spotlight.urlcode) | safe\" frameborder=\"0\" allowfullscreen></iframe></div>\r\n                    <div class=\"spotlight-info\">\r\n                        <div class=\"spotlight-title\">{{spotlight.title}}</div>\r\n                        <div class=\"spotlight-artist\">{{spotlight.artist}}</div>\r\n                    </div>\r\n                </div>\r\n            </ngx-item>\r\n\r\n            <div NgxCarouselPrev class=\"carousel-ctrl prev c1\"><i class=\"material-icons\">&#xE5CB;</i></div>\r\n            <div NgxCarouselNext class=\"carousel-ctrl next c1\"><i class=\"material-icons\">&#xE5CC;</i></div>\r\n        </ngx-carousel>\r\n    </div>\r\n\r\n    <!-- Word On The Street -->\r\n    <div class=\"news-section\">        \r\n        <div class=\"news-ctrl prev\" (click)=\"horizontalScroll(-1, 'wordOnTheStreet')\" (mouseenter)=\"scrollActivate(-1, 'wordOnTheStreet')\" (mouseleave)=\"scrollDeactivate()\"><i class=\"material-icons\">&#xE5CB;</i></div>\r\n        <div class=\"news-ctrl next\" (click)=\"horizontalScroll(1, 'wordOnTheStreet')\" (mouseenter)=\"scrollActivate(1, 'wordOnTheStreet')\" (mouseleave)=\"scrollDeactivate()\"><i class=\"material-icons\">&#xE5CC;</i></div>        \r\n        <div class=\"news-container\" id=\"wordOnTheStreet\">            \r\n            <div class=\"news-item-container\" *ngFor=\"let news of newsItems\">\r\n                <div class=\"color-overlay\"></div>\r\n                <img [src]=\"checkimg(news.img)\" class=\"back-img main-img\">\r\n\r\n                <div class=\"news-item-content\">\r\n                    <div class=\"section-type\">News</div>\r\n                    <div class=\"item-title\">{{news.title}}</div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n\r\n    <!-- Featured Artist -->\r\n    <div class=\"featured-artist-section\">\r\n        <h1 class=\"section-title\">Featured Artist</h1>\r\n\r\n        <div class=\"feature-banner\">\r\n            <div class=\"color-overlay\"></div>\r\n            <img src=\"{{featuredArtist.bannerImg}}\" class=\"banner-img\">\r\n        </div>\r\n        \r\n        <div class=\"artist-content\">\r\n            <h2 class=\"artist-name\">{{ featuredArtist.name }}</h2>\r\n            <div class=\"artist-media\">                \r\n                <a *ngFor=\"let social of featuredArtist.social\" [href]=\"returnSocialUrl(social) | safe\" target=\"_blank\" class=\"social-link {{social.site}}\"><div class=\"link-container\"><i fa [name]=\"social.site\"></i></div></a>\r\n            </div>\r\n            <div class=\"artist-bio\">{{ featuredArtist.bio }} Get to know {{featuredArtist.name}} and see where you can check em out next.</div>\r\n\r\n            <div class=\"more-info-btn\">More Info</div>\r\n        </div>\r\n    </div>\r\n\r\n    <!-- Follow Us -->\r\n    <div class=\"follow-us-section\">\r\n        <h1 class=\"section-title\">Follow Mind Control Empire</h1>\r\n\r\n        <!-- Social Media -->\r\n        <div class=\"social-links-container\">\r\n            <a href=\"\" class=\"social-link youtube\"><i fa [name]=\"'youtube-play'\"></i></a>\r\n            <a href=\"\" class=\"social-link instagram\"><i fa [name]=\"'instagram'\"></i></a>\r\n            <a href=\"\" class=\"social-link facebook\"><i fa [name]=\"'facebook'\"></i></a>\r\n            <a href=\"\" target=\"_blank\" class=\"social-link twitter\"><i fa [name]=\"'twitter'\"></i></a>\r\n        </div>  \r\n    </div>\r\n</section>"
+module.exports = "<section class=\"page-body home\">    \r\n    <div class=\"carousel-container home-section header-section dark-gradient\">\r\n        <div class=\"carousel-background\">\r\n            <div class=\"color-overlay\"></div>\r\n            <gravity-template></gravity-template>\r\n        </div>\r\n\r\n        <ngx-carousel [inputs]=\"carouselOne\" (carouselLoad)=\"loadCarousel('home', $event)\" class=\"mc-carousels home-carousel\">\r\n            \r\n            <ngx-item *ngFor=\"let item of carouselItems\" NgxCarouselItem>\r\n                <div class=\"carousel-page\">\r\n                    <div class=\"carousel-card\">\r\n                        <img src=\"{{item.img}}\" class=\"carousel-card-img\" alt=\"\">\r\n                        <img src=\"{{item.img}}\" class=\"special-card-img\" alt=\"\">\r\n                        <div class=\"card-caption\">\r\n                            <h1>{{item.title}}</h1>\r\n                            <p>{{item.text}}</p>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </ngx-item>\r\n\r\n            <ngx-item NgxCarouselItem>\r\n                <div class=\"carousel-page empty-page\"></div>\r\n            </ngx-item>\r\n\r\n            <div NgxCarouselPrev class=\"carousel-ctrl prev\"><i class=\"material-icons\">&#xE5CB;</i></div>\r\n            <div NgxCarouselNext class=\"carousel-ctrl next\"><i class=\"material-icons\">&#xE5CC;</i></div>\r\n        </ngx-carousel>\r\n    </div>\r\n\r\n    <!-- Spotlight Videos -->\r\n    <div class=\"home-section level2\">\r\n        <h1 class=\"section-title\">Spotlight Videos</h1>\r\n        <ngx-carousel [inputs]=\"carouselTwo\" class=\"mc-carousels tile-carousel c1 spotlight-carousel\">        \r\n            <ngx-item *ngFor=\"let spotlight of spotlightVideos\" NgxCarouselItem>\r\n                <div class=\"spotlight-page\">\r\n                    <div class=\"spotlight-video\"><iframe [src]=\"returnTypeUrl('video', spotlight.urlcode) | safe\" frameborder=\"0\" allowfullscreen></iframe></div>\r\n                    <div class=\"spotlight-info\">\r\n                        <div class=\"spotlight-title\">{{spotlight.title}}</div>\r\n                        <div class=\"spotlight-artist\">{{spotlight.artist}}</div>\r\n                    </div>\r\n                </div>\r\n            </ngx-item>\r\n\r\n            <div NgxCarouselPrev class=\"carousel-ctrl prev c1\"><i class=\"material-icons\">&#xE5CB;</i></div>\r\n            <div NgxCarouselNext class=\"carousel-ctrl next c1\"><i class=\"material-icons\">&#xE5CC;</i></div>\r\n        </ngx-carousel>\r\n    </div>\r\n\r\n    <!-- Word On The Street -->\r\n    <div class=\"news-section\">        \r\n        <div class=\"news-ctrl prev\" (click)=\"horizontalScroll(-1, 'wordOnTheStreet')\" (mouseenter)=\"scrollActivate(-1, 'wordOnTheStreet')\" (mouseleave)=\"scrollDeactivate()\"><i class=\"material-icons\">&#xE5CB;</i></div>\r\n        <div class=\"news-ctrl next\" (click)=\"horizontalScroll(1, 'wordOnTheStreet')\" (mouseenter)=\"scrollActivate(1, 'wordOnTheStreet')\" (mouseleave)=\"scrollDeactivate()\"><i class=\"material-icons\">&#xE5CC;</i></div>        \r\n        <div class=\"news-container\" id=\"wordOnTheStreet\">            \r\n            <div class=\"news-item-container\" *ngFor=\"let news of newsItems\">\r\n                <div class=\"color-overlay\"></div>\r\n                <img [src]=\"checkimg(news.img)\" class=\"back-img main-img\">\r\n\r\n                <div class=\"news-item-content\">\r\n                    <div class=\"section-type\">News</div>\r\n                    <div class=\"item-title\">{{news.title}}</div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n\r\n    <!-- Featured Artist -->\r\n    <div class=\"featured-artist-section\" *ngIf=\"featuredArtist != null\">\r\n        <h1 class=\"section-title\">Featured Artist</h1>\r\n\r\n        <div class=\"feature-banner\">\r\n            <div class=\"color-overlay\"></div>\r\n            <img src=\"{{featuredArtist.bannerImg}}\" class=\"banner-img\">\r\n        </div>\r\n        \r\n        <div class=\"artist-content\">\r\n            <h2 class=\"artist-name\">{{ featuredArtist.name }}</h2>\r\n            <div class=\"artist-media\">                \r\n                <a *ngFor=\"let social of featuredArtist.social\" [href]=\"returnSocialUrl(social) | safe\" target=\"_blank\" class=\"social-link {{social.site}}\"><div class=\"link-container\"><i fa [name]=\"social.site\"></i></div></a>\r\n            </div>\r\n            <div class=\"artist-bio\">{{ featuredArtist.bio }} Get to know {{featuredArtist.name}} and see where you can check em out next.</div>\r\n\r\n            <div class=\"more-info-btn\">More Info</div>\r\n        </div>\r\n    </div>\r\n\r\n    <!-- Follow Us -->\r\n    <div class=\"follow-us-section\">\r\n        <h1 class=\"section-title\">Follow Mind Control Empire</h1>\r\n\r\n        <!-- Social Media -->\r\n        <div class=\"social-links-container\">\r\n            <a href=\"\" target=\"_blank\" class=\"social-link youtube\"><i fa [name]=\"'youtube-play'\"></i></a>\r\n            <a href=\"\" target=\"_blank\" class=\"social-link instagram\"><i fa [name]=\"'instagram'\"></i></a>\r\n            <a href=\"\" target=\"_blank\" class=\"social-link facebook\"><i fa [name]=\"'facebook'\"></i></a>\r\n            <a href=\"\" target=\"_blank\" target=\"_blank\" class=\"social-link twitter\"><i fa [name]=\"'twitter'\"></i></a>\r\n        </div>  \r\n    </div>\r\n</section>"
 
 /***/ }),
 
@@ -569,6 +737,25 @@ var HomeComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/datamodels/artistItem.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ArtistItem; });
+var ArtistItem = /** @class */ (function () {
+    function ArtistItem(Name, Title, Img, socialList) {
+        this.name = Name;
+        this.title = Title;
+        this.img = Img;
+        this.social = socialList;
+    }
+    return ArtistItem;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/datamodels/navitem.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -580,6 +767,23 @@ var NavItem = /** @class */ (function () {
         this.url = Url;
     }
     return NavItem;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/datamodels/socialItem.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SocialItem; });
+var SocialItem = /** @class */ (function () {
+    function SocialItem(Site, Handle) {
+        this.site = Site;
+        this.handle = Handle;
+    }
+    return SocialItem;
 }());
 
 

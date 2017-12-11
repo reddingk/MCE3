@@ -1,15 +1,33 @@
 @import (reference) "../../variables.less";
 
 .nav-header {
-    width: 100%;
-    background: rgba(0,0,0,0.5);
+    width: 100%;    
     color: rgba(255,255,255,1);
-    min-height: 90px;
+    min-height: 90px;    
+    transition: 0.4s all ease;
+    
     &.fixed-header {
         position: fixed;
         top: 0;
         left: 0;
         z-index: 100;
+    }
+
+    &.dark{ 
+        background: rgba(0,0,0,0.5);
+        .nav-container {
+            .navbar-items {
+                .nav-link { a{ &:hover, &:focus { color: @color1;}}}
+                .social-links-container {
+                    .social-link {
+                        &.youtube{ &:hover { color: rgba(255,0,0,1);}}
+                        &.instagram{ &:hover { color: rgba(195,42,163,1);}}
+                        &.facebook{ &:hover { color: rgba(59,89,152,1);}}
+                        &.twitter{ &:hover { color: rgba(0,182,241,1);}}
+                    }
+                }
+            }
+        }
     }
     .nav-container {
         padding: 5px 20px;
@@ -51,7 +69,9 @@
                 transition: 0.5s all ease;
                 cursor: pointer;
                 &:hover { color: @color1; }
-                &+.nav-link { margin-left: 30px;}            
+                &+.nav-link { margin-left: 30px;} 
+                
+                a { color: rgba(255,255,255,1); transition: 0.5s all ease; &:hover, &:focus { color: rgba(0,0,0,1); text-decoration: none; }}
             }
             .social-links-container {
                 margin: auto 0px auto 50px;
@@ -63,11 +83,7 @@
                         font-size: 1.4rem;
                     }
                     &+.social-link { margin-left: 20px; }
-
-                    &.youtube{ &:hover { color: rgba(255,0,0,1);}}
-                    &.instagram{ &:hover { color: rgba(195,42,163,1);}}
-                    &.facebook{ &:hover { color: rgba(59,89,152,1);}}
-                    &.twitter{ &:hover { color: rgba(0,182,241,1);}}
+                    &:hover { color: rgba(0,0,0,1);}
                 }
             }
         }

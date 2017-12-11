@@ -12,6 +12,9 @@ import 'hammerjs';
 
 import { AppComponent }  from './components/_app/app';
 import { HomeComponent, SafePipe } from './components/home/home';
+import { AboutComponent } from './components/about/about';
+import { ArtistsComponent } from './components/artists/artists';
+
 import { HeaderComponent } from './components/_templates/header';
 import { FooterComponent } from './components/_templates/footer';
 import { GravityComponent } from './components/_templates/gravity';
@@ -20,7 +23,9 @@ import { MCEService } from './services/mceService';
 
 
 const appRoutes: Routes = [
-    { path: '', component: HomeComponent }    
+    { path: '', component: HomeComponent},
+    { path:'theempire', component: AboutComponent},
+    { path:'artists', component: ArtistsComponent}  
 ];
 
 @NgModule({
@@ -41,7 +46,9 @@ const appRoutes: Routes = [
         FooterComponent,
         GravityComponent,
         SafePipe,
-        HomeComponent
+        HomeComponent,
+        AboutComponent,
+        ArtistsComponent
     ],
     providers: [MCEService],
     bootstrap: [ AppComponent ]

@@ -1,10 +1,10 @@
 <mat-sidenav-container class="example-container">
-    <mat-sidenav #sidenav mode="side" class="sideNav-container" align="end" fixedInViewport="true" disableClose>
+    <mat-sidenav #sidenav mode="side" class="sideNav-container" align="end" fixedInViewport="true" mode="over" disableClose>
         <div class="side-header">
             <div class="nav-link"><a (click)="sidenav.toggle()"><i class="material-icons">&#xE5CD;</i></a></div>
         </div>
         <div class="side-body">
-            <div class="nav-link" *ngFor="let item of navitems"><a>{{item.name}}</a></div>
+            <div class="nav-link" *ngFor="let item of navitems"><a [href]="item.url">{{item.name}}</a></div>
         </div>        
     </mat-sidenav>
 

@@ -1,13 +1,13 @@
-<div class="nav-header fixed-header">
+<div class="nav-header fixed-header" #mceHeader>
     <div class="nav-container">
         <!-- Logo -->
         <div class="navbar-header">
-            <a class="navbar-brand"><img src="assets/images/logos/logoW_text.png" class="logo" alt="Mind Control Empire Logo"></a>
+            <a href="/" class="navbar-brand"><img src="assets/images/logos/logoW_text.png" class="logo" alt="Mind Control Empire Logo"></a>
         </div>
 
         <!-- Full Menu -->
         <div class="navbar-items full">
-            <div class="nav-link" *ngFor="let item of navitems"><a>{{item.name}}</a></div>
+            <div class="nav-link" *ngFor="let item of navitems"><a [href]="item.url">{{item.name}}</a></div>
             <!-- Social Media -->
             <div class="social-links-container">
                 <a href="" class="social-link youtube"><i fa [name]="'youtube-play'"></i></a>

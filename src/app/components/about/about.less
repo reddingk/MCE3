@@ -1,0 +1,64 @@
+@import (reference) "../../variables.less";
+
+.empire{
+    .inner-section{
+        .inner-container {
+            padding: 30px 50px;
+            display: flex; 
+            @media @mobile-device {
+                display: block;
+                padding: 30px 4%;
+            }           
+            .staff-member {
+                position: relative;
+                padding: 40px;
+                overflow: hidden;
+                flex: 1;
+                flex-grow: 1;
+                @media @mobile-device { padding: 40px 20px;}
+                .img-container {
+                    position: relative;
+                    height: 350px;
+                    overflow: hidden;
+                    text-align: center;
+                    .member-img {                        
+                        height: 100%;
+                        position: relative;                        
+                        z-index: 2;
+                    }
+                    .member-trail-img {
+                        z-index: 1;
+                        height: 400%;
+                        width: 400%;
+                        position: absolute;
+                        top: -200%;
+                        left: -200%;
+                        -webkit-filter: blur(20px);
+                        filter: blur(20px);
+                    }
+                }
+                .member-info {
+                    padding: 10px;
+                    .member-name { font-size: 2.5rem; color: rgba(0,0,0,1); }
+                    .member-title { margin-left: 10px; display: block; color: @color1; }
+                    .divider { height: 5px; width: 100%; display: block; border-bottom: 1px solid rgba(0,0,0,0.5);}
+                    .member-social-container{
+                        .social-link{
+                            display: inline-block;
+                            padding: 0px 5px;
+                            color: rgba(0,0,0,1);
+                            font-size: 30px;
+                            transition: 0.5s all ease;
+
+                            &.instagram{ &:hover { color: rgba(195,42,163,1);}}
+                            &.facebook{ &:hover { color: rgba(59,89,152,1);}}
+                            &.twitter{ &:hover { color: rgba(0,182,241,1);}}
+                            &.spotify{ &:hover { color: rgba(29, 185, 84,1);}}
+                            &.soundcloud{ &:hover { color: rgba(255, 85, 0,1);}}
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

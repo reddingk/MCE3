@@ -5,6 +5,7 @@ import { VideoReleaseItem } from './videoReleaseItem';
 export class ArtistItem {
     public name: string;
     public bio: string;
+    public title: string;
     public img: string;
     public bannerImg: string;
     public addImg: string[];
@@ -12,9 +13,10 @@ export class ArtistItem {
     public releases: ReleaseItem[];
     public videos: VideoReleaseItem[];
 
-    constructor(Name: string, Bio: string, BannerImg: string){
+    constructor(Name: string, Title:string, Img: string, socialList: SocialItem[]){
         this.name = Name;
-        this.bio = Bio;
-        this.bannerImg = BannerImg;
+        this.title = Title;
+        this.img = Img;
+        this.social = socialList;
      }
 }

@@ -10,13 +10,12 @@ import { NavItem } from '../../datamodels/navitem';
   styleUrls: []
 })
 export class AppComponent {
-  footerTitle = 'This is the Footer ';
-
+  
   navitems: NavItem[] = [
-    new NavItem('Artists', ''),
-    new NavItem('The Empire', ''),
+    new NavItem('Artists', '/artists'),
+    new NavItem('The Empire', '/theempire'),
     new NavItem('Events', ''),
-    new NavItem('Media', ''),
+    //new NavItem('Media', ''),
     new NavItem('News', ''),
     new NavItem('Releases', ''),
     new NavItem('Contact Us', '')];
