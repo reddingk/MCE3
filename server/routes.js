@@ -29,7 +29,7 @@ db._.mixin({
 })
 
 function getArtist(aname, res){
-  var ret = {"error":null, "response":null};
+  var ret = {"error":null, "response":{"artist":null}};
   console.log("Looking For %s", aname);
   
   if(aname == null) {
@@ -39,7 +39,7 @@ function getArtist(aname, res){
     var artist = db.get('artists').find({ name: aname}).value();
 
     if(artist != null){
-      ret.response = artist;
+      ret.response.artist = artist;
     }
     else {
       ret.error = "Unable to find artist";
@@ -49,14 +49,18 @@ function getArtist(aname, res){
 }
 
 function getSpotlightContent(res){
-  var ret = {"error":null, "response":{"video":null, "news":null }};
+  var ret = {"error":null, "response":{"videos":null, "news":null, "recentNews":null }};
   console.log("Retrieving Spotlight Content");
   try {
     var news = db.get('news').filter({ spotlight: true}).value();
     var videos = dbR('artists').findAll({'videos.spotlight': true});
     
+    var tmpRecent = db.get('news').sortBy('date').value();
+    var recentNews = tmpRecent.reverse().slice(0, 7);
+
     ret.response.news = (news == undefined ? null : news);
-    ret.response.video = (videos == undefined? null : videos);
+    ret.response.videos = (videos == undefined? null : videos);
+    ret.response.recentNews = (recentNews == undefined? null : recentNews);
   }
   catch(ex){
     console.log("Error: %s", ex);
@@ -100,10 +104,9 @@ function getNews(query, res){
 }
 
 module.exports = function (app) {
-  app.post('/api/artist', jsonParser, function (req, res) {
-    console.log(req.body);
+  app.post('/api/artist', jsonParser, function (req, res) {    
     if(req.body != null){
-      var artistname = req.body.artist;
+      var artistname = req.body.artistname;
       getArtist(artistname, res);
     }
   });

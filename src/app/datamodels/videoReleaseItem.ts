@@ -8,10 +8,4 @@ export class VideoReleaseItem {
     public spotlight: boolean;
 
     constructor(){}  
-    
-    public returnTypeUrl(type){
-        let retUrl: string = (type == "video"? "https://www.youtube.com/embed/"+ this.urlcode : "http://img.youtube.com/vi/"+ this.urlcode+"/default.jpg");
-        return retUrl;
-    }
-
 }

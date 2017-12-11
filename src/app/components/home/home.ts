@@ -8,6 +8,7 @@ import { GravityComponent } from '../_templates/gravity';
 
 /* Data Models */
 import { ArtistItem } from '../../datamodels/artistItem';
+import { ResponseItem } from '../../datamodels/responseItem';
 import { NewsItem } from '../../datamodels/newsItem';
 import { VideoReleaseItem } from '../../datamodels/videoReleaseItem';
 import { EventItem } from '../../datamodels/eventItem';
@@ -38,27 +39,48 @@ export class HomeComponent implements OnInit {
   constructor(private mceService: MCEService){ }
 
   carouselItems: NewsItem[] = [];
-  spotlightItems: NewsItem[] = [];
+  spotlightVideos: VideoReleaseItem[] = [];
   newsItems: NewsItem[] = [];
   featuredArtist: ArtistItem = null;
   error: any;
 
   
-
   getSpotlightItems(): void {
     var allSpotlights = null;
     this.mceService.getSpotlightContent()
     .subscribe(res => {
-      if(res["error"] == null){
-        this.carouselItems = res["response"]["news"];
-        this.spotlightItems = res["response"]["videos"];
+      if(res.error == null){
+        this.carouselItems = res.response.news;
+        this.spotlightVideos = res.response.videos;
+        this.newsItems = res.response.recentNews;
+
+        var tst = 0;
       }
       else {
-        console.log(res["error"]);
+        console.log(res.error);
       }
     }, error => { 
       console.log("Error retrieving spotlight data: %s", error.message);
     });
+
+    this.mceService.getArtist("Gandhi Ali").subscribe(res => {
+      if(res.error == null){
+        this.featuredArtist = res.response.artist;
+      }
+      else {
+        console.log(res.error);
+      }
+    });
+  }
+
+  returnTypeUrl(type, urlcode): string {
+     return this.mceService.returnTypeUrl(type, urlcode);
+  }
+  checkimg(imgUrl){
+    return this.mceService.checkLocalImg(imgUrl);
+  }
+  returnSocialUrl(social:SocialItem){
+    return this.mceService.socialLink(social.site, social.handle);
   }
 
   ngOnInit() :void{

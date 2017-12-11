@@ -2,9 +2,9 @@
     "artists":[
         {
             "name":"Gandhi Ali",
-            "bio":"Mind Control Empire's first solo artist",
+            "bio":"As Mind Control's first solo artist we have grown around him as an artist.",
             "img":"assets/images/artist/Gandhi_Ali/GandhiAli.jpg",
-            "bannerImg":"assets/images/artist/GandhiAli-banner.jpg",
+            "bannerImg":"assets/images/artist/Gandhi_Ali/GandhiAli-banner.jpg",
             "addImg":["assets/images/artist/Gandhi_Ali/GandhiAli.png", "assets/images/artist/Gandhi_Ali/GandhiAli1.jpg","assets/images/artist/Gandhi_Ali/GandhiAli2.jpg","assets/images/artist/Gandhi_Ali/GandhiAli3.jpg","assets/images/artist/Gandhi_Ali/GandhiAli4.jpg","assets/images/artist/Gandhi_Ali/GandhiAli5.jpg","assets/images/artist/Gandhi_Ali/GandhiAli6.jpg","assets/images/artist/Gandhi_Ali/GandhiAli7.jpg"],
             "social":[
                 {"site":"twitter","handle":"gandhi3x"},
@@ -74,12 +74,12 @@
         { "name":"Radio Interview", "location":"Washington, DC: Eddie Kayne Show", "date":"2015-11-21 00:00:00", "artistname":"MIND CONTROL EMPIRE", "tags":[]}
     ],
     "news":[
-        {"img":"assets/images/site/panda1.jpeg", "spotlight":true, "title":"Panda's Play House II: A Trippy Affair", "content":"Come checkout Gandhi Ali at MilkBoy Arthouse out in College Park, MD. 12/1", "link":{"url":"https://www.ticketfly.com/event/1598104-pandas-playhouse-ii-live-college-park/", "text":"Purchase Tickets Here"}},            
-        {"img":"assets/images/media/trapblues1.jpeg", "spotlight":true, "title":"New Release: 'Trap Blues'", "content":"Listen to Trap Blue's buy Gandhi Ali", "link":{"url":"https://soundcloud.com/gandhi3x/sets/trapblues", "text":"Listen Here"}},            
+        {"title":"Panda's Play House II: A Trippy Affair", "spotlight":true, "date":"2017-11-30 00:00:00", "img":"assets/images/site/panda1.jpeg", "content":"Come checkout Gandhi Ali at MilkBoy Arthouse out in College Park, MD. 12/1", "link":{"url":"https://www.ticketfly.com/event/1598104-pandas-playhouse-ii-live-college-park/", "text":"Purchase Tickets Here"}},            
+        {"title":"New Release: 'Trap Blues'", "spotlight":true, "date":"2017-11-30 00:00:00", "img":"assets/images/media/trapblues1.jpeg", "content":"Listen to Trap Blue's buy Gandhi Ali", "link":{"url":"https://soundcloud.com/gandhi3x/sets/trapblues", "text":"Listen Here"}},            
         {"title":"Gandhi Ali Back Live @ Basement Tuesdays", "spotlight":true, "type":"wordOnTheStreet", "date":"2017-11-21 00:00:00", "img":"assets/images/site/basement1.jpeg", "content":"Gandhi Ali will be performing Live at Pure Lounge's Basement Tuesday's.  This Tuesday, November 28 Doors open at 7pm, 21 and up, @ 1326 U Street, NW, DC", "tags":["GANDHI ALI","Basement Tuesday"]},
         {"title":"Gandhi Ali Back Performing @ Danksgiving Celebration", "spotlight":true,"type":"wordOnTheStreet","date":"2017-11-21 00:00:00", "img":"assets/images/site/danksgiving1.jpeg", "content":"Gandhi Ali will be performing Live Danksgiving Celebration (11/24).  HollyWood Hemp Museum - 6140 Hollywood Blvd., Los Angeles, CA.", "link":{"url":"https://www.eventbrite.com/e/danksgiving-tickets-39818657677", "text":"Purchase Tickets"}, "tags":["GANDHI ALI","Basement Tuesday"]},              
         {"title":"CMOG Releasing Later this Winter", "spotlight":true, "type":"wordOnTheStreet","date":"2016-11-21 00:00:00", "img":"assets/images/media/CMOG.jpeg", "content":"CMOG will be released later this winter", "tags":["GANDHI ALI","CMOG"]},
-        {"title":"'Never Mind Em' Out Now", "type":"wordOnTheStreet","date":"2017-04-18 00:00:00", "img":"assets/images/media/nevermindem.jpg", "content":"Never Mind Em Single Out now on ITunes, Spotify, and more....", "link":{"url":"https://itunes.apple.com/us/album/never-mind-em-single/id1227808499", "text":"Itunes Download"}, "tags":["GANDHI ALI","Spotify", "Itunes"]},
+        {"title":"'Never Mind Em' Out Now", "type":"wordOnTheStreet","date":"2017-04-18 00:00:00", "img":"assets/images/media/nevermindem.png", "content":"Never Mind Em Single Out now on ITunes, Spotify, and more....", "link":{"url":"https://itunes.apple.com/us/album/never-mind-em-single/id1227808499", "text":"Itunes Download"}, "tags":["GANDHI ALI","Spotify", "Itunes"]},
         {"title":"SXSW Performance", "type":"wordOnTheStreet","date":"2016-03-18 00:00:00", "img":"assets/images/site/Gandhi-sxsw.png", "content":"GANDHI Ali will be performing at this years SXSW (South By Southwest) music festival in Austin, TX. Visit http://www.sxsw.com/music for event and ticket information.", "tags":["GANDHI ALI","SXSW"]},
         {"title":"GANDHI Ali is releasing Drty Warhol Vol. 1", "type":"wordOnTheStreet","date":"2016-02-25 00:00:00", "img":"assets/images/media/DrtyWorkCover.jpg", "content":"GANDHI Ali is releasing Drty Work Vol. 1 produced by Drty Warhol in late February.  The Mixtape will be released here, Live Mixtapes, Spinrilla, & Soundcloud", "tags":["GANDHI ALI","Drty Work Vol. 1"]},
         {"title":"Website Launch", "type":"wordOnTheStreet","date":"2015-12-03 00:00:00", "content":"The New Mind Control Empire website has officially been launched.  Welcome to the new Mind Control Empire Website", "tags":["Website","Mind Control Empire"]},

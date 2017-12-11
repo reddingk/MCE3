@@ -1,4 +1,4 @@
-<section class="page-body home">
+<section class="page-body home">    
     <div class="carousel-container home-section header-section dark-gradient">
         <div class="carousel-background">
             <div class="color-overlay"></div>
@@ -6,21 +6,22 @@
         </div>
 
         <ngx-carousel [inputs]="carouselOne" (carouselLoad)="loadCarousel('home', $event)" class="mc-carousels home-carousel">
-            <ngx-item NgxCarouselItem>
-                <div class="carousel-page empty-page"></div>
-            </ngx-item>
-
+            
             <ngx-item *ngFor="let item of carouselItems" NgxCarouselItem>
                 <div class="carousel-page">
                     <div class="carousel-card">
-                        <img src="{{item.image}}" class="carousel-card-img" alt="">
-                        <img src="{{item.image}}" class="special-card-img" alt="">
+                        <img src="{{item.img}}" class="carousel-card-img" alt="">
+                        <img src="{{item.img}}" class="special-card-img" alt="">
                         <div class="card-caption">
                             <h1>{{item.title}}</h1>
                             <p>{{item.text}}</p>
                         </div>
                     </div>
                 </div>
+            </ngx-item>
+
+            <ngx-item NgxCarouselItem>
+                <div class="carousel-page empty-page"></div>
             </ngx-item>
 
             <div NgxCarouselPrev class="carousel-ctrl prev"><i class="material-icons">&#xE5CB;</i></div>
@@ -32,9 +33,9 @@
     <div class="home-section level2">
         <h1 class="section-title">Spotlight Videos</h1>
         <ngx-carousel [inputs]="carouselTwo" class="mc-carousels tile-carousel c1 spotlight-carousel">        
-            <ngx-item *ngFor="let spotlight of spotlightItems" NgxCarouselItem>
+            <ngx-item *ngFor="let spotlight of spotlightVideos" NgxCarouselItem>
                 <div class="spotlight-page">
-                    <div class="spotlight-video"><iframe [src]="spotlight.returnTypeUrl('video') | safe" frameborder="0" allowfullscreen></iframe></div>
+                    <div class="spotlight-video"><iframe [src]="returnTypeUrl('video', spotlight.urlcode) | safe" frameborder="0" allowfullscreen></iframe></div>
                     <div class="spotlight-info">
                         <div class="spotlight-title">{{spotlight.title}}</div>
                         <div class="spotlight-artist">{{spotlight.artist}}</div>
@@ -54,7 +55,7 @@
         <div class="news-container" id="wordOnTheStreet">            
             <div class="news-item-container" *ngFor="let news of newsItems">
                 <div class="color-overlay"></div>
-                <img src="{{news.img}}" class="back-img main-img">
+                <img [src]="checkimg(news.img)" class="back-img main-img">
 
                 <div class="news-item-content">
                     <div class="section-type">News</div>
@@ -75,14 +76,10 @@
         
         <div class="artist-content">
             <h2 class="artist-name">{{ featuredArtist.name }}</h2>
-            <div class="artist-media">
-                <a href="" target="_blank" class="social-link instagram"><div class="link-container"><i fa [name]="'instagram'"></i></div></a>
-                <a href="" target="_blank" class="social-link twitter"><div class="link-container"><i fa [name]="'twitter'"></i></div></a>
-
-                <a href="" target="_blank" class="social-link spotify"><div class="link-container"><i fa [name]="'spotify'"></i></div></a>
-                <a href="" target="_blank" class="social-link soundcloud"><div class="link-container"><i fa [name]="'soundcloud'"></i></div></a>
+            <div class="artist-media">                
+                <a *ngFor="let social of featuredArtist.social" [href]="returnSocialUrl(social) | safe" target="_blank" class="social-link {{social.site}}"><div class="link-container"><i fa [name]="social.site"></i></div></a>
             </div>
-            <div class="artist-bio">{{ featuredArtist.bio }}</div>
+            <div class="artist-bio">{{ featuredArtist.bio }} Get to know {{featuredArtist.name}} and see where you can check em out next.</div>
 
             <div class="more-info-btn">More Info</div>
         </div>
