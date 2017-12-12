@@ -5,6 +5,7 @@ export class ReleaseItem {
     public date: string;
     public text: string;
     public url: string;
+    public img: string;
 
     constructor(){}    
     

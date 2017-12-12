@@ -277,40 +277,7 @@
                 font-size: 1.5rem;
 
                 @media @mobile-device { font-size: 1rem; }
-            }
-    
-            .artist-media {
-                display: flex;
-                padding-bottom: 20px;
-                .social-link {
-                    &.instagram{ &:hover { .link-container { background: rgba(195,42,163,1);}}}
-                    &.facebook{ &:hover { .link-container { background: rgba(59,89,152,1);}}}
-                    &.twitter{ &:hover { .link-container { background: rgba(0,182,241,1);}}}
-                    &.spotify{ &:hover { .link-container { background: rgba(29, 185, 84,1);}}}
-                    &.soundcloud{ &:hover { .link-container { background: rgba(255, 85, 0,1);}}}
-                    
-                    .link-container {
-                        color: rgba(0,0,0,1);
-                        background: rgba(255,255,255,1);
-                        border-radius: 50%;
-                        padding: 7px;
-                        position: relative;
-                        height: 39px;
-                        width: 39px;
-                        transition: 0.5s all ease;
-
-                        i { 
-                            font-size: 20px;
-                            position: absolute;
-                            top: 50%;
-                            left: 50%;
-                            transform: translate(-50%, -50%);
-                        }
-                    }
-
-                    &+.social-link { margin-left: 20px;}
-                }
-            }
+            }   
 
             .more-info-btn {
                 padding: 10px 30px;

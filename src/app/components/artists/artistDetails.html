@@ -1,3 +1,120 @@
-<section class="page-body innerpage artistDetails">
+<section class="page-body innerpage artistDetails" *ngIf="artist != undefined">    
+    <div class="inner-banner">
+        <div class="banner-background">
+            <div class="color-overlay"></div>
+            <div class="back-img" [ngStyle]="{ 'background-image':'url('+artist.bannerImg+')'}"></div>
+        </div>
+        <h1 class="banner-title">{{artist.name}}</h1>
+        <p class="banner-text">{{artist.bio}}</p>        
+    </div>
+    <!-- Artist Image Gallery -->
+    <div class="gallery-section">
+        <div class="gallery-ctrl prev" (mouseenter)="scrollActivate(-1, 'artistGallery')" (mouseleave)="scrollDeactivate()"><i class="material-icons">&#xE5CB;</i></div>
+        <div class="gallery-ctrl next" (mouseenter)="scrollActivate(1, 'artistGallery')" (mouseleave)="scrollDeactivate()"><i class="material-icons">&#xE5CC;</i></div>                
+        <div class="gallery-containers" id="artistGallery">
+            <div class="img-container" *ngFor="let img of artist.addImg">
+                <img [src]="img">
+            </div>
+        </div>
+    </div>
+    <div class="artist-body">        
+        <div class="body-info">
+            <!-- Artist Social Media -->
+            <div class="artist-media">                
+                <a *ngFor="let social of artist.social" [href]="returnSocialUrl(social)" target="_blank" class="social-link reverse {{social.site}}"><div class="link-container"><i fa [name]="social.site"></i></div></a>
+            </div>
+            <!-- Content Bio -->
+            <p class="content-bio">
+                Check out the latest music, mixtapes, and video releases from {{ artist.name }} along with any future events.  
+                Return to this page for everything {{artist.name}} and much more.
+            </p>
+        </div>
 
+        <!-- Music Releases -->
+        <div class="artist-music content-carousel">
+            <h1 class="section-title">Music</h1>
+            <ngx-carousel [inputs]="musicCarousel" class="mc-carousels tile-carousel c4 music-carousel">        
+                <ngx-item *ngFor="let song of music" NgxCarouselItem>
+                    <div class="song-page">
+                        <div class="song-img"><img [src]="checkimg(song.img)"></div>
+                        <div class="song-info">
+                            <div class="song-title">{{song.title}}</div>
+                            <div class="song-link">
+                                <a [href]="song.url" target="_blank">
+                                    <div class="link-container {{ getIcon(song.type) }}">
+                                        <i fa [name]="getIcon(song.type)"></i>
+                                        <div class="link-txt">{{ getTypeString(song.type) }}</div>
+                                    </div>
+                                </a>
+                            </div>                            
+                        </div>
+                    </div>
+                </ngx-item>
+
+                <div NgxCarouselPrev class="carousel-ctrl prev c4"><i class="material-icons">&#xE5CB;</i></div>
+                <div NgxCarouselNext class="carousel-ctrl next c4"><i class="material-icons">&#xE5CC;</i></div>
+            </ngx-carousel>            
+        </div>
+
+        <!-- MixTape Release -->
+        <div class="mixtape-music content-carousel">
+            <h1 class="section-title">Mixtapes</h1>
+            <ngx-carousel [inputs]="mixtapeCarousel" class="mc-carousels tile-carousel c4 mixtape-carousel">        
+                <ngx-item *ngFor="let mix of mixtapes" NgxCarouselItem>
+                    <div class="mix-page">
+                        <div class="mix-content"><iframe [src]="mix.url | safe" frameborder="0" height="450px" allowtransparency='true'></iframe></div>
+                        <div class="mix-info">
+                            <div class="mix-title">{{mix.title}}</div>                                                     
+                        </div>
+                    </div>
+                </ngx-item>
+
+                <div NgxCarouselPrev class="carousel-ctrl prev c4"><i class="material-icons">&#xE5CB;</i></div>
+                <div NgxCarouselNext class="carousel-ctrl next c4"><i class="material-icons">&#xE5CC;</i></div>
+            </ngx-carousel>            
+        </div>
+
+        <!-- Video Release -->
+        <div class="video-music content-carousel">
+            <h1 class="section-title">Videos</h1>
+            <ngx-carousel [inputs]="videoCarousel" class="mc-carousels tile-carousel c4 video-carousel">        
+                <ngx-item *ngFor="let video of artist.videos" NgxCarouselItem>
+                    <div class="video-page">
+                        <div class="video-content"><iframe [src]="returnTypeUrl('video', video.urlcode) | safe" frameborder="0" allowfullscreen></iframe></div>
+                        <div class="video-info">
+                            <div class="video-title">{{video.title}}</div>                                                     
+                        </div>
+                    </div>
+                </ngx-item>
+
+                <div NgxCarouselPrev class="carousel-ctrl prev c4"><i class="material-icons">&#xE5CB;</i></div>
+                <div NgxCarouselNext class="carousel-ctrl next c4"><i class="material-icons">&#xE5CC;</i></div>
+            </ngx-carousel>            
+        </div>
+
+        <!-- Video Release -->
+        <div class="events content-carousel">
+            <h1 class="section-title">Events</h1>
+            <div class="event-container">
+                <div class="artist-eventimg"><img [src]="artist.specialImg"></div>
+                <div class="mc-carousels c4 event-carousel">        
+                    <div class="mc-item {{ checkDate(event.date) }}" *ngFor="let event of events">
+                        <div class="event-page">
+                            <div class="event-date">
+                                <div class="day">{{event.date | date: 'dd'}}</div>
+                                <div class="month">{{event.date | date: 'MMM'}}</div>
+                                <div class="time">{{event.date | date: 'h a'}}</div>
+                            </div>
+                            <div class="event-info">
+                                <div class="event-title">{{event.name}}</div>
+                                <div class="event-details">                                
+                                    <span class="location">{{event.location}}</span>
+                                </div>                                                    
+                            </div>
+                        </div>
+                    </div>                 
+                </div> 
+            </div>
+        </div>
+    </div>
 </section>

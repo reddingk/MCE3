@@ -48,3 +48,196 @@
         }
     }
 }
+
+.artistDetails {
+    .inner-banner {
+        min-height: 280px;
+        .banner-background{
+            .back-img { 
+                height: 100%;
+                background-position: 0px 0px;
+                background-attachment: initial;
+            }
+        }
+    }
+    .gallery-section {
+        position: relative;
+        .gallery-ctrl {
+            position: absolute;
+            top:0;
+            height: 100%;
+            width: 50px;
+            background-color: rgba(255,255,255,1);
+            text-align: center;
+            color: rgba(0,0,0,1);
+            opacity: 0.3;
+            transition: 0.5s all ease;
+            z-index: 5;
+            cursor: pointer;
+
+            @media @mobile-device { display: none !important; }
+
+            &.prev { left: 0;}
+            &.next { right: 0;}
+            &:hover { opacity: 0.8; }
+
+            i { 
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 50px;
+            }
+        }
+        .gallery-containers {
+            height: 250px;
+            width: 100%;
+            overflow: hidden;                       
+            white-space: nowrap;
+            @media @mobile-device { overflow-x: auto;}
+            .img-container {
+                height: 100%;
+                display: inline-block;
+                img { 
+                    height: 100%;                    
+                }
+            }
+        }
+    }
+
+    .artist-body {        
+        .body-info {
+            padding: 50px;
+            .content-bio {
+                font-size: 1.7rem;
+            }
+        }
+        .content-carousel {
+            margin: 20px 0px;
+            padding: 30px 50px;
+            .section-title { color: @color4; font-size: 2.5rem; margin-bottom: 20px; text-align: center;}
+
+            &.artist-music, &.video-music {
+                .color4(background, 0.5);  
+            }
+
+            @media @mobile-device { padding: 30px 5%; }
+            .artist-eventimg {
+                width: 40%;                
+                float: left;                
+                margin-top: 20px;
+                @media @mobile-device { width: 100%; }
+                img { width: 100%; }
+            }
+            .mc-carousels{
+                position: relative;
+                z-index: 1;
+                height: 100%;
+                margin-top: 20px;                
+                &.music-carousel {                                       
+                    .song-page {
+                        text-align: center;
+                        padding: 10px;
+                        @media @mobile-device { overflow: hidden; }
+                        .song-img {
+                            height: 200px; 
+                            margin-bottom: 20px;
+                            @media @mobile-device { height: initial; }
+                            img { 
+                                height: 100%;
+                                @media @mobile-device { width: 100%; height: initial; }
+                            }
+                        }
+                        .song-info {
+                            color: @color4;
+                            text-align: center;
+                            .song-title {
+                                color: @color4;
+                                font-size: 1.5rem;
+                                font-weight: bold;
+                            }                            
+                        }
+                    }
+                }
+
+                &.mixtape-carousel {
+                    .mix-page {
+                        text-align: center;
+                        padding: 10px;
+                        .mix-content {
+                            position: relative;
+                            iframe { 
+                                min-width: 70%;
+                                @media @mobile-device { min-width: initial; width: 100%;}
+                            }
+                        }
+                        .mix-info {
+                            color: @color4;
+                            text-align: center;
+                            .mix-title {
+                                color: @color4;
+                                font-size: 1.5rem;
+                                font-weight: bold;
+                            }                            
+                        }
+                    }
+                }
+
+                &.video-carousel {
+                    .video-page {
+                        text-align: center;
+                        padding: 10px;
+                        .video-content {
+                            position: relative;  
+                            iframe { 
+                                height: 200px;
+                                @media @mobile-device { height: initial; width: 100%; }
+                            }                          
+                        }
+                        .video-info {
+                            color: @color4;
+                            text-align: center;
+                            .video-title {
+                                color: @color4;
+                                font-size: 1.5rem;
+                                font-weight: bold;
+                            }                            
+                        }
+                    }
+                }
+
+                &.event-carousel {
+                    display: inline-block;
+                    padding: 0px 30px;                    
+                    .mc-item {
+                        display: flex;
+                        flex-direction: column;
+                        padding-bottom: 7px;
+                        &+.mc-item { padding-top: 7px; border-top: 1px solid rgba(50,50,50,0.2); }
+                        &.expired {
+                            .event-date { .month { background: @color5 !important; }}
+                            .event-info { .event-title { color: @color5 !important; text-decoration: line-through; }}
+                        }
+
+                        .event-page {
+                            display: flex;                                                        
+                            .event-date { 
+                                min-width: 35px;
+                                text-align: center;
+                                .day { font-size: 1.5rem;}
+                                .month { background: @color4; color:rgba(255,255,255,1);}
+                                .time { }
+                            }
+                            .event-info {
+                                margin-left: 10px;
+                                padding: 0px 5px; 
+                                .event-title { font-size: 1.5rem; color: @color4;}
+                                .event-details { }
+                            }
+                        }                        
+                    }
+                }
+            }
+        }
+    }
+}

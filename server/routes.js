@@ -118,6 +118,42 @@ function getNews(query, res){
   res.json(ret);
 }
 
+function getEvents(query, res){
+  var ret = {"error":null, "response":{"events":null}};
+  console.log("Retrieving Events Content: %s-%s", query.artistname, query.date);
+
+  try { 
+    var filter = {};
+
+    // By Artist Name
+    if(query.artistname != undefined && query.artistname != "ALL"){
+      console.log("Adding Artist Filter");
+      filter.artistname = query.artistname;
+    }
+    var eventList = db.get('events').filter(filter);
+
+    // Check Dates
+    if(query.date != undefined && query.date != 'ALL'){         
+      eventList = eventList.dateCmp(query,'date');
+    }    
+
+    // Sort By Date
+    eventList = eventList.sortBy('date').value().reverse();
+
+    if(query.total != undefined){
+      eventList = eventList.slice(0, query.total);
+    }
+    // Set Response    
+    ret.response.events = eventList;
+  }
+  catch(ex){
+    console.log("Error: %s", ex);
+    ret.error = "Error retrieving events";
+  } 
+
+  res.json(ret);
+}
+
 module.exports = function (app) {
   app.post('/api/artist', jsonParser, function (req, res) {    
     if(req.body != null){
@@ -140,6 +176,13 @@ module.exports = function (app) {
     if(req.body != null){
       var query = req.body.query;
       getNews(query, res);
+    }
+  });
+
+  app.post('/api/events', jsonParser, function (req, res) {    
+    if(req.body != null){
+      var query = req.body.query;
+      getEvents(query, res);
     }
   });
 }

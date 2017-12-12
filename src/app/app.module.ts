@@ -26,7 +26,8 @@ import { MCEService } from './services/mceService';
 const appRoutes: Routes = [
     { path: '', component: HomeComponent},
     { path:'theempire', component: AboutComponent},
-    { path:'artists', component: ArtistsComponent}  
+    { path:'artists', component: ArtistsComponent},
+    { path:'artists/:name', component: ArtistDetailsComponent}  
 ];
 
 @NgModule({

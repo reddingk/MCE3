@@ -28,6 +28,10 @@ import { MCEService } from '../../services/mceService';
       });
     }
 
+    returnArtistUrl(name) {
+      return this.mceService.artistUrl(name);
+    }
+    
     ngOnInit() :void{ 
       this.getArtists();
     }

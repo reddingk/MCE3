@@ -1,6 +1,7 @@
 import { NewsItem } from './newsItem';
 import { VideoReleaseItem } from './videoReleaseItem';
 import { ArtistItem } from './artistItem';
+import { EventItem } from './eventItem';
 
 export class ResponseItem {   
     public error: string;
@@ -9,7 +10,8 @@ export class ResponseItem {
         news:NewsItem[], 
         videos:VideoReleaseItem[], 
         recentNews:NewsItem[],
-        artists: ArtistItem[]
+        artists: ArtistItem[],
+        events: EventItem[]
     };    
 
     constructor(){}    

@@ -57,6 +57,21 @@ export class MCEService {
         return retUrl;
     }
 
+    artistUrl(name) {
+        var cleanName = name.split(' ').join("%20");
+        return "/artists/"+cleanName;
+    }    
+
+    getMusicIcon(type){
+        if(type.includes("itunes")){
+            return "apple";
+        }
+        else if(type.includes("soundcloud")){
+            return "soundcloud";
+        }
+        return "music";        
+    }
+    /* API Calls */
     getSpotlightContent(){        
         return this.http.get<ResponseItem>(this.urlBase+'/api/spotlight');         
     }
@@ -71,6 +86,14 @@ export class MCEService {
     
     getAllArtists(){        
         return this.http.get<ResponseItem>(this.urlBase+'/api/allArtists');         
+    }  
+    
+    getEventsByDate(edate: string, aname: string){
+        return this.http.post<ResponseItem>(this.urlBase+'/api/events', {query: { date: edate, artistname: aname}});         
+    }
+
+    getEventsTotal(etotal: number, aname: string){
+        return this.http.post<ResponseItem>(this.urlBase+'/api/events', {query: { total: etotal, artistname: aname}});         
     }
     /* Private Methods */    
 }

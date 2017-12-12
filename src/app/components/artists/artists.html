@@ -8,10 +8,10 @@
     </div>
 
     <div class="artist-list-container">
-        <div class="artist-item" *ngFor="let artist of allArtists">
+        <a [href]="returnArtistUrl(artist.name)" class="artist-item" *ngFor="let artist of allArtists">
             <img class="artist-img" [src]="artist.specialImg">
             <div class="img-cover"></div>
             <div class="artist-name">{{ artist.name }}</div>
-        </div>
+        </a>
     </div>
 </section>

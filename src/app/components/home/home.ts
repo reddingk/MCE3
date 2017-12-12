@@ -82,6 +82,9 @@ export class HomeComponent implements OnInit {
   returnSocialUrl(social:SocialItem){
     return this.mceService.socialLink(social.site, social.handle);
   }
+  returnArtistUrl(name) {
+    return this.mceService.artistUrl(name);
+  }
 
   ngOnInit() :void{
       this.carouselOne = {
