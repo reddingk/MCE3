@@ -14,6 +14,7 @@ import { AppComponent }  from './components/_app/app';
 import { HomeComponent, SafePipe } from './components/home/home';
 import { AboutComponent } from './components/about/about';
 import { ArtistsComponent } from './components/artists/artists';
+import { ArtistDetailsComponent } from './components/artists/artistdetails';
 
 import { HeaderComponent } from './components/_templates/header';
 import { FooterComponent } from './components/_templates/footer';
@@ -48,7 +49,8 @@ const appRoutes: Routes = [
         SafePipe,
         HomeComponent,
         AboutComponent,
-        ArtistsComponent
+        ArtistsComponent,
+        ArtistDetailsComponent
     ],
     providers: [MCEService],
     bootstrap: [ AppComponent ]

@@ -8,7 +8,8 @@ export class ResponseItem {
         artist: ArtistItem,
         news:NewsItem[], 
         videos:VideoReleaseItem[], 
-        recentNews:NewsItem[]
+        recentNews:NewsItem[],
+        artists: ArtistItem[]
     };    
 
     constructor(){}    

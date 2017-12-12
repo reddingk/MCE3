@@ -39,16 +39,18 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy re
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_home_home__ = __webpack_require__("../../../../../src/app/components/home/home.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_about_about__ = __webpack_require__("../../../../../src/app/components/about/about.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_artists_artists__ = __webpack_require__("../../../../../src/app/components/artists/artists.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_templates_header__ = __webpack_require__("../../../../../src/app/components/_templates/header.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_templates_footer__ = __webpack_require__("../../../../../src/app/components/_templates/footer.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_templates_gravity__ = __webpack_require__("../../../../../src/app/components/_templates/gravity.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__services_mceService__ = __webpack_require__("../../../../../src/app/services/mceService.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_artists_artistdetails__ = __webpack_require__("../../../../../src/app/components/artists/artistdetails.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_templates_header__ = __webpack_require__("../../../../../src/app/components/_templates/header.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_templates_footer__ = __webpack_require__("../../../../../src/app/components/_templates/footer.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_templates_gravity__ = __webpack_require__("../../../../../src/app/components/_templates/gravity.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__services_mceService__ = __webpack_require__("../../../../../src/app/services/mceService.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -92,15 +94,16 @@ var AppModule = /** @class */ (function () {
             ],
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_11__components_app_app__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_15__components_templates_header__["a" /* HeaderComponent */],
-                __WEBPACK_IMPORTED_MODULE_16__components_templates_footer__["a" /* FooterComponent */],
-                __WEBPACK_IMPORTED_MODULE_17__components_templates_gravity__["a" /* GravityComponent */],
+                __WEBPACK_IMPORTED_MODULE_16__components_templates_header__["a" /* HeaderComponent */],
+                __WEBPACK_IMPORTED_MODULE_17__components_templates_footer__["a" /* FooterComponent */],
+                __WEBPACK_IMPORTED_MODULE_18__components_templates_gravity__["a" /* GravityComponent */],
                 __WEBPACK_IMPORTED_MODULE_12__components_home_home__["b" /* SafePipe */],
                 __WEBPACK_IMPORTED_MODULE_12__components_home_home__["a" /* HomeComponent */],
                 __WEBPACK_IMPORTED_MODULE_13__components_about_about__["a" /* AboutComponent */],
-                __WEBPACK_IMPORTED_MODULE_14__components_artists_artists__["a" /* ArtistsComponent */]
+                __WEBPACK_IMPORTED_MODULE_14__components_artists_artists__["a" /* ArtistsComponent */],
+                __WEBPACK_IMPORTED_MODULE_15__components_artists_artistdetails__["a" /* ArtistDetailsComponent */]
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_18__services_mceService__["a" /* MCEService */]],
+            providers: [__WEBPACK_IMPORTED_MODULE_19__services_mceService__["a" /* MCEService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_11__components_app_app__["a" /* AppComponent */]]
         })
     ], AppModule);
@@ -517,10 +520,69 @@ var AboutComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/components/artists/artistDetails.html":
+/***/ (function(module, exports) {
+
+module.exports = "<section class=\"page-body innerpage artistDetails\">\r\n\r\n</section>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/artists/artistdetails.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ArtistDetailsComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_mceService__ = __webpack_require__("../../../../../src/app/services/mceService.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+/* Service */
+
+var ArtistDetailsComponent = /** @class */ (function () {
+    function ArtistDetailsComponent(mceService) {
+        this.mceService = mceService;
+        this.backimg = "assets/images/site/empire.jpg";
+        this.artist = [];
+    }
+    ArtistDetailsComponent.prototype.getArtist = function () {
+        this.mceService.getAllArtists().subscribe(function (res) {
+            if (res.error == null) {
+                //this.artist = res.response.artist;
+            }
+            else {
+                console.log(res.error);
+            }
+        });
+    };
+    ArtistDetailsComponent.prototype.ngOnInit = function () {
+        this.getArtist();
+    };
+    ArtistDetailsComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            template: __webpack_require__("../../../../../src/app/components/artists/artistDetails.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/artists/artists.less")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_mceService__["a" /* MCEService */]])
+    ], ArtistDetailsComponent);
+    return ArtistDetailsComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/components/artists/artists.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"page-body innerpage empire\">  \r\n    <div class=\"inner-banner\">\r\n        <div class=\"banner-background\">\r\n            <div class=\"color-overlay\"></div>\r\n            <div class=\"back-img\" [ngStyle]=\"{ 'background-image':'url('+backimg+')'}\"></div>\r\n        </div>\r\n        <h1 class=\"banner-title\">Artists</h1>        \r\n    </div>\r\n</section>"
+module.exports = "<section class=\"page-body innerpage artists\">  \r\n    <div class=\"inner-banner\">\r\n        <div class=\"banner-background\">\r\n            <div class=\"color-overlay\"></div>\r\n            <div class=\"back-img\" [ngStyle]=\"{ 'background-image':'url('+backimg+')'}\"></div>\r\n        </div>\r\n        <h1 class=\"banner-title\">Artists</h1>        \r\n    </div>\r\n\r\n    <div class=\"artist-list-container\">\r\n        <div class=\"artist-item\" *ngFor=\"let artist of allArtists\">\r\n            <img class=\"artist-img\" [src]=\"artist.specialImg\">\r\n            <div class=\"img-cover\"></div>\r\n            <div class=\"artist-name\">{{ artist.name }}</div>\r\n        </div>\r\n    </div>\r\n</section>"
 
 /***/ }),
 
@@ -532,7 +594,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".artists .artist-list-container {\n  padding: 0px 50px 30px;\n  margin-top: -75px;\n}\n.artists .artist-list-container .artist-item {\n  position: relative;\n  display: block;\n  margin-bottom: 10px;\n  border-radius: 5px;\n  border: 1px solid #3c3c3c;\n  overflow: hidden;\n  height: 300px;\n}\n.artists .artist-list-container .artist-item:hover .img-cover {\n  opacity: 0.8;\n}\n.artists .artist-list-container .artist-item .artist-img {\n  position: absolute;\n  z-index: 0;\n  bottom: -70%;\n  left: 0;\n  min-height: 100%;\n  min-width: 100%;\n  -webkit-filter: grayscale(70%);\n          filter: grayscale(70%);\n}\n.artists .artist-list-container .artist-item .img-cover {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 1;\n  background: linear-gradient(to right, #3c3c3c, #c94b4b 80%);\n  opacity: 0.5;\n  width: 100%;\n  height: 100%;\n  transition: 0.5s all ease;\n}\n.artists .artist-list-container .artist-item .artist-name {\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  z-index: 2;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  font-size: 3rem;\n  font-weight: bold;\n  color: #ffffff;\n}\n", ""]);
 
 // exports
 
@@ -548,23 +610,45 @@ module.exports = module.exports.toString();
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ArtistsComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_mceService__ = __webpack_require__("../../../../../src/app/services/mceService.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+/* Service */
 
 var ArtistsComponent = /** @class */ (function () {
-    function ArtistsComponent() {
+    function ArtistsComponent(mceService) {
+        this.mceService = mceService;
         this.backimg = "assets/images/site/empire.jpg";
+        this.allArtists = [];
     }
-    ArtistsComponent.prototype.ngOnInit = function () { };
+    ArtistsComponent.prototype.getArtists = function () {
+        var _this = this;
+        this.mceService.getAllArtists().subscribe(function (res) {
+            if (res.error == null) {
+                _this.allArtists = res.response.artists;
+            }
+            else {
+                console.log(res.error);
+            }
+        });
+    };
+    ArtistsComponent.prototype.ngOnInit = function () {
+        this.getArtists();
+    };
     ArtistsComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             template: __webpack_require__("../../../../../src/app/components/artists/artists.html"),
             styles: [__webpack_require__("../../../../../src/app/components/artists/artists.less")]
-        })
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_mceService__["a" /* MCEService */]])
     ], ArtistsComponent);
     return ArtistsComponent;
 }());
@@ -858,6 +942,9 @@ var MCEService = /** @class */ (function () {
     };
     MCEService.prototype.getArtist = function (name) {
         return this.http.post(this.urlBase + '/api/artist', { artistname: name });
+    };
+    MCEService.prototype.getAllArtists = function () {
+        return this.http.get(this.urlBase + '/api/allArtists');
     };
     MCEService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),

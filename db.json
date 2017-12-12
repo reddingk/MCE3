@@ -5,6 +5,7 @@
             "bio":"As Mind Control's first solo artist we have grown around him as an artist.",
             "img":"assets/images/artist/Gandhi_Ali/GandhiAli.jpg",
             "bannerImg":"assets/images/artist/Gandhi_Ali/GandhiAli-banner.jpg",
+            "specialImg":"assets/images/artist/Gandhi_Ali/GandhiAli2.jpg",
             "addImg":["assets/images/artist/Gandhi_Ali/GandhiAli.png", "assets/images/artist/Gandhi_Ali/GandhiAli1.jpg","assets/images/artist/Gandhi_Ali/GandhiAli2.jpg","assets/images/artist/Gandhi_Ali/GandhiAli3.jpg","assets/images/artist/Gandhi_Ali/GandhiAli4.jpg","assets/images/artist/Gandhi_Ali/GandhiAli5.jpg","assets/images/artist/Gandhi_Ali/GandhiAli6.jpg","assets/images/artist/Gandhi_Ali/GandhiAli7.jpg"],
             "social":[
                 {"site":"twitter","handle":"gandhi3x"},

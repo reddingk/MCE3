@@ -69,5 +69,8 @@ export class MCEService {
         return this.http.post<ResponseItem>(this.urlBase+'/api/artist', {artistname: name });         
     }
     
+    getAllArtists(){        
+        return this.http.get<ResponseItem>(this.urlBase+'/api/allArtists');         
+    }
     /* Private Methods */    
 }

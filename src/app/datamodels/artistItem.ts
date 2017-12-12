@@ -8,6 +8,7 @@ export class ArtistItem {
     public title: string;
     public img: string;
     public bannerImg: string;
+    public specialImg: string;
     public addImg: string[];
     public social: SocialItem[];
     public releases: ReleaseItem[];

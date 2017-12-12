@@ -2,7 +2,8 @@ import { Component, OnInit} from '@angular/core';
 
 /* Data Models */
 import { ArtistItem } from '../../datamodels/artistItem';
-import { SocialItem } from '../../datamodels/socialItem';
+import { ResponseItem } from '../../datamodels/responseItem';
+
 /* Service */
 import { MCEService } from '../../services/mceService';
 
@@ -12,7 +13,22 @@ import { MCEService } from '../../services/mceService';
   })
   export class ArtistsComponent implements OnInit {
     public backimg: String = "assets/images/site/empire.jpg";    
+    public allArtists: ArtistItem[] = [];
 
-    ngOnInit() :void{ }
+    constructor(private mceService: MCEService){ }
 
+    getArtists(): void {
+      this.mceService.getAllArtists().subscribe(res => {
+        if(res.error == null){
+          this.allArtists = res.response.artists;
+        }
+        else {
+          console.log(res.error);
+        }
+      });
+    }
+
+    ngOnInit() :void{ 
+      this.getArtists();
+    }
   }

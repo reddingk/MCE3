@@ -48,6 +48,21 @@ function getArtist(aname, res){
   res.json(ret);
 }
 
+function getAllArtists(res){
+  var ret = {"error":null, "response":{"artists":null}};
+  console.log("Retrieving All Artists");
+
+  var artists = db.get('artists').value();
+
+  if(artists != null){
+    ret.response.artists = artists;
+  }
+  else {
+    ret.error = "Unable to find artists";
+  }
+  res.json(ret);
+}
+
 function getSpotlightContent(res){
   var ret = {"error":null, "response":{"videos":null, "news":null, "recentNews":null }};
   console.log("Retrieving Spotlight Content");
@@ -109,6 +124,10 @@ module.exports = function (app) {
       var artistname = req.body.artistname;
       getArtist(artistname, res);
     }
+  });
+
+  app.get('/api/allArtists', function (req, res) {
+    getAllArtists(res);    
   });
 
   app.get('/api/spotlight', function (req, res) {
