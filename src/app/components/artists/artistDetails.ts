@@ -30,7 +30,6 @@ import { SafePipe } from '../home/home';
     public musicCarousel: NgxCarousel;
     public mixtapeCarousel: NgxCarousel;
     public videoCarousel: NgxCarousel;
-    public eventsCarousel: NgxCarousel;
 
     constructor(private mceService: MCEService, private route: ActivatedRoute){ }
 
