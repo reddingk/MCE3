@@ -32,18 +32,39 @@ import { MCEService } from '../../services/mceService';
       }
       
     /* Get Events Data */
-    getEvents(): void {      
-  
-        this.mceService.getEventsByDate("ALL", "ALL").subscribe(res => {
-          if(res.error == null){
-            this.events = res.response.events;          
-          }
-          else {
-            console.log(res.error);
-          }
-        });
-      }
+    getEvents(): void {     
+      this.mceService.getEventsByDate("ALL", "ALL").subscribe(res => {
+        if(res.error == null){
+          this.events = res.response.events;          
+        }
+        else {
+          console.log(res.error);
+        }
+      });
+    }
     
+    displayYear(index: number) : Boolean {
+      let display: Boolean = false;
+
+      let currentEvent: EventItem = this.events[index];
+      let prevEvent: EventItem = null;
+
+      if(index == 0){
+        display = true;
+      }
+      else {
+        prevEvent = this.events[index -1];
+        var dc = new Date(currentEvent.date);
+        var dp = new Date(prevEvent.date);
+
+        if(dp.getFullYear() > dc.getFullYear()){
+          display = true;
+        }
+      }
+
+      return display;
+    }
+
     ngOnInit() :void{
         this.getEvents(); 
     }

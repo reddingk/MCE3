@@ -32,7 +32,7 @@
                 font-size: 2rem;
             }
             .event-list {                
-                padding: 0px 30px;                 
+                padding: 10px 30px 0px;                 
                 height: 500px;
                 overflow-y: auto;                
                 background: rgba(255,255,255,1);                   
@@ -45,7 +45,14 @@
                         .event-date { .month { background: @color5 !important; }}
                         .event-info { .event-title { color: @color5 !important; text-decoration: line-through; }}
                     }
-
+                    .date-year {
+                        text-align: center;
+                        display: block;
+                        width: 100%;
+                        background: linear-gradient(to right, @color4, @color2);
+                        color: rgba(255,255,255,1);
+                        font-size: 1.2rem;
+                    }
                     .event-page {
                         display: flex;                                                        
                         .event-date { 
@@ -61,6 +68,7 @@
                             text-align: left;
                             .event-title { font-size: 1.5rem; color: @color4;}
                             .event-details { }
+                            .artist-name { color: @color2; font-weight: bold;}
                         }
                     }                        
                 }

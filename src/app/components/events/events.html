@@ -14,7 +14,8 @@
                 <p>Mind Control Empire Events</p>
             </div>
             <div class="event-list">        
-                <div class="mc-item {{ checkDate(event.date) }}" *ngFor="let event of events">
+                <div class="mc-item {{ checkDate(event.date) }}" *ngFor="let event of events; let i = index">
+                    <div class="date-year" *ngIf="displayYear(i)">{{event.date | date: 'yyyy'}}</div>
                     <div class="event-page">
                         <div class="event-date">
                             <div class="day">{{event.date | date: 'dd'}}</div>
@@ -25,7 +26,8 @@
                             <div class="event-title">{{event.name}}</div>
                             <div class="event-details">                                
                                 <span class="location">{{event.location}}</span>
-                            </div>                                                    
+                            </div>
+                            <div class="artist-name">{{event.artistname}}</div>                                                    
                         </div>
                     </div>
                 </div>                 
