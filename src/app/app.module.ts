@@ -15,6 +15,8 @@ import { HomeComponent, SafePipe } from './components/home/home';
 import { AboutComponent } from './components/about/about';
 import { ArtistsComponent } from './components/artists/artists';
 import { ArtistDetailsComponent } from './components/artists/artistdetails';
+import { EventsComponent } from './components/events/events';
+import { NewsComponent } from './components/news/news';
 
 import { HeaderComponent } from './components/_templates/header';
 import { FooterComponent } from './components/_templates/footer';
@@ -24,10 +26,12 @@ import { MCEService } from './services/mceService';
 
 
 const appRoutes: Routes = [
-    { path: '', component: HomeComponent},
+    { path:'', component: HomeComponent},
     { path:'theempire', component: AboutComponent},
     { path:'artists', component: ArtistsComponent},
-    { path:'artists/:name', component: ArtistDetailsComponent}  
+    { path:'artists/:name', component: ArtistDetailsComponent},
+    { path:'events', component: EventsComponent},
+    { path:'news', component: NewsComponent}  
 ];
 
 @NgModule({
@@ -51,7 +55,9 @@ const appRoutes: Routes = [
         HomeComponent,
         AboutComponent,
         ArtistsComponent,
-        ArtistDetailsComponent
+        ArtistDetailsComponent,
+        EventsComponent,
+        NewsComponent
     ],
     providers: [MCEService],
     bootstrap: [ AppComponent ]

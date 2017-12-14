@@ -86,7 +86,7 @@ function getSpotlightContent(res){
 }
 
 function getNews(query, res){
-  var ret = {"error":null, "response":null};
+  var ret = {"error":null, "response":{"news":null}};
   console.log("Retrieving News Content");
 
   try {
@@ -104,10 +104,10 @@ function getNews(query, res){
     var newsList = db.get('news').filter(filter);
 
     if(query.total != undefined && query.total != 'ALL'){
-      ret.response = newsList.take(query.total).value();
+      ret.response.news = newsList.take(query.total).value();
     }
     else {
-      ret.response = newsList.value();
+      ret.response.news = newsList.value();
     }
   }
   catch(ex){

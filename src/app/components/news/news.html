@@ -1,0 +1,26 @@
+<section class="page-body innerpage news">    
+    <div class="inner-banner">
+        <div class="banner-background">
+            <div class="color-overlay"></div>
+            <div class="back-img" [ngStyle]="{ 'background-image':'url('+backimg+')'}"></div>
+        </div>
+        <h1 class="banner-title">News</h1>        
+    </div>
+    
+    <div class="inner-section">
+        <div class="news-container" id="allNews">
+            <div class="news-list">
+                <div class="news-item {{ idIsSelected(item.title) }}" *ngFor="let item of news" [attr.id]="buildId(item.title)" >
+                    <div class="item-content-container" (click)="selectNews(item.title)" >
+                        <div class="item-img"><img [src]="checkimg(item.img)"></div>
+                        <div class="item-info">
+                            <div class="item-title">{{ item.title }}</div>
+                            <div class="item-date">{{ item.date | date: 'MMM dd yyyy' }}</div>
+                            <div class="item-content">{{ item.content }}</div>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -14,9 +14,9 @@ export class AppComponent {
   navitems: NavItem[] = [
     new NavItem('Artists', '/artists'),
     new NavItem('The Empire', '/theempire'),
-    new NavItem('Events', ''),
+    new NavItem('Events', '/events'),
     //new NavItem('Media', ''),
-    new NavItem('News', ''),
+    new NavItem('News', '/news'),
     new NavItem('Releases', ''),
     new NavItem('Contact Us', '')];
 }

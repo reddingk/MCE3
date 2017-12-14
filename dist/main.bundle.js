@@ -40,10 +40,12 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy re
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_about_about__ = __webpack_require__("../../../../../src/app/components/about/about.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_artists_artists__ = __webpack_require__("../../../../../src/app/components/artists/artists.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_artists_artistdetails__ = __webpack_require__("../../../../../src/app/components/artists/artistdetails.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_templates_header__ = __webpack_require__("../../../../../src/app/components/_templates/header.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_templates_footer__ = __webpack_require__("../../../../../src/app/components/_templates/footer.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_templates_gravity__ = __webpack_require__("../../../../../src/app/components/_templates/gravity.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__services_mceService__ = __webpack_require__("../../../../../src/app/services/mceService.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_events_events__ = __webpack_require__("../../../../../src/app/components/events/events.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_news_news__ = __webpack_require__("../../../../../src/app/components/news/news.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_templates_header__ = __webpack_require__("../../../../../src/app/components/_templates/header.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_templates_footer__ = __webpack_require__("../../../../../src/app/components/_templates/footer.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_templates_gravity__ = __webpack_require__("../../../../../src/app/components/_templates/gravity.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_mceService__ = __webpack_require__("../../../../../src/app/services/mceService.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -69,13 +71,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
 /* Service */
 
 var appRoutes = [
     { path: '', component: __WEBPACK_IMPORTED_MODULE_12__components_home_home__["a" /* HomeComponent */] },
     { path: 'theempire', component: __WEBPACK_IMPORTED_MODULE_13__components_about_about__["a" /* AboutComponent */] },
     { path: 'artists', component: __WEBPACK_IMPORTED_MODULE_14__components_artists_artists__["a" /* ArtistsComponent */] },
-    { path: 'artists/:name', component: __WEBPACK_IMPORTED_MODULE_15__components_artists_artistdetails__["a" /* ArtistDetailsComponent */] }
+    { path: 'artists/:name', component: __WEBPACK_IMPORTED_MODULE_15__components_artists_artistdetails__["a" /* ArtistDetailsComponent */] },
+    { path: 'events', component: __WEBPACK_IMPORTED_MODULE_16__components_events_events__["a" /* EventsComponent */] },
+    { path: 'news', component: __WEBPACK_IMPORTED_MODULE_17__components_news_news__["a" /* NewsComponent */] }
 ];
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -95,16 +101,18 @@ var AppModule = /** @class */ (function () {
             ],
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_11__components_app_app__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_16__components_templates_header__["a" /* HeaderComponent */],
-                __WEBPACK_IMPORTED_MODULE_17__components_templates_footer__["a" /* FooterComponent */],
-                __WEBPACK_IMPORTED_MODULE_18__components_templates_gravity__["a" /* GravityComponent */],
+                __WEBPACK_IMPORTED_MODULE_18__components_templates_header__["a" /* HeaderComponent */],
+                __WEBPACK_IMPORTED_MODULE_19__components_templates_footer__["a" /* FooterComponent */],
+                __WEBPACK_IMPORTED_MODULE_20__components_templates_gravity__["a" /* GravityComponent */],
                 __WEBPACK_IMPORTED_MODULE_12__components_home_home__["b" /* SafePipe */],
                 __WEBPACK_IMPORTED_MODULE_12__components_home_home__["a" /* HomeComponent */],
                 __WEBPACK_IMPORTED_MODULE_13__components_about_about__["a" /* AboutComponent */],
                 __WEBPACK_IMPORTED_MODULE_14__components_artists_artists__["a" /* ArtistsComponent */],
-                __WEBPACK_IMPORTED_MODULE_15__components_artists_artistdetails__["a" /* ArtistDetailsComponent */]
+                __WEBPACK_IMPORTED_MODULE_15__components_artists_artistdetails__["a" /* ArtistDetailsComponent */],
+                __WEBPACK_IMPORTED_MODULE_16__components_events_events__["a" /* EventsComponent */],
+                __WEBPACK_IMPORTED_MODULE_17__components_news_news__["a" /* NewsComponent */]
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_19__services_mceService__["a" /* MCEService */]],
+            providers: [__WEBPACK_IMPORTED_MODULE_21__services_mceService__["a" /* MCEService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_11__components_app_app__["a" /* AppComponent */]]
         })
     ], AppModule);
@@ -142,9 +150,9 @@ var AppComponent = /** @class */ (function () {
         this.navitems = [
             new __WEBPACK_IMPORTED_MODULE_1__datamodels_navitem__["a" /* NavItem */]('Artists', '/artists'),
             new __WEBPACK_IMPORTED_MODULE_1__datamodels_navitem__["a" /* NavItem */]('The Empire', '/theempire'),
-            new __WEBPACK_IMPORTED_MODULE_1__datamodels_navitem__["a" /* NavItem */]('Events', ''),
+            new __WEBPACK_IMPORTED_MODULE_1__datamodels_navitem__["a" /* NavItem */]('Events', '/events'),
             //new NavItem('Media', ''),
-            new __WEBPACK_IMPORTED_MODULE_1__datamodels_navitem__["a" /* NavItem */]('News', ''),
+            new __WEBPACK_IMPORTED_MODULE_1__datamodels_navitem__["a" /* NavItem */]('News', '/news'),
             new __WEBPACK_IMPORTED_MODULE_1__datamodels_navitem__["a" /* NavItem */]('Releases', ''),
             new __WEBPACK_IMPORTED_MODULE_1__datamodels_navitem__["a" /* NavItem */]('Contact Us', '')
         ];
@@ -524,7 +532,7 @@ var AboutComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/components/artists/artistDetails.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"page-body innerpage artistDetails\" *ngIf=\"artist != undefined\">    \r\n    <div class=\"inner-banner\">\r\n        <div class=\"banner-background\">\r\n            <div class=\"color-overlay\"></div>\r\n            <div class=\"back-img\" [ngStyle]=\"{ 'background-image':'url('+artist.bannerImg+')'}\"></div>\r\n        </div>\r\n        <h1 class=\"banner-title\">{{artist.name}}</h1>\r\n        <p class=\"banner-text\">{{artist.bio}}</p>        \r\n    </div>\r\n    <!-- Artist Image Gallery -->\r\n    <div class=\"gallery-section\">\r\n        <div class=\"gallery-ctrl prev\" (mouseenter)=\"scrollActivate(-1, 'artistGallery')\" (mouseleave)=\"scrollDeactivate()\"><i class=\"material-icons\">&#xE5CB;</i></div>\r\n        <div class=\"gallery-ctrl next\" (mouseenter)=\"scrollActivate(1, 'artistGallery')\" (mouseleave)=\"scrollDeactivate()\"><i class=\"material-icons\">&#xE5CC;</i></div>                \r\n        <div class=\"gallery-containers\" id=\"artistGallery\">\r\n            <div class=\"img-container\" *ngFor=\"let img of artist.addImg\">\r\n                <img [src]=\"img\">\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"artist-body\">        \r\n        <div class=\"body-info\">\r\n            <!-- Artist Social Media -->\r\n            <div class=\"artist-media\">                \r\n                <a *ngFor=\"let social of artist.social\" [href]=\"returnSocialUrl(social)\" target=\"_blank\" class=\"social-link reverse {{social.site}}\"><div class=\"link-container\"><i fa [name]=\"social.site\"></i></div></a>\r\n            </div>\r\n            <!-- Content Bio -->\r\n            <p class=\"content-bio\">\r\n                Check out the latest music, mixtapes, and video releases from {{ artist.name }} along with any future events.  \r\n                Return to this page for everything {{artist.name}} and much more.\r\n            </p>\r\n        </div>\r\n\r\n        <!-- Music Releases -->\r\n        <div class=\"artist-music content-carousel\">\r\n            <h1 class=\"section-title\">Music</h1>\r\n            <ngx-carousel [inputs]=\"musicCarousel\" class=\"mc-carousels tile-carousel c4 music-carousel\">        \r\n                <ngx-item *ngFor=\"let song of music\" NgxCarouselItem>\r\n                    <div class=\"song-page\">\r\n                        <div class=\"song-img\"><img [src]=\"checkimg(song.img)\"></div>\r\n                        <div class=\"song-info\">\r\n                            <div class=\"song-title\">{{song.title}}</div>\r\n                            <div class=\"song-link\">\r\n                                <a [href]=\"song.url\" target=\"_blank\">\r\n                                    <div class=\"link-container {{ getIcon(song.type) }}\">\r\n                                        <i fa [name]=\"getIcon(song.type)\"></i>\r\n                                        <div class=\"link-txt\">{{ getTypeString(song.type) }}</div>\r\n                                    </div>\r\n                                </a>\r\n                            </div>                            \r\n                        </div>\r\n                    </div>\r\n                </ngx-item>\r\n\r\n                <div NgxCarouselPrev class=\"carousel-ctrl prev c4\"><i class=\"material-icons\">&#xE5CB;</i></div>\r\n                <div NgxCarouselNext class=\"carousel-ctrl next c4\"><i class=\"material-icons\">&#xE5CC;</i></div>\r\n            </ngx-carousel>            \r\n        </div>\r\n\r\n        <!-- MixTape Release -->\r\n        <div class=\"mixtape-music content-carousel\">\r\n            <h1 class=\"section-title\">Mixtapes</h1>\r\n            <ngx-carousel [inputs]=\"mixtapeCarousel\" class=\"mc-carousels tile-carousel c4 mixtape-carousel\">        \r\n                <ngx-item *ngFor=\"let mix of mixtapes\" NgxCarouselItem>\r\n                    <div class=\"mix-page\">\r\n                        <div class=\"mix-content\"><iframe [src]=\"mix.url | safe\" frameborder=\"0\" height=\"450px\" allowtransparency='true'></iframe></div>\r\n                        <div class=\"mix-info\">\r\n                            <div class=\"mix-title\">{{mix.title}}</div>                                                     \r\n                        </div>\r\n                    </div>\r\n                </ngx-item>\r\n\r\n                <div NgxCarouselPrev class=\"carousel-ctrl prev c4\"><i class=\"material-icons\">&#xE5CB;</i></div>\r\n                <div NgxCarouselNext class=\"carousel-ctrl next c4\"><i class=\"material-icons\">&#xE5CC;</i></div>\r\n            </ngx-carousel>            \r\n        </div>\r\n\r\n        <!-- Video Release -->\r\n        <div class=\"video-music content-carousel\">\r\n            <h1 class=\"section-title\">Videos</h1>\r\n            <ngx-carousel [inputs]=\"videoCarousel\" class=\"mc-carousels tile-carousel c4 video-carousel\">        \r\n                <ngx-item *ngFor=\"let video of artist.videos\" NgxCarouselItem>\r\n                    <div class=\"video-page\">\r\n                        <div class=\"video-content\"><iframe [src]=\"returnTypeUrl('video', video.urlcode) | safe\" frameborder=\"0\" allowfullscreen></iframe></div>\r\n                        <div class=\"video-info\">\r\n                            <div class=\"video-title\">{{video.title}}</div>                                                     \r\n                        </div>\r\n                    </div>\r\n                </ngx-item>\r\n\r\n                <div NgxCarouselPrev class=\"carousel-ctrl prev c4\"><i class=\"material-icons\">&#xE5CB;</i></div>\r\n                <div NgxCarouselNext class=\"carousel-ctrl next c4\"><i class=\"material-icons\">&#xE5CC;</i></div>\r\n            </ngx-carousel>            \r\n        </div>\r\n\r\n        <!-- Video Release -->\r\n        <div class=\"events content-carousel\">\r\n            <h1 class=\"section-title\">Events</h1>\r\n            <div class=\"event-container\">\r\n                <div class=\"artist-eventimg\"><img [src]=\"artist.specialImg\"></div>\r\n                <div class=\"mc-carousels c4 event-carousel\">        \r\n                    <div class=\"mc-item {{ checkDate(event.date) }}\" *ngFor=\"let event of events\">\r\n                        <div class=\"event-page\">\r\n                            <div class=\"event-date\">\r\n                                <div class=\"day\">{{event.date | date: 'dd'}}</div>\r\n                                <div class=\"month\">{{event.date | date: 'MMM'}}</div>\r\n                                <div class=\"time\">{{event.date | date: 'h a'}}</div>\r\n                            </div>\r\n                            <div class=\"event-info\">\r\n                                <div class=\"event-title\">{{event.name}}</div>\r\n                                <div class=\"event-details\">                                \r\n                                    <span class=\"location\">{{event.location}}</span>\r\n                                </div>                                                    \r\n                            </div>\r\n                        </div>\r\n                    </div>                 \r\n                </div> \r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>"
+module.exports = "<section class=\"page-body innerpage artistDetails\" *ngIf=\"artist != undefined\">    \r\n    <div class=\"inner-banner\">\r\n        <div class=\"banner-background\">\r\n            <div class=\"color-overlay\"></div>\r\n            <div class=\"back-img\" [ngStyle]=\"{ 'background-image':'url('+artist.bannerImg+')'}\"></div>\r\n        </div>\r\n        <h1 class=\"banner-title\">{{artist.name}}</h1>\r\n        <p class=\"banner-text\">{{artist.bio}}</p>        \r\n    </div>\r\n    <!-- Artist Image Gallery -->\r\n    <div class=\"gallery-section\">\r\n        <div class=\"gallery-ctrl prev\" (mouseenter)=\"scrollActivate(-1, 'artistGallery')\" (mouseleave)=\"scrollDeactivate()\"><i class=\"material-icons\">&#xE5CB;</i></div>\r\n        <div class=\"gallery-ctrl next\" (mouseenter)=\"scrollActivate(1, 'artistGallery')\" (mouseleave)=\"scrollDeactivate()\"><i class=\"material-icons\">&#xE5CC;</i></div>                \r\n        <div class=\"gallery-containers\" id=\"artistGallery\">\r\n            <div class=\"img-container\" *ngFor=\"let img of artist.addImg\">\r\n                <img [src]=\"img\">\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"artist-body\">        \r\n        <div class=\"body-info\">\r\n            <!-- Artist Social Media -->\r\n            <div class=\"artist-media\">                \r\n                <a *ngFor=\"let social of artist.social\" [href]=\"returnSocialUrl(social)\" target=\"_blank\" class=\"social-link reverse {{social.site}}\"><div class=\"link-container\"><i fa [name]=\"social.site\"></i></div></a>\r\n            </div>\r\n            <!-- Content Bio -->\r\n            <p class=\"content-bio\">\r\n                Check out the latest music, mixtapes, and video releases from {{ artist.name }} along with any future events.  \r\n                Return to this page for everything {{artist.name}} and much more.\r\n            </p>\r\n        </div>\r\n\r\n        <!-- Music Releases -->\r\n        <div class=\"artist-music content-carousel\">\r\n            <h1 class=\"section-title\">Music</h1>\r\n            <ngx-carousel [inputs]=\"musicCarousel\" class=\"mc-carousels tile-carousel c4 music-carousel\">        \r\n                <ngx-item *ngFor=\"let song of music\" NgxCarouselItem>\r\n                    <div class=\"song-page\">\r\n                        <div class=\"song-img\"><img [src]=\"checkimg(song.img)\"></div>\r\n                        <div class=\"song-info\">\r\n                            <div class=\"song-title\">{{song.title}}</div>\r\n                            <div class=\"song-link\">\r\n                                <a [href]=\"song.url\" target=\"_blank\">\r\n                                    <div class=\"link-container {{ getIcon(song.type) }}\">\r\n                                        <i fa [name]=\"getIcon(song.type)\"></i>\r\n                                        <div class=\"link-txt\">{{ getTypeString(song.type) }}</div>\r\n                                    </div>\r\n                                </a>\r\n                            </div>                            \r\n                        </div>\r\n                    </div>\r\n                </ngx-item>\r\n\r\n                <div NgxCarouselPrev class=\"carousel-ctrl prev c4\"><i class=\"material-icons\">&#xE5CB;</i></div>\r\n                <div NgxCarouselNext class=\"carousel-ctrl next c4\"><i class=\"material-icons\">&#xE5CC;</i></div>\r\n            </ngx-carousel>            \r\n        </div>\r\n\r\n        <!-- MixTape Release -->\r\n        <div class=\"mixtape-music content-carousel\">\r\n            <h1 class=\"section-title\">Mixtapes</h1>\r\n            <ngx-carousel [inputs]=\"mixtapeCarousel\" class=\"mc-carousels tile-carousel c4 mixtape-carousel\">        \r\n                <ngx-item *ngFor=\"let mix of mixtapes\" NgxCarouselItem>\r\n                    <div class=\"mix-page\">\r\n                        <div class=\"mix-content\"><iframe [src]=\"mix.url | safe\" frameborder=\"0\" height=\"450px\" allowtransparency='true'></iframe></div>\r\n                        <div class=\"mix-info\">\r\n                            <div class=\"mix-title\">{{mix.title}}</div>                                                     \r\n                        </div>\r\n                    </div>\r\n                </ngx-item>\r\n\r\n                <div NgxCarouselPrev class=\"carousel-ctrl prev c4\"><i class=\"material-icons\">&#xE5CB;</i></div>\r\n                <div NgxCarouselNext class=\"carousel-ctrl next c4\"><i class=\"material-icons\">&#xE5CC;</i></div>\r\n            </ngx-carousel>            \r\n        </div>\r\n\r\n        <!-- Video Release -->\r\n        <div class=\"video-music content-carousel\">\r\n            <h1 class=\"section-title\">Videos</h1>\r\n            <ngx-carousel [inputs]=\"videoCarousel\" class=\"mc-carousels tile-carousel c4 video-carousel\">        \r\n                <ngx-item *ngFor=\"let video of artist.videos\" NgxCarouselItem>\r\n                    <div class=\"video-page\">\r\n                        <div class=\"video-content\"><iframe [src]=\"returnTypeUrl('video', video.urlcode) | safe\" frameborder=\"0\" allowfullscreen></iframe></div>\r\n                        <div class=\"video-info\">\r\n                            <div class=\"video-title\">{{video.title}}</div>                                                     \r\n                        </div>\r\n                    </div>\r\n                </ngx-item>\r\n\r\n                <div NgxCarouselPrev class=\"carousel-ctrl prev c4\"><i class=\"material-icons\">&#xE5CB;</i></div>\r\n                <div NgxCarouselNext class=\"carousel-ctrl next c4\"><i class=\"material-icons\">&#xE5CC;</i></div>\r\n            </ngx-carousel>            \r\n        </div>\r\n\r\n        <!-- Events -->\r\n        <div class=\"events content-carousel\">\r\n            <h1 class=\"section-title\">Events</h1>\r\n            <div class=\"event-container\">\r\n                <div class=\"artist-eventimg\"><img [src]=\"artist.specialImg\"></div>\r\n                <div class=\"mc-carousels c4 event-carousel\">        \r\n                    <div class=\"mc-item {{ checkDate(event.date) }}\" *ngFor=\"let event of events\">\r\n                        <div class=\"event-page\">\r\n                            <div class=\"event-date\">\r\n                                <div class=\"day\">{{event.date | date: 'dd'}}</div>\r\n                                <div class=\"month\">{{event.date | date: 'MMM'}}</div>\r\n                                <div class=\"time\">{{event.date | date: 'h a'}}</div>\r\n                            </div>\r\n                            <div class=\"event-info\">\r\n                                <div class=\"event-title\">{{event.name}}</div>\r\n                                <div class=\"event-details\">                                \r\n                                    <span class=\"location\">{{event.location}}</span>\r\n                                </div>                                                    \r\n                            </div>\r\n                        </div>\r\n                    </div>                 \r\n                </div> \r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>"
 
 /***/ }),
 
@@ -707,7 +715,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".artists .artist-list-container {\n  padding: 0px 50px 30px;\n  margin-top: -75px;\n}\n.artists .artist-list-container .artist-item {\n  position: relative;\n  display: block;\n  margin-bottom: 10px;\n  border-radius: 5px;\n  border: 1px solid #3c3c3c;\n  overflow: hidden;\n  height: 300px;\n}\n.artists .artist-list-container .artist-item:hover .img-cover {\n  opacity: 0.8;\n}\n.artists .artist-list-container .artist-item .artist-img {\n  position: absolute;\n  z-index: 0;\n  bottom: -70%;\n  left: 0;\n  min-height: 100%;\n  min-width: 100%;\n  -webkit-filter: grayscale(70%);\n          filter: grayscale(70%);\n}\n.artists .artist-list-container .artist-item .img-cover {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 1;\n  background: linear-gradient(to right, #3c3c3c, #c94b4b 80%);\n  opacity: 0.5;\n  width: 100%;\n  height: 100%;\n  transition: 0.5s all ease;\n}\n.artists .artist-list-container .artist-item .artist-name {\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  z-index: 2;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  font-size: 3rem;\n  font-weight: bold;\n  color: #ffffff;\n}\n.artistDetails .inner-banner {\n  min-height: 280px;\n}\n.artistDetails .inner-banner .banner-background .back-img {\n  height: 100%;\n  background-position: 0px 0px;\n  background-attachment: initial;\n}\n.artistDetails .gallery-section {\n  position: relative;\n}\n.artistDetails .gallery-section .gallery-ctrl {\n  position: absolute;\n  top: 0;\n  height: 100%;\n  width: 50px;\n  background-color: #ffffff;\n  text-align: center;\n  color: #000000;\n  opacity: 0.3;\n  transition: 0.5s all ease;\n  z-index: 5;\n  cursor: pointer;\n}\n@media (max-width: 770px) {\n  .artistDetails .gallery-section .gallery-ctrl {\n    display: none !important;\n  }\n}\n.artistDetails .gallery-section .gallery-ctrl.prev {\n  left: 0;\n}\n.artistDetails .gallery-section .gallery-ctrl.next {\n  right: 0;\n}\n.artistDetails .gallery-section .gallery-ctrl:hover {\n  opacity: 0.8;\n}\n.artistDetails .gallery-section .gallery-ctrl i {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  font-size: 50px;\n}\n.artistDetails .gallery-section .gallery-containers {\n  height: 250px;\n  width: 100%;\n  overflow: hidden;\n  white-space: nowrap;\n}\n@media (max-width: 770px) {\n  .artistDetails .gallery-section .gallery-containers {\n    overflow-x: auto;\n  }\n}\n.artistDetails .gallery-section .gallery-containers .img-container {\n  height: 100%;\n  display: inline-block;\n}\n.artistDetails .gallery-section .gallery-containers .img-container img {\n  height: 100%;\n}\n.artistDetails .artist-body .body-info {\n  padding: 50px;\n}\n.artistDetails .artist-body .body-info .content-bio {\n  font-size: 1.7rem;\n}\n.artistDetails .artist-body .content-carousel {\n  margin: 20px 0px;\n  padding: 30px 50px;\n}\n.artistDetails .artist-body .content-carousel .section-title {\n  color: #4b134f;\n  font-size: 2.5rem;\n  margin-bottom: 20px;\n  text-align: center;\n}\n.artistDetails .artist-body .content-carousel.artist-music,\n.artistDetails .artist-body .content-carousel.video-music {\n  background: rgba(75, 19, 79, 0.5);\n}\n@media (max-width: 770px) {\n  .artistDetails .artist-body .content-carousel {\n    padding: 30px 5%;\n  }\n}\n.artistDetails .artist-body .content-carousel .artist-eventimg {\n  width: 40%;\n  float: left;\n  margin-top: 20px;\n}\n@media (max-width: 770px) {\n  .artistDetails .artist-body .content-carousel .artist-eventimg {\n    width: 100%;\n  }\n}\n.artistDetails .artist-body .content-carousel .artist-eventimg img {\n  width: 100%;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels {\n  position: relative;\n  z-index: 1;\n  height: 100%;\n  margin-top: 20px;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.music-carousel .song-page {\n  text-align: center;\n  padding: 10px;\n}\n@media (max-width: 770px) {\n  .artistDetails .artist-body .content-carousel .mc-carousels.music-carousel .song-page {\n    overflow: hidden;\n  }\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.music-carousel .song-page .song-img {\n  height: 200px;\n  margin-bottom: 20px;\n}\n@media (max-width: 770px) {\n  .artistDetails .artist-body .content-carousel .mc-carousels.music-carousel .song-page .song-img {\n    height: initial;\n  }\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.music-carousel .song-page .song-img img {\n  height: 100%;\n}\n@media (max-width: 770px) {\n  .artistDetails .artist-body .content-carousel .mc-carousels.music-carousel .song-page .song-img img {\n    width: 100%;\n    height: initial;\n  }\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.music-carousel .song-page .song-info {\n  color: #4b134f;\n  text-align: center;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.music-carousel .song-page .song-info .song-title {\n  color: #4b134f;\n  font-size: 1.5rem;\n  font-weight: bold;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.mixtape-carousel .mix-page {\n  text-align: center;\n  padding: 10px;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.mixtape-carousel .mix-page .mix-content {\n  position: relative;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.mixtape-carousel .mix-page .mix-content iframe {\n  min-width: 70%;\n}\n@media (max-width: 770px) {\n  .artistDetails .artist-body .content-carousel .mc-carousels.mixtape-carousel .mix-page .mix-content iframe {\n    min-width: initial;\n    width: 100%;\n  }\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.mixtape-carousel .mix-page .mix-info {\n  color: #4b134f;\n  text-align: center;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.mixtape-carousel .mix-page .mix-info .mix-title {\n  color: #4b134f;\n  font-size: 1.5rem;\n  font-weight: bold;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.video-carousel .video-page {\n  text-align: center;\n  padding: 10px;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.video-carousel .video-page .video-content {\n  position: relative;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.video-carousel .video-page .video-content iframe {\n  height: 200px;\n}\n@media (max-width: 770px) {\n  .artistDetails .artist-body .content-carousel .mc-carousels.video-carousel .video-page .video-content iframe {\n    height: initial;\n    width: 100%;\n  }\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.video-carousel .video-page .video-info {\n  color: #4b134f;\n  text-align: center;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.video-carousel .video-page .video-info .video-title {\n  color: #4b134f;\n  font-size: 1.5rem;\n  font-weight: bold;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.event-carousel {\n  display: inline-block;\n  padding: 0px 30px;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.event-carousel .mc-item {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  padding-bottom: 7px;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.event-carousel .mc-item + .mc-item {\n  padding-top: 7px;\n  border-top: 1px solid rgba(50, 50, 50, 0.2);\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.event-carousel .mc-item.expired .event-date .month {\n  background: #3c3c3c !important;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.event-carousel .mc-item.expired .event-info .event-title {\n  color: #3c3c3c !important;\n  text-decoration: line-through;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.event-carousel .mc-item .event-page {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.event-carousel .mc-item .event-page .event-date {\n  min-width: 35px;\n  text-align: center;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.event-carousel .mc-item .event-page .event-date .day {\n  font-size: 1.5rem;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.event-carousel .mc-item .event-page .event-date .month {\n  background: #4b134f;\n  color: #ffffff;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.event-carousel .mc-item .event-page .event-info {\n  margin-left: 10px;\n  padding: 0px 5px;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.event-carousel .mc-item .event-page .event-info .event-title {\n  font-size: 1.5rem;\n  color: #4b134f;\n}\n", ""]);
+exports.push([module.i, ".artists .artist-list-container {\n  padding: 0px 50px 30px;\n  margin-top: -75px;\n}\n.artists .artist-list-container .artist-item {\n  position: relative;\n  display: block;\n  margin-bottom: 10px;\n  border-radius: 5px;\n  border: 1px solid #3c3c3c;\n  overflow: hidden;\n  height: 300px;\n}\n.artists .artist-list-container .artist-item:hover .img-cover {\n  opacity: 0.8;\n}\n.artists .artist-list-container .artist-item .artist-img {\n  position: absolute;\n  z-index: 0;\n  bottom: -70%;\n  left: 0;\n  min-height: 100%;\n  min-width: 100%;\n  -webkit-filter: grayscale(70%);\n          filter: grayscale(70%);\n}\n.artists .artist-list-container .artist-item .img-cover {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 1;\n  background: linear-gradient(to right, #3c3c3c, #c94b4b 80%);\n  opacity: 0.5;\n  width: 100%;\n  height: 100%;\n  transition: 0.5s all ease;\n}\n.artists .artist-list-container .artist-item .artist-name {\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  z-index: 2;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  font-size: 3rem;\n  font-weight: bold;\n  color: #ffffff;\n}\n.artistDetails .inner-banner {\n  min-height: 280px;\n}\n.artistDetails .inner-banner .banner-background .back-img {\n  height: 100%;\n  background-position: 0px 0px;\n  background-attachment: initial;\n}\n.artistDetails .gallery-section {\n  position: relative;\n}\n.artistDetails .gallery-section .gallery-ctrl {\n  position: absolute;\n  top: 0;\n  height: 100%;\n  width: 50px;\n  background-color: #ffffff;\n  text-align: center;\n  color: #000000;\n  opacity: 0.3;\n  transition: 0.5s all ease;\n  z-index: 5;\n  cursor: pointer;\n}\n@media (max-width: 770px) {\n  .artistDetails .gallery-section .gallery-ctrl {\n    display: none !important;\n  }\n}\n.artistDetails .gallery-section .gallery-ctrl.prev {\n  left: 0;\n}\n.artistDetails .gallery-section .gallery-ctrl.next {\n  right: 0;\n}\n.artistDetails .gallery-section .gallery-ctrl:hover {\n  opacity: 0.8;\n}\n.artistDetails .gallery-section .gallery-ctrl i {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  -webkit-transform: translate(-50%, -50%);\n          transform: translate(-50%, -50%);\n  font-size: 50px;\n}\n.artistDetails .gallery-section .gallery-containers {\n  height: 250px;\n  width: 100%;\n  overflow: hidden;\n  white-space: nowrap;\n}\n@media (max-width: 770px) {\n  .artistDetails .gallery-section .gallery-containers {\n    overflow-x: auto;\n  }\n}\n.artistDetails .gallery-section .gallery-containers .img-container {\n  height: 100%;\n  display: inline-block;\n}\n.artistDetails .gallery-section .gallery-containers .img-container img {\n  height: 100%;\n}\n.artistDetails .artist-body .body-info {\n  padding: 50px;\n}\n.artistDetails .artist-body .body-info .content-bio {\n  font-size: 1.7rem;\n}\n.artistDetails .artist-body .event-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n.artistDetails .artist-body .content-carousel {\n  margin: 20px 0px;\n  padding: 30px 50px;\n}\n.artistDetails .artist-body .content-carousel .section-title {\n  color: #4b134f;\n  font-size: 2.5rem;\n  margin-bottom: 20px;\n  text-align: center;\n}\n.artistDetails .artist-body .content-carousel.artist-music,\n.artistDetails .artist-body .content-carousel.video-music {\n  background: rgba(75, 19, 79, 0.5);\n}\n@media (max-width: 770px) {\n  .artistDetails .artist-body .content-carousel {\n    padding: 30px 5%;\n  }\n}\n.artistDetails .artist-body .content-carousel .artist-eventimg {\n  width: 45%;\n  display: inline-block;\n  margin-top: 20px;\n}\n@media (max-width: 770px) {\n  .artistDetails .artist-body .content-carousel .artist-eventimg {\n    width: 100%;\n  }\n}\n.artistDetails .artist-body .content-carousel .artist-eventimg img {\n  width: 100%;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels {\n  position: relative;\n  z-index: 1;\n  height: 100%;\n  margin-top: 20px;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.music-carousel .song-page {\n  text-align: center;\n  padding: 10px;\n}\n@media (max-width: 770px) {\n  .artistDetails .artist-body .content-carousel .mc-carousels.music-carousel .song-page {\n    overflow: hidden;\n  }\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.music-carousel .song-page .song-img {\n  height: 200px;\n  margin-bottom: 20px;\n}\n@media (max-width: 770px) {\n  .artistDetails .artist-body .content-carousel .mc-carousels.music-carousel .song-page .song-img {\n    height: initial;\n  }\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.music-carousel .song-page .song-img img {\n  height: 100%;\n}\n@media (max-width: 770px) {\n  .artistDetails .artist-body .content-carousel .mc-carousels.music-carousel .song-page .song-img img {\n    width: 100%;\n    height: initial;\n  }\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.music-carousel .song-page .song-info {\n  color: #4b134f;\n  text-align: center;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.music-carousel .song-page .song-info .song-title {\n  color: #4b134f;\n  font-size: 1.5rem;\n  font-weight: bold;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.mixtape-carousel .mix-page {\n  text-align: center;\n  padding: 10px;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.mixtape-carousel .mix-page .mix-content {\n  position: relative;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.mixtape-carousel .mix-page .mix-content iframe {\n  min-width: 70%;\n}\n@media (max-width: 770px) {\n  .artistDetails .artist-body .content-carousel .mc-carousels.mixtape-carousel .mix-page .mix-content iframe {\n    min-width: initial;\n    width: 100%;\n  }\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.mixtape-carousel .mix-page .mix-info {\n  color: #4b134f;\n  text-align: center;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.mixtape-carousel .mix-page .mix-info .mix-title {\n  color: #4b134f;\n  font-size: 1.5rem;\n  font-weight: bold;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.video-carousel .video-page {\n  text-align: center;\n  padding: 10px;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.video-carousel .video-page .video-content {\n  position: relative;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.video-carousel .video-page .video-content iframe {\n  height: 200px;\n}\n@media (max-width: 770px) {\n  .artistDetails .artist-body .content-carousel .mc-carousels.video-carousel .video-page .video-content iframe {\n    height: initial;\n    width: 100%;\n  }\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.video-carousel .video-page .video-info {\n  color: #4b134f;\n  text-align: center;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.video-carousel .video-page .video-info .video-title {\n  color: #4b134f;\n  font-size: 1.5rem;\n  font-weight: bold;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.event-carousel {\n  display: inline-block;\n  padding: 0px 30px;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.event-carousel .mc-item {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  padding-bottom: 7px;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.event-carousel .mc-item + .mc-item {\n  padding-top: 7px;\n  border-top: 1px solid rgba(50, 50, 50, 0.2);\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.event-carousel .mc-item.expired .event-date .month {\n  background: #3c3c3c !important;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.event-carousel .mc-item.expired .event-info .event-title {\n  color: #3c3c3c !important;\n  text-decoration: line-through;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.event-carousel .mc-item .event-page {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.event-carousel .mc-item .event-page .event-date {\n  min-width: 35px;\n  text-align: center;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.event-carousel .mc-item .event-page .event-date .day {\n  font-size: 1.5rem;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.event-carousel .mc-item .event-page .event-date .month {\n  background: #4b134f;\n  color: #ffffff;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.event-carousel .mc-item .event-page .event-info {\n  margin-left: 10px;\n  padding: 0px 5px;\n}\n.artistDetails .artist-body .content-carousel .mc-carousels.event-carousel .mc-item .event-page .event-info .event-title {\n  font-size: 1.5rem;\n  color: #4b134f;\n}\n", ""]);
 
 // exports
 
@@ -767,6 +775,113 @@ var ArtistsComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_mceService__["a" /* MCEService */]])
     ], ArtistsComponent);
     return ArtistsComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/events/events.html":
+/***/ (function(module, exports) {
+
+module.exports = "<section class=\"page-body innerpage events\">    \r\n    <div class=\"inner-banner\">\r\n        <div class=\"banner-background\">\r\n            <div class=\"color-overlay\"></div>\r\n            <div class=\"back-img\" [ngStyle]=\"{ 'background-image':'url('+backimg+')'}\"></div>\r\n        </div>\r\n        <h1 class=\"banner-title\">Events</h1>        \r\n    </div>\r\n\r\n    <div class=\"inner-section\">\r\n        <div class=\"inner-back\" [ngStyle]=\"{ 'background-image':'url('+coverimg+')'}\"></div>\r\n        <div class=\"event-container\">\r\n            <div class=\"event-header\">\r\n                <p>Mind Control Empire Events</p>\r\n            </div>\r\n            <div class=\"event-list\">        \r\n                <div class=\"mc-item {{ checkDate(event.date) }}\" *ngFor=\"let event of events; let i = index\">\r\n                    <div class=\"date-year\" *ngIf=\"displayYear(i)\">{{event.date | date: 'yyyy'}}</div>\r\n                    <div class=\"event-page\">\r\n                        <div class=\"event-date\">\r\n                            <div class=\"day\">{{event.date | date: 'dd'}}</div>\r\n                            <div class=\"month\">{{event.date | date: 'MMM'}}</div>\r\n                            <div class=\"time\">{{event.date | date: 'h a'}}</div>\r\n                        </div>\r\n                        <div class=\"event-info\">\r\n                            <div class=\"event-title\">{{event.name}}</div>\r\n                            <div class=\"event-details\">                                \r\n                                <span class=\"location\">{{event.location}}</span>\r\n                            </div>\r\n                            <div class=\"artist-name\">{{event.artistname}}</div>                                                    \r\n                        </div>\r\n                    </div>\r\n                </div>                 \r\n            </div> \r\n        </div>\r\n    </div>\r\n</section>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/events/events.less":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".events .inner-section {\n  position: relative;\n  text-align: center;\n  padding: 50px;\n}\n@media (max-width: 770px) {\n  .events .inner-section {\n    padding: 50px 7%;\n  }\n}\n.events .inner-section .inner-back {\n  position: absolute;\n  z-index: 0;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-size: contain;\n  background-repeat: no-repeat;\n  background-position-y: bottom;\n  background-position-x: center;\n  opacity: 0.5;\n}\n.events .inner-section .event-container {\n  border: 1px solid rgba(0, 0, 0, 0.2);\n  display: inline-block;\n  position: relative;\n  z-index: 1;\n  max-width: 70%;\n  min-width: 50%;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\n}\n@media (max-width: 770px) {\n  .events .inner-section .event-container {\n    max-width: inherit;\n  }\n}\n.events .inner-section .event-container .event-header {\n  background-color: #4b134f;\n  color: #ffffff;\n  padding: 20px;\n  text-align: center;\n  font-weight: bold;\n  font-size: 2rem;\n}\n.events .inner-section .event-container .event-list {\n  padding: 10px 30px 0px;\n  height: 500px;\n  overflow-y: auto;\n  background: #ffffff;\n}\n@media (max-width: 770px) {\n  .events .inner-section .event-container .event-list {\n    height: 350px;\n  }\n}\n.events .inner-section .event-container .event-list .mc-item {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  padding-bottom: 7px;\n}\n.events .inner-section .event-container .event-list .mc-item + .mc-item {\n  padding-top: 7px;\n  border-top: 1px solid rgba(50, 50, 50, 0.2);\n}\n.events .inner-section .event-container .event-list .mc-item.expired .event-date .month {\n  background: #3c3c3c !important;\n}\n.events .inner-section .event-container .event-list .mc-item.expired .event-info .event-title {\n  color: #3c3c3c !important;\n  text-decoration: line-through;\n}\n.events .inner-section .event-container .event-list .mc-item .date-year {\n  text-align: center;\n  display: block;\n  width: 100%;\n  background: linear-gradient(to right, #4b134f, #c94b4b);\n  color: #ffffff;\n  font-size: 1.2rem;\n}\n.events .inner-section .event-container .event-list .mc-item .event-page {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.events .inner-section .event-container .event-list .mc-item .event-page .event-date {\n  min-width: 35px;\n  text-align: center;\n}\n.events .inner-section .event-container .event-list .mc-item .event-page .event-date .day {\n  font-size: 1.5rem;\n}\n.events .inner-section .event-container .event-list .mc-item .event-page .event-date .month {\n  background: #4b134f;\n  color: #ffffff;\n}\n.events .inner-section .event-container .event-list .mc-item .event-page .event-info {\n  margin-left: 10px;\n  padding: 0px 5px;\n  text-align: left;\n}\n.events .inner-section .event-container .event-list .mc-item .event-page .event-info .event-title {\n  font-size: 1.5rem;\n  color: #4b134f;\n}\n.events .inner-section .event-container .event-list .mc-item .event-page .event-info .artist-name {\n  color: #c94b4b;\n  font-weight: bold;\n}\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/events/events.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EventsComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_mceService__ = __webpack_require__("../../../../../src/app/services/mceService.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+/* Service */
+
+var EventsComponent = /** @class */ (function () {
+    function EventsComponent(mceService) {
+        this.mceService = mceService;
+        this.backimg = "assets/images/site/empire.jpg";
+        this.coverimg = "assets/images/site/chords.jpg";
+        this.events = [];
+    }
+    /* Check expiration date */
+    EventsComponent.prototype.checkDate = function (date) {
+        var status = "";
+        var iDate = new Date(Date.now());
+        var cDate = new Date(date);
+        if (iDate > cDate) {
+            status = "expired";
+        }
+        return status;
+    };
+    /* Get Events Data */
+    EventsComponent.prototype.getEvents = function () {
+        var _this = this;
+        this.mceService.getEventsByDate("ALL", "ALL").subscribe(function (res) {
+            if (res.error == null) {
+                _this.events = res.response.events;
+            }
+            else {
+                console.log(res.error);
+            }
+        });
+    };
+    EventsComponent.prototype.displayYear = function (index) {
+        var display = false;
+        var currentEvent = this.events[index];
+        var prevEvent = null;
+        if (index == 0) {
+            display = true;
+        }
+        else {
+            prevEvent = this.events[index - 1];
+            var dc = new Date(currentEvent.date);
+            var dp = new Date(prevEvent.date);
+            if (dp.getFullYear() > dc.getFullYear()) {
+                display = true;
+            }
+        }
+        return display;
+    };
+    EventsComponent.prototype.ngOnInit = function () {
+        this.getEvents();
+    };
+    EventsComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            template: __webpack_require__("../../../../../src/app/components/events/events.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/events/events.less")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_mceService__["a" /* MCEService */]])
+    ], EventsComponent);
+    return EventsComponent;
 }());
 
 
@@ -940,6 +1055,133 @@ var HomeComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/components/news/news.html":
+/***/ (function(module, exports) {
+
+module.exports = "<section class=\"page-body innerpage news\">    \r\n    <div class=\"inner-banner\">\r\n        <div class=\"banner-background\">\r\n            <div class=\"color-overlay\"></div>\r\n            <div class=\"back-img\" [ngStyle]=\"{ 'background-image':'url('+backimg+')'}\"></div>\r\n        </div>\r\n        <h1 class=\"banner-title\">News</h1>        \r\n    </div>\r\n    \r\n    <div class=\"inner-section\">\r\n        <div class=\"news-container\" id=\"allNews\">\r\n            <div class=\"news-list\">\r\n                <div class=\"news-item {{ idIsSelected(item.title) }}\" *ngFor=\"let item of news\" [attr.id]=\"buildId(item.title)\" >\r\n                    <div class=\"item-content-container\" (click)=\"selectNews(item.title)\" >\r\n                        <div class=\"item-img\"><img [src]=\"checkimg(item.img)\"></div>\r\n                        <div class=\"item-info\">\r\n                            <div class=\"item-title\">{{ item.title }}</div>\r\n                            <div class=\"item-date\">{{ item.date | date: 'MMM dd yyyy' }}</div>\r\n                            <div class=\"item-content\">{{ item.content }}</div>                            \r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</section>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/news/news.less":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".news .inner-section {\n  padding: 50px;\n  text-align: center;\n}\n.news .inner-section .news-container {\n  max-width: 80%;\n  display: inline-block;\n  overflow-x: hidden;\n  overflow-y: auto;\n  height: 700px;\n  border: 1px solid rgba(0, 0, 0, 0.2);\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);\n}\n.news .inner-section .news-container .news-list {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: row;\n          flex-direction: row;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n}\n.news .inner-section .news-container .news-list .news-item {\n  width: 50%;\n  padding: 10px;\n  transition: 0.5s all ease;\n}\n.news .inner-section .news-container .news-list .news-item.selected {\n  width: 100%;\n}\n.news .inner-section .news-container .news-list .news-item .item-content-container {\n  background: rgba(75, 19, 79, 0.5);\n  color: #ffffff;\n  display: -webkit-inline-box;\n  display: -ms-inline-flexbox;\n  display: inline-flex;\n  padding: 20px;\n  width: 100%;\n  height: 100%;\n  transition: 0.5s all ease;\n  cursor: pointer;\n}\n.news .inner-section .news-container .news-list .news-item .item-content-container:hover {\n  background: rgba(184, 38, 1, 0.5);\n}\n.news .inner-section .news-container .news-list .news-item .item-content-container .item-img {\n  display: inline-block;\n  width: 40%;\n  position: relative;\n  overflow: hidden;\n}\n.news .inner-section .news-container .news-list .news-item .item-content-container .item-img img {\n  width: 100%;\n}\n.news .inner-section .news-container .news-list .news-item .item-content-container .item-info {\n  padding-left: 10px;\n  width: 60%;\n  text-align: left;\n}\n.news .inner-section .news-container .news-list .news-item .item-content-container .item-info .item-title {\n  font-size: 1.5rem;\n  font-weight: bold;\n}\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/news/news.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewsComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery__ = __webpack_require__("../../../../jquery/dist/jquery.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_jquery__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_mceService__ = __webpack_require__("../../../../../src/app/services/mceService.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/* Service */
+
+var NewsComponent = /** @class */ (function () {
+    function NewsComponent(mceService, renderer) {
+        this.mceService = mceService;
+        this.renderer = renderer;
+        this.backimg = "assets/images/site/empire.jpg";
+        this.news = [];
+        this.selectedId = null;
+        this.intervalId = null;
+    }
+    NewsComponent.prototype.checkimg = function (imgUrl) {
+        return this.mceService.checkLocalImg(imgUrl);
+    };
+    /* Scroll */
+    NewsComponent.prototype.scrollDeactivate = function () {
+        clearInterval(this.intervalId);
+    };
+    NewsComponent.prototype.scrollContainer = function (container, item) {
+        var containerObj = __WEBPACK_IMPORTED_MODULE_1_jquery__("#" + container);
+        var itemObj = __WEBPACK_IMPORTED_MODULE_1_jquery__("#" + item);
+        if (containerObj != null) {
+            var scrollLoc = itemObj[0].offsetTop - (itemObj[0].clientHeight * 2);
+            if (scrollLoc > 0) {
+                containerObj.animate({ scrollTop: scrollLoc }, "slow");
+            }
+        }
+    };
+    /* Build Article ID */
+    NewsComponent.prototype.buildId = function (title) {
+        var idVal = (title == undefined || title == null ? "NA" : title.replace(/\W/gi, '_'));
+        return idVal;
+    };
+    NewsComponent.prototype.idIsSelected = function (title) {
+        var idVal = this.buildId(title);
+        if (idVal == this.selectedId) {
+            return 'selected';
+        }
+        return '';
+    };
+    /* choose selected */
+    NewsComponent.prototype.selectNews = function (title) {
+        var id = this.buildId(title);
+        if (id != this.selectedId) {
+            // set selectedID
+            this.selectedId = id;
+            // scroll news to top
+            this.scrollContainer('allNews', id);
+        }
+        else {
+            this.selectedId = null;
+        }
+    };
+    /* Get News Data */
+    NewsComponent.prototype.getNews = function () {
+        var _this = this;
+        this.mceService.getNews("ALL").subscribe(function (res) {
+            if (res.error == null) {
+                _this.news = res.response.news;
+            }
+            else {
+                console.log(res.error);
+            }
+        });
+    };
+    NewsComponent.prototype.ngOnInit = function () {
+        this.getNews();
+    };
+    NewsComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            template: __webpack_require__("../../../../../src/app/components/news/news.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/news/news.less")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_mceService__["a" /* MCEService */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"]])
+    ], NewsComponent);
+    return NewsComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/datamodels/artistItem.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1070,8 +1312,8 @@ var MCEService = /** @class */ (function () {
     MCEService.prototype.getSpotlightContent = function () {
         return this.http.get(this.urlBase + '/api/spotlight');
     };
-    MCEService.prototype.getNews = function (total, page) {
-        return null;
+    MCEService.prototype.getNews = function (ntotal) {
+        return this.http.post(this.urlBase + '/api/news', { query: { total: ntotal } });
     };
     MCEService.prototype.getArtist = function (name) {
         return this.http.post(this.urlBase + '/api/artist', { artistname: name });

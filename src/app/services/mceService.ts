@@ -76,8 +76,8 @@ export class MCEService {
         return this.http.get<ResponseItem>(this.urlBase+'/api/spotlight');         
     }
     
-    getNews(total: number, page: number){
-        return null; 
+    getNews(ntotal: string){
+        return this.http.post<ResponseItem>(this.urlBase+'/api/news', {query: { total: ntotal}});          
     }
 
     getArtist(name: string){
