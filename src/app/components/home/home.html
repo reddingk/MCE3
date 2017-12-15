@@ -53,7 +53,7 @@
         <div class="news-ctrl prev" (click)="horizontalScroll(-1, 'wordOnTheStreet')" (mouseenter)="scrollActivate(-1, 'wordOnTheStreet')" (mouseleave)="scrollDeactivate()"><i class="material-icons">&#xE5CB;</i></div>
         <div class="news-ctrl next" (click)="horizontalScroll(1, 'wordOnTheStreet')" (mouseenter)="scrollActivate(1, 'wordOnTheStreet')" (mouseleave)="scrollDeactivate()"><i class="material-icons">&#xE5CC;</i></div>        
         <div class="news-container" id="wordOnTheStreet">            
-            <div class="news-item-container" *ngFor="let news of newsItems">
+            <a [href]="returnNewsUrl(news.title)" class="news-item-container" *ngFor="let news of newsItems">
                 <div class="color-overlay"></div>
                 <img [src]="checkimg(news.img)" class="back-img main-img">
 
@@ -61,7 +61,7 @@
                     <div class="section-type">News</div>
                     <div class="item-title">{{news.title}}</div>
                 </div>
-            </div>
+            </a>
         </div>
     </div>
 

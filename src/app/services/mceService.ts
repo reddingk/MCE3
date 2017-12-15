@@ -60,7 +60,11 @@ export class MCEService {
     artistUrl(name) {
         var cleanName = name.split(' ').join("%20");
         return "/artists/"+cleanName;
-    }    
+    }
+    newsUrl(name) {
+        var cleanName = name.split(' ').join("%20");
+        return "/news/"+cleanName;
+    }     
 
     getMusicIcon(type){
         if(type.includes("itunes")){

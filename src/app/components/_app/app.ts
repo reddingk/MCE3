@@ -17,6 +17,6 @@ export class AppComponent {
     new NavItem('Events', '/events'),
     //new NavItem('Media', ''),
     new NavItem('News', '/news'),
-    new NavItem('Releases', ''),
+    new NavItem('Releases', '/releases'),
     new NavItem('Contact Us', '')];
 }

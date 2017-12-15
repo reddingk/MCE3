@@ -85,7 +85,10 @@ export class HomeComponent implements OnInit {
   returnArtistUrl(name) {
     return this.mceService.artistUrl(name);
   }
-
+  returnNewsUrl(name) {
+    return this.mceService.newsUrl(name);
+  }
+  
   ngOnInit() :void{
       this.carouselOne = {
         grid: {xs: 1, sm: 1, md: 1, lg: 1, all: 0},

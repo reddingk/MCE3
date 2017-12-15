@@ -42,16 +42,18 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy re
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_artists_artistdetails__ = __webpack_require__("../../../../../src/app/components/artists/artistdetails.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_events_events__ = __webpack_require__("../../../../../src/app/components/events/events.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_news_news__ = __webpack_require__("../../../../../src/app/components/news/news.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_templates_header__ = __webpack_require__("../../../../../src/app/components/_templates/header.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_templates_footer__ = __webpack_require__("../../../../../src/app/components/_templates/footer.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_templates_gravity__ = __webpack_require__("../../../../../src/app/components/_templates/gravity.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_mceService__ = __webpack_require__("../../../../../src/app/services/mceService.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_releases_releases__ = __webpack_require__("../../../../../src/app/components/releases/releases.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__components_templates_header__ = __webpack_require__("../../../../../src/app/components/_templates/header.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_templates_footer__ = __webpack_require__("../../../../../src/app/components/_templates/footer.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_templates_gravity__ = __webpack_require__("../../../../../src/app/components/_templates/gravity.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_mceService__ = __webpack_require__("../../../../../src/app/services/mceService.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -81,7 +83,9 @@ var appRoutes = [
     { path: 'artists', component: __WEBPACK_IMPORTED_MODULE_14__components_artists_artists__["a" /* ArtistsComponent */] },
     { path: 'artists/:name', component: __WEBPACK_IMPORTED_MODULE_15__components_artists_artistdetails__["a" /* ArtistDetailsComponent */] },
     { path: 'events', component: __WEBPACK_IMPORTED_MODULE_16__components_events_events__["a" /* EventsComponent */] },
-    { path: 'news', component: __WEBPACK_IMPORTED_MODULE_17__components_news_news__["a" /* NewsComponent */] }
+    { path: 'news', component: __WEBPACK_IMPORTED_MODULE_17__components_news_news__["a" /* NewsComponent */] },
+    { path: 'news/:id', component: __WEBPACK_IMPORTED_MODULE_17__components_news_news__["a" /* NewsComponent */] },
+    { path: 'releases', component: __WEBPACK_IMPORTED_MODULE_18__components_releases_releases__["a" /* ReleasesComponent */] }
 ];
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -101,18 +105,19 @@ var AppModule = /** @class */ (function () {
             ],
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_11__components_app_app__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_18__components_templates_header__["a" /* HeaderComponent */],
-                __WEBPACK_IMPORTED_MODULE_19__components_templates_footer__["a" /* FooterComponent */],
-                __WEBPACK_IMPORTED_MODULE_20__components_templates_gravity__["a" /* GravityComponent */],
+                __WEBPACK_IMPORTED_MODULE_19__components_templates_header__["a" /* HeaderComponent */],
+                __WEBPACK_IMPORTED_MODULE_20__components_templates_footer__["a" /* FooterComponent */],
+                __WEBPACK_IMPORTED_MODULE_21__components_templates_gravity__["a" /* GravityComponent */],
                 __WEBPACK_IMPORTED_MODULE_12__components_home_home__["b" /* SafePipe */],
                 __WEBPACK_IMPORTED_MODULE_12__components_home_home__["a" /* HomeComponent */],
                 __WEBPACK_IMPORTED_MODULE_13__components_about_about__["a" /* AboutComponent */],
                 __WEBPACK_IMPORTED_MODULE_14__components_artists_artists__["a" /* ArtistsComponent */],
                 __WEBPACK_IMPORTED_MODULE_15__components_artists_artistdetails__["a" /* ArtistDetailsComponent */],
                 __WEBPACK_IMPORTED_MODULE_16__components_events_events__["a" /* EventsComponent */],
-                __WEBPACK_IMPORTED_MODULE_17__components_news_news__["a" /* NewsComponent */]
+                __WEBPACK_IMPORTED_MODULE_17__components_news_news__["a" /* NewsComponent */],
+                __WEBPACK_IMPORTED_MODULE_18__components_releases_releases__["a" /* ReleasesComponent */]
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_21__services_mceService__["a" /* MCEService */]],
+            providers: [__WEBPACK_IMPORTED_MODULE_22__services_mceService__["a" /* MCEService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_11__components_app_app__["a" /* AppComponent */]]
         })
     ], AppModule);
@@ -153,7 +158,7 @@ var AppComponent = /** @class */ (function () {
             new __WEBPACK_IMPORTED_MODULE_1__datamodels_navitem__["a" /* NavItem */]('Events', '/events'),
             //new NavItem('Media', ''),
             new __WEBPACK_IMPORTED_MODULE_1__datamodels_navitem__["a" /* NavItem */]('News', '/news'),
-            new __WEBPACK_IMPORTED_MODULE_1__datamodels_navitem__["a" /* NavItem */]('Releases', ''),
+            new __WEBPACK_IMPORTED_MODULE_1__datamodels_navitem__["a" /* NavItem */]('Releases', '/releases'),
             new __WEBPACK_IMPORTED_MODULE_1__datamodels_navitem__["a" /* NavItem */]('Contact Us', '')
         ];
     }
@@ -891,7 +896,7 @@ var EventsComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/components/home/home.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"page-body home\">    \r\n    <div class=\"carousel-container home-section header-section dark-gradient\">\r\n        <div class=\"carousel-background\">\r\n            <div class=\"color-overlay\"></div>\r\n            <gravity-template></gravity-template>\r\n        </div>\r\n\r\n        <ngx-carousel [inputs]=\"carouselOne\" (carouselLoad)=\"loadCarousel('home', $event)\" class=\"mc-carousels home-carousel\">\r\n            \r\n            <ngx-item *ngFor=\"let item of carouselItems\" NgxCarouselItem>\r\n                <div class=\"carousel-page\">\r\n                    <div class=\"carousel-card\">\r\n                        <img src=\"{{item.img}}\" class=\"carousel-card-img\" alt=\"\">\r\n                        <img src=\"{{item.img}}\" class=\"special-card-img\" alt=\"\">\r\n                        <div class=\"card-caption\">\r\n                            <h1>{{item.title}}</h1>\r\n                            <p>{{item.text}}</p>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </ngx-item>\r\n\r\n            <ngx-item NgxCarouselItem>\r\n                <div class=\"carousel-page empty-page\"></div>\r\n            </ngx-item>\r\n\r\n            <div NgxCarouselPrev class=\"carousel-ctrl prev\"><i class=\"material-icons\">&#xE5CB;</i></div>\r\n            <div NgxCarouselNext class=\"carousel-ctrl next\"><i class=\"material-icons\">&#xE5CC;</i></div>\r\n        </ngx-carousel>\r\n    </div>\r\n\r\n    <!-- Spotlight Videos -->\r\n    <div class=\"home-section level2\">\r\n        <h1 class=\"section-title\">Spotlight Videos</h1>\r\n        <ngx-carousel [inputs]=\"carouselTwo\" class=\"mc-carousels tile-carousel c1 spotlight-carousel\">        \r\n            <ngx-item *ngFor=\"let spotlight of spotlightVideos\" NgxCarouselItem>\r\n                <div class=\"spotlight-page\">\r\n                    <div class=\"spotlight-video\"><iframe [src]=\"returnTypeUrl('video', spotlight.urlcode) | safe\" frameborder=\"0\" allowfullscreen></iframe></div>\r\n                    <div class=\"spotlight-info\">\r\n                        <div class=\"spotlight-title\">{{spotlight.title}}</div>\r\n                        <div class=\"spotlight-artist\">{{spotlight.artist}}</div>\r\n                    </div>\r\n                </div>\r\n            </ngx-item>\r\n\r\n            <div NgxCarouselPrev class=\"carousel-ctrl prev c1\"><i class=\"material-icons\">&#xE5CB;</i></div>\r\n            <div NgxCarouselNext class=\"carousel-ctrl next c1\"><i class=\"material-icons\">&#xE5CC;</i></div>\r\n        </ngx-carousel>\r\n    </div>\r\n\r\n    <!-- Word On The Street -->\r\n    <div class=\"news-section\">        \r\n        <div class=\"news-ctrl prev\" (click)=\"horizontalScroll(-1, 'wordOnTheStreet')\" (mouseenter)=\"scrollActivate(-1, 'wordOnTheStreet')\" (mouseleave)=\"scrollDeactivate()\"><i class=\"material-icons\">&#xE5CB;</i></div>\r\n        <div class=\"news-ctrl next\" (click)=\"horizontalScroll(1, 'wordOnTheStreet')\" (mouseenter)=\"scrollActivate(1, 'wordOnTheStreet')\" (mouseleave)=\"scrollDeactivate()\"><i class=\"material-icons\">&#xE5CC;</i></div>        \r\n        <div class=\"news-container\" id=\"wordOnTheStreet\">            \r\n            <div class=\"news-item-container\" *ngFor=\"let news of newsItems\">\r\n                <div class=\"color-overlay\"></div>\r\n                <img [src]=\"checkimg(news.img)\" class=\"back-img main-img\">\r\n\r\n                <div class=\"news-item-content\">\r\n                    <div class=\"section-type\">News</div>\r\n                    <div class=\"item-title\">{{news.title}}</div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n\r\n    <!-- Featured Artist -->\r\n    <div class=\"featured-artist-section\" *ngIf=\"featuredArtist != null\">\r\n        <h1 class=\"section-title\">Featured Artist</h1>\r\n\r\n        <div class=\"feature-banner\">\r\n            <div class=\"color-overlay\"></div>\r\n            <img src=\"{{featuredArtist.bannerImg}}\" class=\"banner-img\">\r\n        </div>\r\n        \r\n        <div class=\"artist-content\">\r\n            <h2 class=\"artist-name\">{{ featuredArtist.name }}</h2>\r\n            <div class=\"artist-media\">                \r\n                <a *ngFor=\"let social of featuredArtist.social\" [href]=\"returnSocialUrl(social) | safe\" target=\"_blank\" class=\"social-link {{social.site}}\"><div class=\"link-container\"><i fa [name]=\"social.site\"></i></div></a>\r\n            </div>\r\n            <div class=\"artist-bio\">{{ featuredArtist.bio }} Get to know {{featuredArtist.name}} and see where you can check em out next.</div>\r\n\r\n            <a [href]=\"returnArtistUrl(featuredArtist.name)\" class=\"more-info-btn\">More Info</a>\r\n        </div>\r\n    </div>\r\n\r\n    <!-- Follow Us -->\r\n    <div class=\"follow-us-section\">\r\n        <h1 class=\"section-title\">Follow Mind Control Empire</h1>\r\n\r\n        <!-- Social Media -->\r\n        <div class=\"social-links-container\">\r\n            <a href=\"\" target=\"_blank\" class=\"social-link youtube\"><i fa [name]=\"'youtube-play'\"></i></a>\r\n            <a href=\"\" target=\"_blank\" class=\"social-link instagram\"><i fa [name]=\"'instagram'\"></i></a>\r\n            <a href=\"\" target=\"_blank\" class=\"social-link facebook\"><i fa [name]=\"'facebook'\"></i></a>\r\n            <a href=\"\" target=\"_blank\" target=\"_blank\" class=\"social-link twitter\"><i fa [name]=\"'twitter'\"></i></a>\r\n        </div>  \r\n    </div>\r\n</section>"
+module.exports = "<section class=\"page-body home\">    \r\n    <div class=\"carousel-container home-section header-section dark-gradient\">\r\n        <div class=\"carousel-background\">\r\n            <div class=\"color-overlay\"></div>\r\n            <gravity-template></gravity-template>\r\n        </div>\r\n\r\n        <ngx-carousel [inputs]=\"carouselOne\" (carouselLoad)=\"loadCarousel('home', $event)\" class=\"mc-carousels home-carousel\">\r\n            \r\n            <ngx-item *ngFor=\"let item of carouselItems\" NgxCarouselItem>\r\n                <div class=\"carousel-page\">\r\n                    <div class=\"carousel-card\">\r\n                        <img src=\"{{item.img}}\" class=\"carousel-card-img\" alt=\"\">\r\n                        <img src=\"{{item.img}}\" class=\"special-card-img\" alt=\"\">\r\n                        <div class=\"card-caption\">\r\n                            <h1>{{item.title}}</h1>\r\n                            <p>{{item.text}}</p>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </ngx-item>\r\n\r\n            <ngx-item NgxCarouselItem>\r\n                <div class=\"carousel-page empty-page\"></div>\r\n            </ngx-item>\r\n\r\n            <div NgxCarouselPrev class=\"carousel-ctrl prev\"><i class=\"material-icons\">&#xE5CB;</i></div>\r\n            <div NgxCarouselNext class=\"carousel-ctrl next\"><i class=\"material-icons\">&#xE5CC;</i></div>\r\n        </ngx-carousel>\r\n    </div>\r\n\r\n    <!-- Spotlight Videos -->\r\n    <div class=\"home-section level2\">\r\n        <h1 class=\"section-title\">Spotlight Videos</h1>\r\n        <ngx-carousel [inputs]=\"carouselTwo\" class=\"mc-carousels tile-carousel c1 spotlight-carousel\">        \r\n            <ngx-item *ngFor=\"let spotlight of spotlightVideos\" NgxCarouselItem>\r\n                <div class=\"spotlight-page\">\r\n                    <div class=\"spotlight-video\"><iframe [src]=\"returnTypeUrl('video', spotlight.urlcode) | safe\" frameborder=\"0\" allowfullscreen></iframe></div>\r\n                    <div class=\"spotlight-info\">\r\n                        <div class=\"spotlight-title\">{{spotlight.title}}</div>\r\n                        <div class=\"spotlight-artist\">{{spotlight.artist}}</div>\r\n                    </div>\r\n                </div>\r\n            </ngx-item>\r\n\r\n            <div NgxCarouselPrev class=\"carousel-ctrl prev c1\"><i class=\"material-icons\">&#xE5CB;</i></div>\r\n            <div NgxCarouselNext class=\"carousel-ctrl next c1\"><i class=\"material-icons\">&#xE5CC;</i></div>\r\n        </ngx-carousel>\r\n    </div>\r\n\r\n    <!-- Word On The Street -->\r\n    <div class=\"news-section\">        \r\n        <div class=\"news-ctrl prev\" (click)=\"horizontalScroll(-1, 'wordOnTheStreet')\" (mouseenter)=\"scrollActivate(-1, 'wordOnTheStreet')\" (mouseleave)=\"scrollDeactivate()\"><i class=\"material-icons\">&#xE5CB;</i></div>\r\n        <div class=\"news-ctrl next\" (click)=\"horizontalScroll(1, 'wordOnTheStreet')\" (mouseenter)=\"scrollActivate(1, 'wordOnTheStreet')\" (mouseleave)=\"scrollDeactivate()\"><i class=\"material-icons\">&#xE5CC;</i></div>        \r\n        <div class=\"news-container\" id=\"wordOnTheStreet\">            \r\n            <a [href]=\"returnNewsUrl(news.title)\" class=\"news-item-container\" *ngFor=\"let news of newsItems\">\r\n                <div class=\"color-overlay\"></div>\r\n                <img [src]=\"checkimg(news.img)\" class=\"back-img main-img\">\r\n\r\n                <div class=\"news-item-content\">\r\n                    <div class=\"section-type\">News</div>\r\n                    <div class=\"item-title\">{{news.title}}</div>\r\n                </div>\r\n            </a>\r\n        </div>\r\n    </div>\r\n\r\n    <!-- Featured Artist -->\r\n    <div class=\"featured-artist-section\" *ngIf=\"featuredArtist != null\">\r\n        <h1 class=\"section-title\">Featured Artist</h1>\r\n\r\n        <div class=\"feature-banner\">\r\n            <div class=\"color-overlay\"></div>\r\n            <img src=\"{{featuredArtist.bannerImg}}\" class=\"banner-img\">\r\n        </div>\r\n        \r\n        <div class=\"artist-content\">\r\n            <h2 class=\"artist-name\">{{ featuredArtist.name }}</h2>\r\n            <div class=\"artist-media\">                \r\n                <a *ngFor=\"let social of featuredArtist.social\" [href]=\"returnSocialUrl(social) | safe\" target=\"_blank\" class=\"social-link {{social.site}}\"><div class=\"link-container\"><i fa [name]=\"social.site\"></i></div></a>\r\n            </div>\r\n            <div class=\"artist-bio\">{{ featuredArtist.bio }} Get to know {{featuredArtist.name}} and see where you can check em out next.</div>\r\n\r\n            <a [href]=\"returnArtistUrl(featuredArtist.name)\" class=\"more-info-btn\">More Info</a>\r\n        </div>\r\n    </div>\r\n\r\n    <!-- Follow Us -->\r\n    <div class=\"follow-us-section\">\r\n        <h1 class=\"section-title\">Follow Mind Control Empire</h1>\r\n\r\n        <!-- Social Media -->\r\n        <div class=\"social-links-container\">\r\n            <a href=\"\" target=\"_blank\" class=\"social-link youtube\"><i fa [name]=\"'youtube-play'\"></i></a>\r\n            <a href=\"\" target=\"_blank\" class=\"social-link instagram\"><i fa [name]=\"'instagram'\"></i></a>\r\n            <a href=\"\" target=\"_blank\" class=\"social-link facebook\"><i fa [name]=\"'facebook'\"></i></a>\r\n            <a href=\"\" target=\"_blank\" target=\"_blank\" class=\"social-link twitter\"><i fa [name]=\"'twitter'\"></i></a>\r\n        </div>  \r\n    </div>\r\n</section>"
 
 /***/ }),
 
@@ -1000,6 +1005,9 @@ var HomeComponent = /** @class */ (function () {
     HomeComponent.prototype.returnArtistUrl = function (name) {
         return this.mceService.artistUrl(name);
     };
+    HomeComponent.prototype.returnNewsUrl = function (name) {
+        return this.mceService.newsUrl(name);
+    };
     HomeComponent.prototype.ngOnInit = function () {
         this.carouselOne = {
             grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
@@ -1086,9 +1094,10 @@ module.exports = module.exports.toString();
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewsComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery__ = __webpack_require__("../../../../jquery/dist/jquery.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_jquery__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_mceService__ = __webpack_require__("../../../../../src/app/services/mceService.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_jquery__ = __webpack_require__("../../../../jquery/dist/jquery.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_jquery__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_mceService__ = __webpack_require__("../../../../../src/app/services/mceService.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1100,12 +1109,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 /* Service */
 
 var NewsComponent = /** @class */ (function () {
-    function NewsComponent(mceService, renderer) {
+    function NewsComponent(mceService, renderer, route) {
         this.mceService = mceService;
         this.renderer = renderer;
+        this.route = route;
         this.backimg = "assets/images/site/empire.jpg";
         this.news = [];
         this.selectedId = null;
@@ -1119,12 +1130,26 @@ var NewsComponent = /** @class */ (function () {
         clearInterval(this.intervalId);
     };
     NewsComponent.prototype.scrollContainer = function (container, item) {
-        var containerObj = __WEBPACK_IMPORTED_MODULE_1_jquery__("#" + container);
-        var itemObj = __WEBPACK_IMPORTED_MODULE_1_jquery__("#" + item);
-        if (containerObj != null) {
-            var scrollLoc = itemObj[0].offsetTop - (itemObj[0].clientHeight * 2);
-            if (scrollLoc > 0) {
-                containerObj.animate({ scrollTop: scrollLoc }, "slow");
+        var containerObj = __WEBPACK_IMPORTED_MODULE_2_jquery__("#" + container);
+        var itemObj = __WEBPACK_IMPORTED_MODULE_2_jquery__("#" + item);
+        var that = this;
+        if (containerObj != null && containerObj.length > 0 && itemObj != null && itemObj.length > 0) {
+            clearInterval(this.intervalId);
+            if (!itemObj[0].classList.contains("selected")) {
+                this.intervalId = setTimeout(function () {
+                    that.scrollContainer(container, item);
+                }, 400);
+            }
+            else {
+                this.intervalId = setTimeout(function () {
+                    var scrollLoc = itemObj[0].offsetTop - itemObj[0].clientHeight;
+                    if (scrollLoc > 0) {
+                        containerObj.animate({ scrollTop: scrollLoc }, "slow");
+                    }
+                    else {
+                        containerObj.animate({ scrollTop: 0 }, "slow");
+                    }
+                }, 500);
             }
         }
     };
@@ -1159,9 +1184,22 @@ var NewsComponent = /** @class */ (function () {
         this.mceService.getNews("ALL").subscribe(function (res) {
             if (res.error == null) {
                 _this.news = res.response.news;
+                _this.getParameters();
             }
             else {
                 console.log(res.error);
+            }
+        });
+    };
+    NewsComponent.prototype.getParameters = function () {
+        var _this = this;
+        this.route.params.forEach(function (params) {
+            if (params['id'] !== undefined) {
+                var id = params['id'];
+                _this.selectNews(id);
+            }
+            else {
+                console.log("Invalid News Id");
             }
         });
     };
@@ -1173,9 +1211,120 @@ var NewsComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/components/news/news.html"),
             styles: [__webpack_require__("../../../../../src/app/components/news/news.less")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_mceService__["a" /* MCEService */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__services_mceService__["a" /* MCEService */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"], __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]])
     ], NewsComponent);
     return NewsComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/releases/releases.html":
+/***/ (function(module, exports) {
+
+module.exports = "<section class=\"page-body innerpage releases\">    \r\n    <div class=\"inner-banner\">\r\n        <div class=\"banner-background\">\r\n            <div class=\"color-overlay\"></div>\r\n            <div class=\"back-img\" [ngStyle]=\"{ 'background-image':'url('+backimg+')'}\"></div>\r\n        </div>\r\n        <h1 class=\"banner-title\">Releases</h1>        \r\n    </div>\r\n\r\n</section>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/releases/releases.less":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/releases/releases.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReleasesComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_mceService__ = __webpack_require__("../../../../../src/app/services/mceService.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+/* Service */
+
+var ReleasesComponent = /** @class */ (function () {
+    function ReleasesComponent(mceService) {
+        this.mceService = mceService;
+        this.backimg = "assets/images/site/empire.jpg";
+        this.allArtists = [];
+        this.music = [];
+        this.mixtapes = [];
+        this.videos = [];
+    }
+    ReleasesComponent.prototype.retrieveMusic = function (artist) {
+        var tmpMusic = [];
+        var tmpMixtapes = [];
+        // Videos
+        this.videos = this.videos.concat(artist.videos);
+        // Sort Release list
+        for (var i = 0; i < artist.releases.length; i++) {
+            var release = artist.releases[i];
+            release.artist = artist.name;
+            if (release.type.includes('mixtape')) {
+                tmpMixtapes.push(release);
+            }
+            else {
+                tmpMusic.push(release);
+            }
+        }
+        // Set video artist name
+        for (var j = 0; j < artist.videos.length; j++) {
+            artist.videos[j].artist = artist.name;
+        }
+        // Videos
+        this.videos = this.videos.concat(artist.videos);
+        // Videos
+        this.music = this.music.concat(tmpMusic);
+        // Videos
+        this.mixtapes = this.mixtapes.concat(tmpMixtapes);
+    };
+    ReleasesComponent.prototype.getArtists = function () {
+        var _this = this;
+        this.mceService.getAllArtists().subscribe(function (res) {
+            if (res.error == null) {
+                _this.allArtists = res.response.artists;
+                for (var i = 0; i < _this.allArtists.length; i++) {
+                    _this.retrieveMusic(_this.allArtists[i]);
+                }
+            }
+            else {
+                console.log(res.error);
+            }
+        });
+    };
+    ReleasesComponent.prototype.ngOnInit = function () {
+        this.getArtists();
+    };
+    ReleasesComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            template: __webpack_require__("../../../../../src/app/components/releases/releases.html"),
+            styles: [__webpack_require__("../../../../../src/app/components/releases/releases.less")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_mceService__["a" /* MCEService */]])
+    ], ReleasesComponent);
+    return ReleasesComponent;
 }());
 
 
@@ -1298,6 +1447,10 @@ var MCEService = /** @class */ (function () {
     MCEService.prototype.artistUrl = function (name) {
         var cleanName = name.split(' ').join("%20");
         return "/artists/" + cleanName;
+    };
+    MCEService.prototype.newsUrl = function (name) {
+        var cleanName = name.split(' ').join("%20");
+        return "/news/" + cleanName;
     };
     MCEService.prototype.getMusicIcon = function (type) {
         if (type.includes("itunes")) {

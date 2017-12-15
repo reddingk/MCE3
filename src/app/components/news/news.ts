@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer} from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import * as $ from 'jquery';
 
 /* Data Models */
@@ -7,6 +8,7 @@ import { NewsItem } from '../../datamodels/newsItem';
 
 /* Service */
 import { MCEService } from '../../services/mceService';
+import { setInterval } from 'timers';
 
 @Component({
     templateUrl: './news.html',
@@ -18,11 +20,12 @@ import { MCEService } from '../../services/mceService';
     private selectedId: String = null;
     private intervalId = null;
 
-    constructor(private mceService: MCEService, private renderer: Renderer){ }    
+    constructor(private mceService: MCEService, private renderer: Renderer, private route: ActivatedRoute){ }    
     
     checkimg(imgUrl){
         return this.mceService.checkLocalImg(imgUrl);
     }
+
     /* Scroll */
     public scrollDeactivate(){
         clearInterval(this.intervalId);
@@ -31,11 +34,26 @@ import { MCEService } from '../../services/mceService';
     public scrollContainer(container: string, item: string){
         var containerObj = $("#"+container);
         var itemObj = $("#"+item);
-  
-        if(containerObj != null){          
-          let scrollLoc: number = itemObj[0].offsetTop - (itemObj[0].clientHeight *2);
-          if(scrollLoc > 0){
-            containerObj.animate({ scrollTop: scrollLoc}, "slow");
+        var that = this;
+
+        if(containerObj != null  && containerObj.length > 0 && itemObj != null  && itemObj.length > 0){
+          clearInterval(this.intervalId);
+          
+          if(!itemObj[0].classList.contains("selected")){
+            this.intervalId = setTimeout(function() {
+                that.scrollContainer(container, item);
+            }, 400);
+          }
+          else {
+            this.intervalId = setTimeout(function(){
+                let scrollLoc: number = itemObj[0].offsetTop - itemObj[0].clientHeight;
+                if(scrollLoc > 0){
+                    containerObj.animate({ scrollTop: scrollLoc}, "slow");
+                }
+                else{
+                    containerObj.animate({ scrollTop: 0}, "slow");
+                }
+              }, 500);            
           }
         }
     }
@@ -61,6 +79,7 @@ import { MCEService } from '../../services/mceService';
         if( id != this.selectedId){          
             // set selectedID
             this.selectedId = id;
+
             // scroll news to top
             this.scrollContainer('allNews',id);
         }
@@ -73,15 +92,29 @@ import { MCEService } from '../../services/mceService';
     getNews(): void {     
         this.mceService.getNews("ALL").subscribe(res => {
             if(res.error == null){
-                this.news = res.response.news;          
+                this.news = res.response.news;  
+                this.getParameters();                
             }
             else {
               console.log(res.error);
             }
         });
-    }       
+    }   
+    
+    getParameters(): void {
+        this.route.params.forEach((params: Params) => {
+            if (params['id'] !== undefined) {
+              const id = params['id'];
+              this.selectNews(id);
+            }
+            else {
+              console.log("Invalid News Id");
+            }
+        });
+    }
 
     ngOnInit() :void{
-        this.getNews(); 
+        this.getNews();
     }
+
   }
