@@ -1,4 +1,6 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
+import { MatTableDataSource, MatSort } from '@angular/material';
+
 
 /* Data Models */
 import { ResponseItem } from '../../datamodels/responseItem';
@@ -14,12 +16,18 @@ import { MCEService } from '../../services/mceService';
     styleUrls: ['./releases.less']
   })
   export class ReleasesComponent implements OnInit {
+    @ViewChild(MatSort) sort: MatSort;
+
     public backimg: String = "assets/images/site/empire.jpg"; 
     public allArtists: ArtistItem[] = [];
     public music: ReleaseItem[] = [];
     public mixtapes: ReleaseItem[] =[];
     public videos: VideoReleaseItem[] =[];
+
+    displayedColumns = ['icon', 'title', 'artist', 'date', 'source'];
+    musicDataSource = new MatTableDataSource(this.music);
     
+
     constructor(private mceService: MCEService){ }
 
     retrieveMusic(artist: ArtistItem): void {
@@ -47,9 +55,10 @@ import { MCEService } from '../../services/mceService';
 
         // Videos
         this.videos = this.videos.concat(artist.videos);
-        // Videos
-        this.music = this.music.concat(tmpMusic);
-        // Videos
+        // Music
+        let tmpmusic = this.music.concat(tmpMusic);
+        this.musicDataSource = new MatTableDataSource(tmpmusic);
+        // Mixtape
         this.mixtapes = this.mixtapes.concat(tmpMixtapes);
     }
 
@@ -66,6 +75,23 @@ import { MCEService } from '../../services/mceService';
                 console.log(res.error);
             }
         });
+    }
+
+    public getIcon(type){
+        return this.mceService.getMusicIcon(type);
+    }
+  
+    public returnTypeUrl(type, urlcode): string {
+        return this.mceService.returnTypeUrl(type, urlcode);
+    }
+  
+    public getTypeString(type){
+        var retVal = "";
+        if(type != undefined){
+          var typeStr = type.split("-");
+          retVal = typeStr[0];
+        }
+        return retVal;
     }
 
     ngOnInit() :void{

@@ -206,7 +206,7 @@ var AGMaterialModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MatCardModule */],
                 __WEBPACK_IMPORTED_MODULE_1__angular_material__["e" /* MatCheckboxModule */],
                 __WEBPACK_IMPORTED_MODULE_1__angular_material__["f" /* MatChipsModule */],
-                __WEBPACK_IMPORTED_MODULE_1__angular_material__["A" /* MatStepperModule */],
+                __WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatStepperModule */],
                 __WEBPACK_IMPORTED_MODULE_1__angular_material__["g" /* MatDatepickerModule */],
                 __WEBPACK_IMPORTED_MODULE_1__angular_material__["h" /* MatDialogModule */],
                 __WEBPACK_IMPORTED_MODULE_1__angular_material__["i" /* MatExpansionModule */],
@@ -226,11 +226,11 @@ var AGMaterialModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_1__angular_material__["x" /* MatSliderModule */],
                 __WEBPACK_IMPORTED_MODULE_1__angular_material__["w" /* MatSlideToggleModule */],
                 __WEBPACK_IMPORTED_MODULE_1__angular_material__["y" /* MatSnackBarModule */],
-                __WEBPACK_IMPORTED_MODULE_1__angular_material__["z" /* MatSortModule */],
-                __WEBPACK_IMPORTED_MODULE_1__angular_material__["B" /* MatTableModule */],
-                __WEBPACK_IMPORTED_MODULE_1__angular_material__["C" /* MatTabsModule */],
-                __WEBPACK_IMPORTED_MODULE_1__angular_material__["D" /* MatToolbarModule */],
-                __WEBPACK_IMPORTED_MODULE_1__angular_material__["E" /* MatTooltipModule */],
+                __WEBPACK_IMPORTED_MODULE_1__angular_material__["A" /* MatSortModule */],
+                __WEBPACK_IMPORTED_MODULE_1__angular_material__["D" /* MatTableModule */],
+                __WEBPACK_IMPORTED_MODULE_1__angular_material__["E" /* MatTabsModule */],
+                __WEBPACK_IMPORTED_MODULE_1__angular_material__["F" /* MatToolbarModule */],
+                __WEBPACK_IMPORTED_MODULE_1__angular_material__["G" /* MatTooltipModule */],
             ]
         })
     ], AGMaterialModule);
@@ -1223,7 +1223,7 @@ var NewsComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/components/releases/releases.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"page-body innerpage releases\">    \r\n    <div class=\"inner-banner\">\r\n        <div class=\"banner-background\">\r\n            <div class=\"color-overlay\"></div>\r\n            <div class=\"back-img\" [ngStyle]=\"{ 'background-image':'url('+backimg+')'}\"></div>\r\n        </div>\r\n        <h1 class=\"banner-title\">Releases</h1>        \r\n    </div>\r\n\r\n</section>"
+module.exports = "<section class=\"page-body innerpage releases\">    \r\n    <div class=\"inner-banner\">\r\n        <div class=\"banner-background\">\r\n            <div class=\"color-overlay\"></div>\r\n            <div class=\"back-img\" [ngStyle]=\"{ 'background-image':'url('+backimg+')'}\"></div>\r\n        </div>\r\n        <h1 class=\"banner-title\">Releases</h1>        \r\n    </div>\r\n\r\n    <div class=\"content-list music\">\r\n        <div class=\"list-container\">\r\n            <mat-table #musicTable [dataSource]=\"musicDataSource\" matSort>\r\n                <!-- Icon Column -->\r\n                <ng-container matColumnDef=\"icon\">\r\n                    <mat-header-cell *matHeaderCellDef></mat-header-cell>\r\n                    <mat-cell *matCellDef=\"let element\"><i fa name=\"music\"></i></mat-cell>\r\n                </ng-container>\r\n\r\n                <!-- Title Column -->\r\n                <ng-container matColumnDef=\"title\">\r\n                    <mat-header-cell *matHeaderCellDef mat-sort-header>Title</mat-header-cell>\r\n                    <mat-cell *matCellDef=\"let element\">{{element.title}}</mat-cell>\r\n                </ng-container>\r\n\r\n                <!-- Artist Column -->\r\n                <ng-container matColumnDef=\"artist\">\r\n                    <mat-header-cell *matHeaderCellDef mat-sort-header>Artist</mat-header-cell>\r\n                    <mat-cell *matCellDef=\"let element\">{{element.artist}}</mat-cell>\r\n                </ng-container>\r\n\r\n                <!-- Date Column -->\r\n                <ng-container matColumnDef=\"date\">\r\n                    <mat-header-cell *matHeaderCellDef mat-sort-header>Date</mat-header-cell>\r\n                    <mat-cell *matCellDef=\"let element\">{{element.date | date: 'MMM dd, yy'}}</mat-cell>\r\n                </ng-container>\r\n\r\n                <!-- Download Btn Column -->\r\n                <ng-container matColumnDef=\"source\">\r\n                    <mat-header-cell *matHeaderCellDef></mat-header-cell>\r\n                    <mat-cell *matCellDef=\"let element\">\r\n                        <div class=\"song-link\">\r\n                            <a [href]=\"element.url\" target=\"_blank\">\r\n                                <div class=\"link-container {{ getIcon(element.type) }}\">\r\n                                    <i fa [name]=\"getIcon(element.type)\"></i>\r\n                                     <div class=\"link-txt\">{{ getTypeString(element.type) }}</div>\r\n                                </div>\r\n                            </a>\r\n                        </div>\r\n                    </mat-cell>\r\n                </ng-container>\r\n\r\n                <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\r\n            </mat-table>\r\n        </div>\r\n    </div>\r\n\r\n</section>"
 
 /***/ }),
 
@@ -1235,7 +1235,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".releases .content-list {\n  padding: 0px 10%;\n}\n.releases .content-list .list-container {\n  border-left: 1px solid rgba(0, 0, 0, 0.2);\n  border-right: 1px solid rgba(0, 0, 0, 0.2);\n  height: 500px;\n  overflow-y: auto;\n  padding-bottom: 20px;\n  margin-bottom: 30px;\n}\n.releases .content-list .list-container .link-container {\n  width: 150px;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n", ""]);
 
 // exports
 
@@ -1251,7 +1251,8 @@ module.exports = module.exports.toString();
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReleasesComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_mceService__ = __webpack_require__("../../../../../src/app/services/mceService.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_mceService__ = __webpack_require__("../../../../../src/app/services/mceService.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1261,6 +1262,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 /* Service */
 
@@ -1272,6 +1274,8 @@ var ReleasesComponent = /** @class */ (function () {
         this.music = [];
         this.mixtapes = [];
         this.videos = [];
+        this.displayedColumns = ['icon', 'title', 'artist', 'date', 'source'];
+        this.musicDataSource = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["C" /* MatTableDataSource */](this.music);
     }
     ReleasesComponent.prototype.retrieveMusic = function (artist) {
         var tmpMusic = [];
@@ -1295,9 +1299,10 @@ var ReleasesComponent = /** @class */ (function () {
         }
         // Videos
         this.videos = this.videos.concat(artist.videos);
-        // Videos
-        this.music = this.music.concat(tmpMusic);
-        // Videos
+        // Music
+        var tmpmusic = this.music.concat(tmpMusic);
+        this.musicDataSource = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["C" /* MatTableDataSource */](tmpmusic);
+        // Mixtape
         this.mixtapes = this.mixtapes.concat(tmpMixtapes);
     };
     ReleasesComponent.prototype.getArtists = function () {
@@ -1314,15 +1319,33 @@ var ReleasesComponent = /** @class */ (function () {
             }
         });
     };
+    ReleasesComponent.prototype.getIcon = function (type) {
+        return this.mceService.getMusicIcon(type);
+    };
+    ReleasesComponent.prototype.returnTypeUrl = function (type, urlcode) {
+        return this.mceService.returnTypeUrl(type, urlcode);
+    };
+    ReleasesComponent.prototype.getTypeString = function (type) {
+        var retVal = "";
+        if (type != undefined) {
+            var typeStr = type.split("-");
+            retVal = typeStr[0];
+        }
+        return retVal;
+    };
     ReleasesComponent.prototype.ngOnInit = function () {
         this.getArtists();
     };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["z" /* MatSort */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_material__["z" /* MatSort */])
+    ], ReleasesComponent.prototype, "sort", void 0);
     ReleasesComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             template: __webpack_require__("../../../../../src/app/components/releases/releases.html"),
             styles: [__webpack_require__("../../../../../src/app/components/releases/releases.less")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_mceService__["a" /* MCEService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_mceService__["a" /* MCEService */]])
     ], ReleasesComponent);
     return ReleasesComponent;
 }());
