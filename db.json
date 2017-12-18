@@ -15,9 +15,9 @@
             ],
             "releases":[
                 {"title":"Trap blues", "type":"soundcloud-track", "date":"2017-11-20","url":"https://soundcloud.com/gandhi3x/sets/trapblues","text":"Gandhi Ali - Trap Blues", "img":"https://i1.sndcdn.com/artworks-000258935201-05rbst-t500x500.jpg"},
-                {"title":"That Way", "type":"itunes", "url":"https://itunes.apple.com/us/album/that-way-feat-sleep/id1276026221?i=1276026223", "img":"assets/images/media/76639.jpg"},
-                {"title":"Never Mind Em", "type":"itunes", "url":"https://itunes.apple.com/us/album/never-mind-em-single/id1227808499", "img":"assets/images/media/neverMindEm.png"},
-                {"title":"Kill Em All", "type":"itunes", "url":"https://itunes.apple.com/album/id1167613517?ls=1&amp;app=itunes", "img":"https://i1.sndcdn.com/artworks-000187342796-09tszq-t200x200.jpg"},
+                {"title":"That Way", "type":"itunes", "date":"2017-08-18", "url":"https://itunes.apple.com/us/album/that-way-feat-sleep/id1276026221?i=1276026223", "img":"assets/images/media/76639.jpg"},
+                {"title":"Never Mind Em", "type":"itunes", "date":"2017-04-14","url":"https://itunes.apple.com/us/album/never-mind-em-single/id1227808499", "img":"assets/images/media/neverMindEm.png"},
+                {"title":"Kill Em All", "type":"itunes", "date":"2017-08-18","url":"https://itunes.apple.com/album/id1167613517?ls=1&amp;app=itunes", "img":"https://i1.sndcdn.com/artworks-000187342796-09tszq-t200x200.jpg"},
                 {"title":"D.D.M.", "type":"itunes", "url":"https://itunes.apple.com/album/id1135657412?ls=1&amp;app=itunes", "img":"assets/images/media/DDM.jpg"},
                 {"title":"Sorry", "type":"itunes", "url":"https://itunes.apple.com/album/id1137842803?ls=1&amp;app=itunes", "img":"https://i1.sndcdn.com/artworks-000173467761-h8v0ax-t200x200.jpg"},
                 {"title":"Yeah2x", "type":"spinrilla-track","date":"2017-04-15","url":"https://spinrilla.com/singles/1139484-gandhi-ali-yeah2x","text":"Gandhi Ali - Yeah2x", "img":"https://cdn.spinrilla.com/tracks/1139484/large/1139484.png?1492712270"},

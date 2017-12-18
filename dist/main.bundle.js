@@ -1223,7 +1223,7 @@ var NewsComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/components/releases/releases.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section class=\"page-body innerpage releases\">    \r\n    <div class=\"inner-banner\">\r\n        <div class=\"banner-background\">\r\n            <div class=\"color-overlay\"></div>\r\n            <div class=\"back-img\" [ngStyle]=\"{ 'background-image':'url('+backimg+')'}\"></div>\r\n        </div>\r\n        <h1 class=\"banner-title\">Releases</h1>        \r\n    </div>\r\n\r\n    <div class=\"content-list music\">\r\n        <div class=\"list-container\">\r\n            <mat-table #musicTable [dataSource]=\"musicDataSource\" matSort>\r\n                <!-- Icon Column -->\r\n                <ng-container matColumnDef=\"icon\">\r\n                    <mat-header-cell *matHeaderCellDef></mat-header-cell>\r\n                    <mat-cell *matCellDef=\"let element\"><i fa name=\"music\"></i></mat-cell>\r\n                </ng-container>\r\n\r\n                <!-- Title Column -->\r\n                <ng-container matColumnDef=\"title\">\r\n                    <mat-header-cell *matHeaderCellDef mat-sort-header>Title</mat-header-cell>\r\n                    <mat-cell *matCellDef=\"let element\">{{element.title}}</mat-cell>\r\n                </ng-container>\r\n\r\n                <!-- Artist Column -->\r\n                <ng-container matColumnDef=\"artist\">\r\n                    <mat-header-cell *matHeaderCellDef mat-sort-header>Artist</mat-header-cell>\r\n                    <mat-cell *matCellDef=\"let element\">{{element.artist}}</mat-cell>\r\n                </ng-container>\r\n\r\n                <!-- Date Column -->\r\n                <ng-container matColumnDef=\"date\">\r\n                    <mat-header-cell *matHeaderCellDef mat-sort-header>Date</mat-header-cell>\r\n                    <mat-cell *matCellDef=\"let element\">{{element.date | date: 'MMM dd, yy'}}</mat-cell>\r\n                </ng-container>\r\n\r\n                <!-- Download Btn Column -->\r\n                <ng-container matColumnDef=\"source\">\r\n                    <mat-header-cell *matHeaderCellDef></mat-header-cell>\r\n                    <mat-cell *matCellDef=\"let element\">\r\n                        <div class=\"song-link\">\r\n                            <a [href]=\"element.url\" target=\"_blank\">\r\n                                <div class=\"link-container {{ getIcon(element.type) }}\">\r\n                                    <i fa [name]=\"getIcon(element.type)\"></i>\r\n                                     <div class=\"link-txt\">{{ getTypeString(element.type) }}</div>\r\n                                </div>\r\n                            </a>\r\n                        </div>\r\n                    </mat-cell>\r\n                </ng-container>\r\n\r\n                <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\r\n            </mat-table>\r\n        </div>\r\n    </div>\r\n\r\n</section>"
+module.exports = "<section class=\"page-body innerpage releases\">    \r\n    <div class=\"inner-banner\">\r\n        <div class=\"banner-background\">\r\n            <div class=\"color-overlay\"></div>\r\n            <div class=\"back-img\" [ngStyle]=\"{ 'background-image':'url('+backimg+')'}\"></div>\r\n        </div>\r\n        <h1 class=\"banner-title\">Releases</h1>        \r\n    </div>\r\n\r\n    <div class=\"content-list music\">\r\n        <h1 class=\"section-title\">Music</h1>\r\n        <div class=\"list-container\">\r\n            <mat-table #musicTable [dataSource]=\"musicDataSource\" matSort>\r\n                <!-- Icon Column -->\r\n                <ng-container matColumnDef=\"icon\">\r\n                    <mat-header-cell *matHeaderCellDef></mat-header-cell>\r\n                    <mat-cell *matCellDef=\"let element\"><div class=\"allrelease-img-container\"><img [src]=\"checkimg(element.img)\"></div></mat-cell>\r\n                </ng-container>\r\n\r\n                <!-- Title Column -->\r\n                <ng-container matColumnDef=\"title\">\r\n                    <mat-header-cell *matHeaderCellDef mat-sort-header>Title</mat-header-cell>\r\n                    <mat-cell *matCellDef=\"let element\">{{element.title}}</mat-cell>\r\n                </ng-container>\r\n\r\n                <!-- Artist Column -->\r\n                <ng-container matColumnDef=\"artist\">\r\n                    <mat-header-cell *matHeaderCellDef mat-sort-header>Artist</mat-header-cell>\r\n                    <mat-cell *matCellDef=\"let element\">{{element.artist}}</mat-cell>\r\n                </ng-container>\r\n\r\n                <!-- Date Column -->\r\n                <ng-container matColumnDef=\"date\">\r\n                    <mat-header-cell *matHeaderCellDef mat-sort-header>Date</mat-header-cell>\r\n                    <mat-cell *matCellDef=\"let element\">{{element.date | date: 'MMM dd, yy'}}</mat-cell>\r\n                </ng-container>\r\n\r\n                <!-- Download Btn Column -->\r\n                <ng-container matColumnDef=\"source\">\r\n                    <mat-header-cell *matHeaderCellDef>Listen</mat-header-cell>\r\n                    <mat-cell *matCellDef=\"let element\">\r\n                        <div class=\"song-link\">\r\n                            <div class=\"song-container\">\r\n                                <a [href]=\"element.url\" target=\"_blank\" [class]=\"getIcon(element.type)\"><i fa [name]=\"getIcon(element.type)\"></i></a>                            \r\n                            </div>\r\n                        </div>\r\n                    </mat-cell>\r\n                </ng-container>\r\n\r\n                <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\r\n            </mat-table>\r\n        </div>\r\n    </div>\r\n    <!-- Mixtapes -->\r\n    <div class=\"content-list mixtapes\">\r\n        <h1 class=\"section-title\">Mixtapes</h1>\r\n        <ngx-carousel [inputs]=\"mixtapeCarousel\" class=\"mc-carousels tile-carousel mixtape-carousel\">        \r\n            <ngx-item *ngFor=\"let mix of mixtapes\" NgxCarouselItem>\r\n                <div class=\"mix-page\">\r\n                    <div class=\"mix-content\"><iframe [src]=\"mix.url | safe\" frameborder=\"0\" height=\"450px\" allowtransparency='true'></iframe></div>\r\n                    <div class=\"mix-info\">\r\n                        <div class=\"mix-title\">{{mix.title}}</div>                                                     \r\n                    </div>\r\n                </div>\r\n            </ngx-item>\r\n\r\n            <div NgxCarouselPrev class=\"carousel-ctrl prev\"><i class=\"material-icons\">&#xE5CB;</i></div>\r\n            <div NgxCarouselNext class=\"carousel-ctrl next\"><i class=\"material-icons\">&#xE5CC;</i></div>\r\n        </ngx-carousel>    \r\n    </div>\r\n\r\n    <!-- Videos -->\r\n    <div class=\"content-list videos\">\r\n        <h1 class=\"section-title\">Videos</h1>\r\n        <div class=\"list-container\">\r\n            <mat-table #musicTable [dataSource]=\"videoDataSource\" matSort>\r\n                <!-- Icon Column -->\r\n                <ng-container matColumnDef=\"icon\">\r\n                    <mat-header-cell *matHeaderCellDef></mat-header-cell>\r\n                    <mat-cell *matCellDef=\"let element\"><div class=\"allrelease-img-container\"><img [src]=\"returnTypeUrl('image', element.urlcode)\"></div></mat-cell>\r\n                </ng-container>\r\n\r\n                <!-- Title Column -->\r\n                <ng-container matColumnDef=\"title\">\r\n                    <mat-header-cell *matHeaderCellDef mat-sort-header>Title</mat-header-cell>\r\n                    <mat-cell *matCellDef=\"let element\">{{element.title}}</mat-cell>\r\n                </ng-container>\r\n\r\n                <!-- Artist Column -->\r\n                <ng-container matColumnDef=\"artist\">\r\n                    <mat-header-cell *matHeaderCellDef mat-sort-header>Artist</mat-header-cell>\r\n                    <mat-cell *matCellDef=\"let element\">{{element.artist}}</mat-cell>\r\n                </ng-container>\r\n\r\n                <!-- Date Column -->\r\n                <ng-container matColumnDef=\"date\">\r\n                    <mat-header-cell *matHeaderCellDef mat-sort-header>Date</mat-header-cell>\r\n                    <mat-cell *matCellDef=\"let element\">{{element.date | date: 'MMM dd, yy'}}</mat-cell>\r\n                </ng-container>\r\n\r\n                <!-- Download Btn Column -->\r\n                <ng-container matColumnDef=\"source\">\r\n                    <mat-header-cell *matHeaderCellDef>Watch</mat-header-cell>\r\n                    <mat-cell *matCellDef=\"let element\">\r\n                        <div class=\"video-link\">                        \r\n                            <a [href]=\"'https://www.youtube.com/watch?v='+element.urlcode\" target=\"_blank\"><i fa name=\"youtube-play\"></i></a>\r\n                        </div>\r\n                    </mat-cell>\r\n                </ng-container>\r\n\r\n                <mat-header-row *matHeaderRowDef=\"displayedColumns\"></mat-header-row>\r\n                <mat-row *matRowDef=\"let row; columns: displayedColumns;\"></mat-row>\r\n            </mat-table>\r\n        </div>\r\n    </div>\r\n</section>"
 
 /***/ }),
 
@@ -1235,7 +1235,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".releases .content-list {\n  padding: 0px 10%;\n}\n.releases .content-list .list-container {\n  border-left: 1px solid rgba(0, 0, 0, 0.2);\n  border-right: 1px solid rgba(0, 0, 0, 0.2);\n  height: 500px;\n  overflow-y: auto;\n  padding-bottom: 20px;\n  margin-bottom: 30px;\n}\n.releases .content-list .list-container .link-container {\n  width: 150px;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n", ""]);
+exports.push([module.i, ".releases .content-list {\n  padding: 20px 10%;\n  background: #181818;\n}\n.releases .content-list.mixtapes {\n  background: linear-gradient(to right, #c94b4b, #4b134f);\n}\n.releases .content-list.mixtapes .mix-content {\n  position: relative;\n  text-align: center;\n}\n.releases .content-list.mixtapes .mix-content iframe {\n  min-width: 70%;\n}\n@media (max-width: 770px) {\n  .releases .content-list.mixtapes .mix-content iframe {\n    min-width: initial;\n    width: 100%;\n  }\n}\n.releases .content-list.mixtapes .mix-info {\n  color: #ffffff;\n  text-align: center;\n  padding: 20px 0px;\n}\n.releases .content-list.mixtapes .mix-info .mix-title {\n  color: #ffffff;\n  font-size: 2rem;\n  font-weight: bold;\n}\n.releases .content-list .section-title {\n  text-align: center;\n  color: #ffffff;\n  margin: 20px 0px;\n}\n.releases .content-list .list-container {\n  color: #ffffff;\n  border: 1px solid rgba(0, 0, 0, 0.2);\n  height: 500px;\n  overflow-y: auto;\n  padding-bottom: 20px;\n  margin-bottom: 30px;\n  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.29);\n}\n.releases .content-list .list-container .link-container {\n  width: 150px;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n}\n.releases .content-list .list-container::-webkit-scrollbar-track {\n  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n  background-color: #F5F5F5;\n}\n.releases .content-list .list-container::-webkit-scrollbar {\n  width: 7px;\n  background-color: #F5F5F5;\n}\n.releases .content-list .list-container::-webkit-scrollbar-thumb {\n  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);\n  background-color: #555;\n}\n", ""]);
 
 // exports
 
@@ -1275,44 +1275,14 @@ var ReleasesComponent = /** @class */ (function () {
         this.mixtapes = [];
         this.videos = [];
         this.displayedColumns = ['icon', 'title', 'artist', 'date', 'source'];
-        this.musicDataSource = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["C" /* MatTableDataSource */](this.music);
     }
-    ReleasesComponent.prototype.retrieveMusic = function (artist) {
-        var tmpMusic = [];
-        var tmpMixtapes = [];
-        // Videos
-        this.videos = this.videos.concat(artist.videos);
-        // Sort Release list
-        for (var i = 0; i < artist.releases.length; i++) {
-            var release = artist.releases[i];
-            release.artist = artist.name;
-            if (release.type.includes('mixtape')) {
-                tmpMixtapes.push(release);
-            }
-            else {
-                tmpMusic.push(release);
-            }
-        }
-        // Set video artist name
-        for (var j = 0; j < artist.videos.length; j++) {
-            artist.videos[j].artist = artist.name;
-        }
-        // Videos
-        this.videos = this.videos.concat(artist.videos);
-        // Music
-        var tmpmusic = this.music.concat(tmpMusic);
-        this.musicDataSource = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["C" /* MatTableDataSource */](tmpmusic);
-        // Mixtape
-        this.mixtapes = this.mixtapes.concat(tmpMixtapes);
-    };
-    ReleasesComponent.prototype.getArtists = function () {
+    ReleasesComponent.prototype.getReleases = function () {
         var _this = this;
-        this.mceService.getAllArtists().subscribe(function (res) {
+        this.mceService.getAllReleases().subscribe(function (res) {
             if (res.error == null) {
-                _this.allArtists = res.response.artists;
-                for (var i = 0; i < _this.allArtists.length; i++) {
-                    _this.retrieveMusic(_this.allArtists[i]);
-                }
+                _this.mixtapes = res.response.mixtapes;
+                _this.musicDataSource = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["C" /* MatTableDataSource */](res.response.music);
+                _this.videoDataSource = new __WEBPACK_IMPORTED_MODULE_1__angular_material__["C" /* MatTableDataSource */](res.response.videos);
             }
             else {
                 console.log(res.error);
@@ -1325,6 +1295,9 @@ var ReleasesComponent = /** @class */ (function () {
     ReleasesComponent.prototype.returnTypeUrl = function (type, urlcode) {
         return this.mceService.returnTypeUrl(type, urlcode);
     };
+    ReleasesComponent.prototype.checkimg = function (imgUrl) {
+        return this.mceService.checkLocalImg(imgUrl);
+    };
     ReleasesComponent.prototype.getTypeString = function (type) {
         var retVal = "";
         if (type != undefined) {
@@ -1334,7 +1307,13 @@ var ReleasesComponent = /** @class */ (function () {
         return retVal;
     };
     ReleasesComponent.prototype.ngOnInit = function () {
-        this.getArtists();
+        this.getReleases();
+        this.mixtapeCarousel = {
+            grid: { xs: 1, sm: 1, md: 1, lg: 1, all: 0 },
+            slide: 3, speed: 0, interval: 0,
+            point: { visible: true },
+            load: 1, touch: true, loop: false, custom: 'banner'
+        };
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["z" /* MatSort */]),
@@ -1502,6 +1481,9 @@ var MCEService = /** @class */ (function () {
     };
     MCEService.prototype.getEventsTotal = function (etotal, aname) {
         return this.http.post(this.urlBase + '/api/events', { query: { total: etotal, artistname: aname } });
+    };
+    MCEService.prototype.getAllReleases = function () {
+        return this.http.get(this.urlBase + '/api/allReleases');
     };
     MCEService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),

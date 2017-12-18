@@ -99,5 +99,9 @@ export class MCEService {
     getEventsTotal(etotal: number, aname: string){
         return this.http.post<ResponseItem>(this.urlBase+'/api/events', {query: { total: etotal, artistname: aname}});         
     }
+
+    getAllReleases(){        
+        return this.http.get<ResponseItem>(this.urlBase+'/api/allReleases');         
+    }  
     /* Private Methods */    
 }

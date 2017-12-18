@@ -63,6 +63,54 @@ function getAllArtists(res){
   res.json(ret);
 }
 
+function getAllReleases(res){
+  var ret = {"error":null, "response":{"music":null, "mixtapes":null, "videos":null}};
+  console.log("Retrieving All Releases");
+
+  var tmpartists = db.get('artists').value();
+  var allArtists = null;
+  if(tmpartists != null){
+    allArtists = tmpartists;
+  }
+  else {
+    ret.error = "Unable to find artists for releases";
+  }
+
+  if(allArtists != null) {
+    var tmpMusic = [];
+    var tmpMixtapes = [];
+    var tmpVideos = [];
+
+    for(var i = 0; i < allArtists.length; i++){
+      // parse music/mixtapes
+      for(var j =0; j < allArtists[i].releases.length; j++){
+        var release = allArtists[i].releases[j];
+        release.artist = allArtists[i].name;
+
+        if(release.type.includes('mixtape')){
+            tmpMixtapes.push(release);
+        }
+        else {
+            tmpMusic.push(release);
+        }
+      }
+
+      // parse videos
+      for(var k =0; k < allArtists[i].videos.length; k++){
+        allArtists[i].videos[k].artist = allArtists[i].name;
+        tmpVideos.push(allArtists[i].videos[k]);
+      }
+    }
+
+    // add music lists to return object
+    ret.response.music = tmpMusic.sort(function(a,b) { var dateA= new Date(a.date), dateB=new Date(b.date); return dateB - dateA; });
+    ret.response.mixtapes = tmpMixtapes.sort(function(a,b) { var dateA= new Date(a.date), dateB=new Date(b.date); return dateB - dateA; });
+    ret.response.videos = tmpVideos.sort(function(a,b) { var dateA= new Date(a.date), dateB=new Date(b.date); return dateB - dateA; });    
+  }
+
+  res.json(ret);
+}
+
 function getSpotlightContent(res){
   var ret = {"error":null, "response":{"videos":null, "news":null, "recentNews":null }};
   console.log("Retrieving Spotlight Content");
@@ -184,5 +232,9 @@ module.exports = function (app) {
       var query = req.body.query;
       getEvents(query, res);
     }
+  });
+
+  app.get('/api/allReleases', function (req, res) {
+    getAllReleases(res);    
   });
 }

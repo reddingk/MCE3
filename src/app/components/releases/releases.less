@@ -2,19 +2,64 @@
 
 .releases {
     .content-list {
-        padding: 0px 10%;
+        padding: 20px 10%;
+        background: rgba(24,24,24,1);
+
+        &.mixtapes {
+            background: linear-gradient(to right, @color2, @color4);
+            .mix-content {
+                position: relative;
+                text-align: center;
+                iframe { 
+                    min-width: 70%;
+                    @media @mobile-device { min-width: initial; width: 100%;}
+                }
+            }
+            .mix-info {
+                color: rgba(255,255,255,1);
+                text-align: center;
+                padding: 20px 0px;
+                .mix-title {
+                    color: rgba(255,255,255,1);
+                    font-size: 2rem;
+                    font-weight: bold;
+                }                            
+            }
+        }
+        .section-title { 
+            text-align: center;
+            color: rgba(255,255,255,1);
+            margin: 20px 0px;
+        }
         .list-container {
-            border-left: 1px solid rgba(0,0,0,0.2);
-            border-right: 1px solid rgba(0,0,0,0.2);
+            color: rgba(255,255,255,1);
+            border: 1px solid rgba(0,0,0,0.2);            
             height: 500px;
             overflow-y: auto;
             padding-bottom: 20px;
             margin-bottom: 30px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.29);
 
             .link-container {
                 width: 150px;
                 justify-content: center;
-
+            }
+            &::-webkit-scrollbar-track
+            {
+                -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);                
+                background-color: #F5F5F5;
+            }
+            
+            &::-webkit-scrollbar
+            {
+                width: 7px;
+                background-color: #F5F5F5;
+            }
+            
+            &::-webkit-scrollbar-thumb
+            {               
+                -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+                background-color: #555;
             }
         }
     }

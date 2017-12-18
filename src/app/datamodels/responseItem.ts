@@ -1,5 +1,6 @@
 import { NewsItem } from './newsItem';
 import { VideoReleaseItem } from './videoReleaseItem';
+import { ReleaseItem } from './releaseItem';
 import { ArtistItem } from './artistItem';
 import { EventItem } from './eventItem';
 
@@ -11,7 +12,9 @@ export class ResponseItem {
         videos:VideoReleaseItem[], 
         recentNews:NewsItem[],
         artists: ArtistItem[],
-        events: EventItem[]
+        events: EventItem[],
+        music: ReleaseItem[],
+        mixtapes: ReleaseItem[]
     };    
 
     constructor(){}    

@@ -214,37 +214,63 @@ ngx-carousel{
         }
     }
 }
-.song-link {
-    text-align: center;
+
+.song-link {    
     margin-top: 10px;
-    a {
-        text-decoration: none;        
-        .link-container{
-            color: rgba(255,255,255,1);
-            border-radius: 50px;
-            padding: 7px 20px;
-            position: relative;
-            background: @color5;        
-            transition: 0.5s all ease;
-            opacity: 0.7;
-            display: inline-flex;
-
-            @media @mobile-device { padding: 7px 15px;}
-
-            i { font-size: 17px;}
-            .link-txt { 
-                display: inline-block; 
-                font-size: 1.2rem; 
-                padding: 0px 5px; 
-                line-height: 17px;
-                @media @mobile-device {  font-size: .8rem; }
-            }
-            &:hover { opacity: 1;}
-
-            &.soundcloud{ background: rgba(255, 85, 0,1);}
-            &.apple { background: rgba(0, 157, 220, 1); }
+    .song-container {
+        border-radius: 50%;
+        border: 1px solid rgba(255,255,255,0);
+        display: inline-block;        
+        width: 30px;
+        height: 30px;
+        position: relative;
+        transition: 0.5s all ease;
+        a {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            transform: translateY(-50%);
+            text-align: center;            
+            text-decoration: none;  
+            i { 
+                font-size: 17px;
+                color: rgba(255,255,255,1);
+                transition: 0.5s all ease;
+            } 
+            &:hover { i { color: @color2;} }     
+            &.soundcloud{ &:hover { i {color: rgba(255, 85, 0,1);} } }
+            &.apple { &:hover { i { color: rgba(0, 157, 220, 1); } } }
         }
     }
+}
+
+.video-link {
+    a {
+        color: rgba(255,255,255,1);
+        transition: 0.5s all ease;
+        &:hover { color: rgba(255,0,0,1);}
+        i { font-size: 20px;   }
+    }
+}
+.allrelease-img-container {
+    width: 50px;
+    position: relative;
+    img { width: 100%;}
+}
+
+.mat-header-row { border-bottom: rgba(255,255,255,0.2); }
+.mat-row {
+    border-bottom: rgba(255,255,255,0.2);
+    &:hover {
+        background: rgba(255,255,255,0.1);
+        .mat-cell {
+            .song-link{
+                .song-container {
+                    border-color: rgba(255,255,255,1);
+                }
+            }
+        }
+    }   
 }
 /* Background Themes */
 .dark-gradient {

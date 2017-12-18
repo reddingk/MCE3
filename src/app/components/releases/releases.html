@@ -8,12 +8,13 @@
     </div>
 
     <div class="content-list music">
+        <h1 class="section-title">Music</h1>
         <div class="list-container">
             <mat-table #musicTable [dataSource]="musicDataSource" matSort>
                 <!-- Icon Column -->
                 <ng-container matColumnDef="icon">
                     <mat-header-cell *matHeaderCellDef></mat-header-cell>
-                    <mat-cell *matCellDef="let element"><i fa name="music"></i></mat-cell>
+                    <mat-cell *matCellDef="let element"><div class="allrelease-img-container"><img [src]="checkimg(element.img)"></div></mat-cell>
                 </ng-container>
 
                 <!-- Title Column -->
@@ -36,15 +37,12 @@
 
                 <!-- Download Btn Column -->
                 <ng-container matColumnDef="source">
-                    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                    <mat-header-cell *matHeaderCellDef>Listen</mat-header-cell>
                     <mat-cell *matCellDef="let element">
                         <div class="song-link">
-                            <a [href]="element.url" target="_blank">
-                                <div class="link-container {{ getIcon(element.type) }}">
-                                    <i fa [name]="getIcon(element.type)"></i>
-                                     <div class="link-txt">{{ getTypeString(element.type) }}</div>
-                                </div>
-                            </a>
+                            <div class="song-container">
+                                <a [href]="element.url" target="_blank" [class]="getIcon(element.type)"><i fa [name]="getIcon(element.type)"></i></a>                            
+                            </div>
                         </div>
                     </mat-cell>
                 </ng-container>
@@ -54,5 +52,66 @@
             </mat-table>
         </div>
     </div>
+    <!-- Mixtapes -->
+    <div class="content-list mixtapes">
+        <h1 class="section-title">Mixtapes</h1>
+        <ngx-carousel [inputs]="mixtapeCarousel" class="mc-carousels tile-carousel mixtape-carousel">        
+            <ngx-item *ngFor="let mix of mixtapes" NgxCarouselItem>
+                <div class="mix-page">
+                    <div class="mix-content"><iframe [src]="mix.url | safe" frameborder="0" height="450px" allowtransparency='true'></iframe></div>
+                    <div class="mix-info">
+                        <div class="mix-title">{{mix.title}}</div>                                                     
+                    </div>
+                </div>
+            </ngx-item>
 
+            <div NgxCarouselPrev class="carousel-ctrl prev"><i class="material-icons">&#xE5CB;</i></div>
+            <div NgxCarouselNext class="carousel-ctrl next"><i class="material-icons">&#xE5CC;</i></div>
+        </ngx-carousel>    
+    </div>
+
+    <!-- Videos -->
+    <div class="content-list videos">
+        <h1 class="section-title">Videos</h1>
+        <div class="list-container">
+            <mat-table #musicTable [dataSource]="videoDataSource" matSort>
+                <!-- Icon Column -->
+                <ng-container matColumnDef="icon">
+                    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                    <mat-cell *matCellDef="let element"><div class="allrelease-img-container"><img [src]="returnTypeUrl('image', element.urlcode)"></div></mat-cell>
+                </ng-container>
+
+                <!-- Title Column -->
+                <ng-container matColumnDef="title">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Title</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.title}}</mat-cell>
+                </ng-container>
+
+                <!-- Artist Column -->
+                <ng-container matColumnDef="artist">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Artist</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.artist}}</mat-cell>
+                </ng-container>
+
+                <!-- Date Column -->
+                <ng-container matColumnDef="date">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Date</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.date | date: 'MMM dd, yy'}}</mat-cell>
+                </ng-container>
+
+                <!-- Download Btn Column -->
+                <ng-container matColumnDef="source">
+                    <mat-header-cell *matHeaderCellDef>Watch</mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        <div class="video-link">                        
+                            <a [href]="'https://www.youtube.com/watch?v='+element.urlcode" target="_blank"><i fa name="youtube-play"></i></a>
+                        </div>
+                    </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+        </div>
+    </div>
 </section>

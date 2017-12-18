@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild} from '@angular/core';
 import { MatTableDataSource, MatSort } from '@angular/material';
-
+import { NgxCarousel } from 'ngx-carousel';
 
 /* Data Models */
 import { ResponseItem } from '../../datamodels/responseItem';
@@ -10,6 +10,7 @@ import { VideoReleaseItem } from '../../datamodels/videoReleaseItem';
 
 /* Service */
 import { MCEService } from '../../services/mceService';
+import { SafePipe } from '../home/home';
 
 @Component({
     templateUrl: './releases.html',
@@ -24,52 +25,22 @@ import { MCEService } from '../../services/mceService';
     public mixtapes: ReleaseItem[] =[];
     public videos: VideoReleaseItem[] =[];
 
-    displayedColumns = ['icon', 'title', 'artist', 'date', 'source'];
-    musicDataSource = new MatTableDataSource(this.music);
-    
+    public mixtapeCarousel: NgxCarousel;
+    public musicDataSource;
+    public videoDataSource;
+
+    displayedColumns = ['icon', 'title', 'artist', 'date', 'source'];   
 
     constructor(private mceService: MCEService){ }
 
-    retrieveMusic(artist: ArtistItem): void {
-        let tmpMusic:ReleaseItem[] = [];
-        let tmpMixtapes:ReleaseItem[] = [];
-        // Videos
-        this.videos = this.videos.concat(artist.videos);
-        // Sort Release list
-        for(var i =0; i < artist.releases.length; i++){
-            let release: ReleaseItem = artist.releases[i];
-            release.artist = artist.name;
+    getReleases(): void {
+        
+        this.mceService.getAllReleases().subscribe(res => {
+            if(res.error == null){                
+                this.mixtapes = res.response.mixtapes;
 
-            if(release.type.includes('mixtape')){
-                tmpMixtapes.push(release);
-            }
-            else {
-                tmpMusic.push(release);
-            }
-        }
-
-        // Set video artist name
-        for(var j =0; j < artist.videos.length; j++){
-            artist.videos[j].artist = artist.name;
-        }
-
-        // Videos
-        this.videos = this.videos.concat(artist.videos);
-        // Music
-        let tmpmusic = this.music.concat(tmpMusic);
-        this.musicDataSource = new MatTableDataSource(tmpmusic);
-        // Mixtape
-        this.mixtapes = this.mixtapes.concat(tmpMixtapes);
-    }
-
-    getArtists(): void {
-        this.mceService.getAllArtists().subscribe(res => {
-            if(res.error == null){
-                this.allArtists = res.response.artists;
-
-                for(var i = 0; i < this.allArtists.length; i++){
-                    this.retrieveMusic(this.allArtists[i]);
-                }
+                this.musicDataSource = new MatTableDataSource(res.response.music);
+                this.videoDataSource = new MatTableDataSource(res.response.videos);
             }
             else {
                 console.log(res.error);
@@ -84,6 +55,10 @@ import { MCEService } from '../../services/mceService';
     public returnTypeUrl(type, urlcode): string {
         return this.mceService.returnTypeUrl(type, urlcode);
     }
+
+    public checkimg(imgUrl){
+      return this.mceService.checkLocalImg(imgUrl);
+    }
   
     public getTypeString(type){
         var retVal = "";
@@ -95,6 +70,13 @@ import { MCEService } from '../../services/mceService';
     }
 
     ngOnInit() :void{
-        this.getArtists();
+        this.getReleases();
+
+        this.mixtapeCarousel = {
+            grid: {xs: 1, sm: 1, md: 1, lg: 1, all: 0},
+            slide: 3, speed: 0, interval: 0,
+            point: { visible: true },
+            load: 1, touch: true, loop: false, custom: 'banner'
+          };
     }
   }
