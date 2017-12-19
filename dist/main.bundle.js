@@ -1521,7 +1521,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var MCEService = /** @class */ (function () {
     function MCEService(http) {
         this.http = http;
-        this.urlBase = 'http://localhost:1738';
+        this.urlBase = '';
     }
     MCEService.prototype.checkLocalImg = function (img) {
         if (img == undefined || img == null) {

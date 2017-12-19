@@ -16,7 +16,7 @@ import { EventItem } from '../datamodels/eventItem';
 @Injectable()
 export class MCEService {
     constructor(private http: HttpClient) { }
-    urlBase: string = 'http://localhost:1738';
+    urlBase: string = '';
 
     checkLocalImg(img) {
         if(img == undefined || img == null){
