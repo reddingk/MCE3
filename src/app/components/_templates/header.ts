@@ -20,14 +20,12 @@ export class HeaderComponent {
     onWindowScroll($event) {        
       if(this.el != undefined){
         if(window.pageYOffset > 20){          
-          if(!this.el.nativeElement.classList.contains('dark')){
-            console.log("add Dark Class");
+          if(!this.el.nativeElement.classList.contains('dark')){            
             this.el.nativeElement.classList.add("dark");
           }                    
         }
         else {
           if(this.el.nativeElement.classList.contains('dark')){
-            console.log('remove Dark Class');
             this.el.nativeElement.classList.remove("dark");
           }
         }

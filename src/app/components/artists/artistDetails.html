@@ -80,7 +80,15 @@
             <ngx-carousel [inputs]="videoCarousel" class="mc-carousels tile-carousel c4 video-carousel">        
                 <ngx-item *ngFor="let video of artist.videos" NgxCarouselItem>
                     <div class="video-page">
-                        <div class="video-content"><iframe [src]="returnTypeUrl('video', video.urlcode) | safe" frameborder="0" allowfullscreen></iframe></div>
+                        <div class="video-content">
+                            <!--<iframe [src]="returnTypeUrl('video', video.urlcode) | safe" frameborder="0" allowfullscreen></iframe>-->
+                            <div class="video-img-container">
+                                <a [href]="returnTypeUrl('watch', video.urlcode)" target="_blank" >
+                                    <img [src]="returnTypeUrl('image', video.urlcode)">
+                                    <i fa name="youtube-play"></i> 
+                                </a>
+                            </div>
+                        </div>
                         <div class="video-info">
                             <div class="video-title">{{video.title}}</div>                                                     
                         </div>
@@ -101,9 +109,9 @@
                     <div class="mc-item {{ checkDate(event.date) }}" *ngFor="let event of events">
                         <div class="event-page">
                             <div class="event-date">
-                                <div class="day">{{event.date | date: 'dd'}}</div>
-                                <div class="month">{{event.date | date: 'MMM'}}</div>
-                                <div class="time">{{event.date | date: 'h a'}}</div>
+                                <div class="day">{{cleanDate(event.date, 'dd')}}</div>
+                                <div class="month">{{cleanDate(event.date,'MMM')}}</div>
+                                <div class="time">{{cleanDate(event.date, 'h a')}}</div>
                             </div>
                             <div class="event-info">
                                 <div class="event-title">{{event.name}}</div>

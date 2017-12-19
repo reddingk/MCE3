@@ -155,7 +155,11 @@ ngx-carousel{
     }
 
     &.tile-carousel { 
-        .ngxcarousel-inner {  width: 80%; margin: 0px auto;  }
+        .ngxcarousel-inner {  
+            width: 80%; 
+            margin: 0px auto;
+            @media @mobile-device { width: 100%;}
+        }
     }    
 
     &.c1 {
@@ -270,7 +274,11 @@ ngx-carousel{
                 }
             }
         }
-    }   
+    } 
+    @media @mobile-device {
+        .mat-cell { padding: 2px; }
+        .mat-column-date { display: none;}
+    }  
 }
 
 .song-link {
@@ -305,6 +313,8 @@ ngx-carousel{
         }
    }
 }
+
+
 /* Background Themes */
 .dark-gradient {
     background: @color5; /* For browsers that do not support gradients */

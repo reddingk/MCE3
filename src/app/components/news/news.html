@@ -17,7 +17,7 @@
                         <div class="item-img"><img [src]="checkimg(item.img)"></div>
                         <div class="item-info">
                             <div class="item-title">{{ item.title }}</div>
-                            <div class="item-date">{{ item.date | date: 'MMM dd yyyy' }}</div>
+                            <div class="item-date">{{ cleanDate(item.date, 'MMM dd yyyy') }}</div>
                             <div class="item-content">
                                 <span>{{ item.content }}</span>
                                 <span *ngIf="item.link != null"><br><a [href]="item.link.url" target="_blank">{{ item.link.text}}</a></span>

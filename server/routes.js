@@ -3,7 +3,6 @@ var jsonParser = bodyParser.json();
 
 const low = require('lowdb');
 const lowR = require('lowdb-recursive');
-const nodemailer = require('nodemailer');
 
 const FileSync = require('lowdb/adapters/FileSync');
 
@@ -28,42 +27,6 @@ db._.mixin({
     return newCol;
   }
 })
-
-// create reusable transporter object using the default SMTP transport
-const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 465,
-  auth: {
-      user: 'xxx@gmail.com',
-      pass: 'xxx'
-  }
-});
-
-function sendMail(req, res) {
-  if (!req.body.to) {
-      res.status(200).json({ error: 'Mail (sendMail) failed.' });
-  }
-  
-  console.log("Sending Email: " + req.body);
-
-  var mailOptions = {
-      from: 'xxx@gmail.com', // sender address
-      to: req.body.to, // list of receivers
-      subject: req.body.subject, // Subject line
-      text: req.body.text, // plaintext body
-      html: req.body.html// html body
-  };
-  
-  // send mail with defined transport object
-  transporter.sendMail(mailOptions, function (error, info) {
-      if (error) {
-          console.log("error msg: " + error);
-          res.status(200).json({error: null, status: true});
-      }
-  });
-  
-  res.status(200).json({error: null, status: true});  
-};
 
 function getArtist(aname, res){
   var ret = {"error":null, "response":{"artist":null}};
@@ -178,11 +141,9 @@ function getNews(query, res){
     var filter = {};
 
     if(query.type != undefined){
-      console.log("Adding Type Filter");
       filter.type = query.type;
     }
     if(query.date != undefined){
-      console.log("Adding Date Filter");
       filter.date = query.date;
     }
 
@@ -212,7 +173,6 @@ function getEvents(query, res){
 
     // By Artist Name
     if(query.artistname != undefined && query.artistname != "ALL"){
-      console.log("Adding Artist Filter");
       filter.artistname = query.artistname;
     }
     var eventList = db.get('events').filter(filter);
@@ -268,12 +228,6 @@ module.exports = function (app) {
     if(req.body != null){
       var query = req.body.query;
       getEvents(query, res);
-    }
-  });
-
-  app.post('/api/sendEmail', jsonParser, function (req, res) {   
-    if(req.body != null){
-      sendMail(req, res);
     }
   });
 

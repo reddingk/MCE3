@@ -1,0 +1,67 @@
+@import (reference) "../../variables.less";
+
+.contactus {
+    .inner-section {
+        padding: 50px 20px;
+        position: relative;
+        text-align: center;
+        .contact-card {
+            padding: 30px 50px;
+            max-width: 80%;
+            text-align: center;
+            display: inline-block;            
+            overflow: hidden;
+            position: relative;            
+            border: 1px solid rgba(0,0,0,0.2);
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            @media @mobile-device { padding: 10px;}
+            .card-title { 
+                position: relative;
+                z-index: 1;
+                font-size: 2rem;
+                font-weight: bold;
+                color: rgba(0,0,0,1);
+            }
+            .card-email {
+                font-size: 1.3rem;
+                margin-bottom: 30px;
+                position: relative;
+                z-index: 1;
+                a { color: @color1; }
+            }
+
+            .social-links-container {
+                position: relative;
+                z-index: 1;
+                text-align: center;
+                padding: 10px;
+                .social-link {
+                    color: rgba(0,0,0,1);
+                    transition: 0.5s all ease;
+                    i { 
+                        border-radius: 50%;
+                        font-size: 30px;
+                    }
+                    &+.social-link { margin-left: 20px; }
+    
+                    &.youtube{ &:hover { color: rgba(255,0,0,1);}}
+                    &.instagram{ &:hover { color: rgba(195,42,163,1);}}
+                    &.facebook{ &:hover { color: rgba(59,89,152,1);}}
+                    &.twitter{ &:hover { color: rgba(0,182,241,1);}}
+                }
+            }
+
+            .card-img {
+                position: absolute;
+                right: -10%;
+                bottom: -10%;
+                width: 50%;
+                opacity: 0.5;
+                z-index: 0;
+                img { 
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

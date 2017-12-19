@@ -26,7 +26,19 @@ export class MCEService {
     }
 
     returnTypeUrl(type, urlcode){
-        let retUrl: string = (type == "video"? "https://www.youtube.com/embed/"+ urlcode : "http://img.youtube.com/vi/"+ urlcode+"/default.jpg");
+        let retUrl: string = null;
+        switch(type){
+            case "video":
+                retUrl = "https://www.youtube.com/embed/"+urlcode;
+                break;
+            case "watch":
+                retUrl = "https://www.youtube.com/watch?v="+urlcode;
+                break;
+            default:    
+                retUrl = "http://img.youtube.com/vi/"+ urlcode+"/hqdefault.jpg";
+                //retUrl = "https://i.ytimg.com/vi_webp/" + urlcode+"/sddefault.webp";
+                break;
+        }
         return retUrl;
     }
 
@@ -75,6 +87,83 @@ export class MCEService {
         }
         return "music";        
     }
+    /* Compare Dates */
+    newYear(prev, cur){
+        var pDate = prev.split(/\D/g);
+        var cDate = cur.split(/\D/g);
+
+        return pDate[0] > cDate[0];
+    }
+
+    hasExpired(cDate){
+        const iDate = new Date(Date.now());
+        var resList = cDate.split(/\D/g);
+
+        var yrCmp = iDate.getFullYear() - resList[0];
+        var mhCmp = (iDate.getMonth()+1) - resList[1];
+        var dyCmp = iDate.getDay() - resList[2];
+        var hrCmp = iDate.getHours() - resList[3];
+        var mnCmp = iDate.getMinutes() - resList[4];
+        var scCmp = iDate.getSeconds() - resList[5];
+        
+        if(yrCmp < 0){ return false;}
+        if(yrCmp == 0 && mhCmp < 0){ return false;}
+        if(yrCmp == 0 && mhCmp == 0 && dyCmp < 0){ return false;}
+        if(yrCmp == 0 && mhCmp == 0 && dyCmp == 0 && hrCmp < 0){ return false;}
+        if(yrCmp == 0 && mhCmp == 0 && dyCmp == 0 && hrCmp == 0 && mnCmp < 0){ return false;}
+        if(yrCmp == 0 && mhCmp == 0 && dyCmp == 0 && hrCmp == 0 && mnCmp == 0 && scCmp < 0){ return false;}
+
+        return true;
+    }
+    /* Clean Date */
+    cleanDate(dateStr, type){
+        var ret = "";
+        // parse Date
+        var resList = dateStr.split(/\D/g);
+        var monthList = ["Jan","Feb", "Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+        try {
+            switch (type){
+                case 'dd':
+                    //ret = date.getDate()+"";
+                    ret = resList[2];
+                    ret = (ret.length < 2 ? "0"+ret : ret);
+                    break;
+                case 'MMM':
+                    //var tmpMonth = date.getMonth();
+                    var tmpMonth = resList[1]-1;
+                    ret = monthList[tmpMonth];          
+                    break;
+                case 'h a':
+                    //var tmpTime = date.getHours();
+                    var tmpTime = resList[3];
+                    if(tmpTime > 12){
+                        ret = (tmpTime-12) + "PM";
+                    }
+                    else {
+                        ret = tmpTime + "AM";
+                    }          
+                    break;
+                case 'yyyy':
+                    //var tmpMonth = date.getFullYear();                    
+                    ret = resList[0];          
+                    break;
+                case 'MMM dd yyyy':
+                    var tmpMonth = resList[1]-1;
+                    var tmpDay = resList[2];
+                    tmpDay = (tmpDay.length < 2 ? "0"+tmpDay : tmpDay);
+
+                    ret = monthList[tmpMonth] +" " + tmpDay + " " + resList[0];
+                    break;                
+                default:
+                    break;
+            }
+        }
+        catch(ex){
+            console.log("Error Parsing Date");
+        }
+        return ret;
+    }
+
     /* API Calls */
     getSpotlightContent(){        
         return this.http.get<ResponseItem>(this.urlBase+'/api/spotlight');         

@@ -46,4 +46,25 @@
             }
         }
     }
+
+    .footer-bottom {
+        padding: 10px;
+        background: rgba(24,24,24,1);
+        .row-layout{
+            display: flex;
+            justify-content: space-between;
+            color: rgba(130,130,130,1);
+            font-weight: bold;
+            .row-column { 
+                padding: 2px;
+                &.icon { 
+                    position: relative;
+                    height: 30px;
+                    display: flex;                    
+                    a { display: inline-block; img{ height: 100%;} }
+                }
+                .icon-txt { display: inline-block; padding: 7px 10px 0px; }
+            } 
+        }
+    }
 }

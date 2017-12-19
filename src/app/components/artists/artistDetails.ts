@@ -26,7 +26,11 @@ import { SafePipe } from '../home/home';
 
     public intervalId = null;
     private mobileCheck = new RegExp('Android|webOS|iPhone|iPad|' + 'BlackBerry|Windows Phone|'  + 'Opera Mini|IEMobile|Mobile' , 'i');
-    
+    // Internet Explorer 6-11
+    private isIE: Boolean = false;// /*@cc_on!@*/false || !!window.document.documentMode;
+    // Edge 20+
+    private isEdge: Boolean = false;//!this.isIE && !!window.StyleMedia;
+
     public musicCarousel: NgxCarousel;
     public mixtapeCarousel: NgxCarousel;
     public videoCarousel: NgxCarousel;
@@ -34,14 +38,10 @@ import { SafePipe } from '../home/home';
     constructor(private mceService: MCEService, private route: ActivatedRoute){ }
 
     /* Get Events Data */
-    getEvents(name: string): void {      
-      /*const iDate = new Date(Date.now());
-      iDate.setDate(iDate.getDate() -30);
-      iDate.toString()*/
-
+    getEvents(name: string): void {     
       this.mceService.getEventsTotal(5, name).subscribe(res => {
         if(res.error == null){
-          this.events = res.response.events;          
+          this.events = res.response.events;                
         }
         else {
           console.log(res.error);
@@ -52,16 +52,28 @@ import { SafePipe } from '../home/home';
     checkDate(date: string): string {
       let status: string = "";
 
-      const iDate = new Date(Date.now());
+      /*const iDate = new Date(Date.now());
       const cDate = new Date(date);
 
       if( iDate > cDate){
         status = "expired";
-      }
+      }*/
+      status = (this.mceService.hasExpired(date) ? "expired" : "");
 
       return status;
     }
 
+    /* clean Date */
+    cleanDate(dateStr: string, type: string) {
+      var ret = "";
+      try {        
+        ret = this.mceService.cleanDate(dateStr, type);
+      }
+      catch(ex){
+        console.log("error proccessing date");
+      }
+      return ret;
+    }
     /* Get Artist Data */
     getArtist(name: string): void {
       this.mceService.getArtist(name).subscribe(res => {

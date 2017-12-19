@@ -67,7 +67,7 @@ import { SafePipe } from '../home/home';
           retVal = typeStr[0];
         }
         return retVal;
-    }
+    }    
 
     ngOnInit() :void{
         this.getReleases();

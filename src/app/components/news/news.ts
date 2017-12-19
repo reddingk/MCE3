@@ -25,6 +25,17 @@ import { setInterval } from 'timers';
     checkimg(imgUrl){
         return this.mceService.checkLocalImg(imgUrl);
     }
+    
+    cleanDate(dateStr: string, type: string) {
+      var ret = "";
+      try {        
+        ret = this.mceService.cleanDate(dateStr, type);
+      }
+      catch(ex){
+        console.log("error proccessing date");
+      }
+      return ret;
+    }
 
     /* Scroll */
     public scrollDeactivate(){

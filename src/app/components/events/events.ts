@@ -19,17 +19,30 @@ import { MCEService } from '../../services/mceService';
     constructor(private mceService: MCEService){ }
     /* Check expiration date */
     checkDate(date: string): string {
-        let status: string = "";
-  
-        const iDate = new Date(Date.now());
-        const cDate = new Date(date);
-  
-        if( iDate > cDate){
-          status = "expired";
-        }
-  
-        return status;
+      let status: string = "";
+
+      /*const iDate = new Date(Date.now());
+      const cDate = new Date(date);
+
+      if( iDate > cDate){
+        status = "expired";
+      }*/
+      status = (this.mceService.hasExpired(date) ? "expired" : "");
+
+      return status;
+    }
+
+    /* clean Date */
+    cleanDate(dateStr: string, type: string) {
+      var ret = "";
+      try {        
+        ret = this.mceService.cleanDate(dateStr, type);
       }
+      catch(ex){
+        console.log("error proccessing date");
+      }
+      return ret;
+    }
       
     /* Get Events Data */
     getEvents(): void {     
@@ -54,12 +67,13 @@ import { MCEService } from '../../services/mceService';
       }
       else {
         prevEvent = this.events[index -1];
-        var dc = new Date(currentEvent.date);
+        /*var dc = new Date(currentEvent.date);
         var dp = new Date(prevEvent.date);
 
         if(dp.getFullYear() > dc.getFullYear()){
           display = true;
-        }
+        }*/
+        display = this.mceService.newYear(prevEvent.date, currentEvent.date);
       }
 
       return display;

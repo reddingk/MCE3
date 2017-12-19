@@ -14,8 +14,8 @@ import { MCEService } from '../../services/mceService';
     public backimg: String = "assets/images/site/empire.jpg";
 
     public staff: ArtistItem[] = [
-        new ArtistItem('G', 'CEO', 'assets/images/site/empire/GField.jpg', [new SocialItem('twitter','Sir_CEO'), new SocialItem('instagram','CEO_KING_FIELDMOB')]),
-        new ArtistItem('Dwayne', 'Videographer & Photographer', 'assets/images/site/empire/Dwayne.jpg', [new SocialItem('twitter','DWJproduction'), new SocialItem('instagram','DWJproduction')]),
+        new ArtistItem('G', 'CEO', 'assets/images/site/empire/GField.jpg', [new SocialItem('twitter','Sir_CEO'), new SocialItem('instagram','KING_FIELDMOB')]),
+        new ArtistItem('Dwayne', 'Videographer & Photographer', 'assets/images/site/empire/Dwayne.jpg', [new SocialItem('twitter','DWJprod_mmedia'), new SocialItem('instagram','DWJprod_mmedia')]),
         new ArtistItem('Drty Warhol', 'Producer', 'assets/images/site/empire/Fields.jpg', [new SocialItem('twitter','inspiredmindz'), new SocialItem('soundcloud','inspiredmindz')])
     ];
 

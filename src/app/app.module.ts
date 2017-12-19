@@ -18,6 +18,7 @@ import { ArtistDetailsComponent } from './components/artists/artistdetails';
 import { EventsComponent } from './components/events/events';
 import { NewsComponent } from './components/news/news';
 import { ReleasesComponent } from './components/releases/releases';
+import { ContactUsComponent } from './components/contactus/contactus';
 
 import { HeaderComponent } from './components/_templates/header';
 import { FooterComponent } from './components/_templates/footer';
@@ -34,7 +35,8 @@ const appRoutes: Routes = [
     { path:'events', component: EventsComponent},
     { path:'news', component: NewsComponent},
     { path:'news/:id', component: NewsComponent},
-    { path: 'releases', component: ReleasesComponent}  
+    { path:'releases', component: ReleasesComponent},
+    { path: 'contactus', component: ContactUsComponent}  
 ];
 
 @NgModule({
@@ -61,7 +63,8 @@ const appRoutes: Routes = [
         ArtistDetailsComponent,
         EventsComponent,
         NewsComponent,
-        ReleasesComponent
+        ReleasesComponent,
+        ContactUsComponent
     ],
     providers: [MCEService],
     bootstrap: [ AppComponent ]
