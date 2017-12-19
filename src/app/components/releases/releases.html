@@ -39,7 +39,7 @@
                 <ng-container matColumnDef="source">
                     <mat-header-cell *matHeaderCellDef>Listen</mat-header-cell>
                     <mat-cell *matCellDef="let element">
-                        <div class="song-link">
+                        <div class="song-icon-link">
                             <div class="song-container">
                                 <a [href]="element.url" target="_blank" [class]="getIcon(element.type)"><i fa [name]="getIcon(element.type)"></i></a>                            
                             </div>

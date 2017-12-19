@@ -8,15 +8,20 @@
     </div>
     
     <div class="inner-section">
+        <div class="close-news" *ngIf="selectedId != null" (click)="closeSelected()"><div class="inner-txt">Close Story</div></div>
+        
         <div class="news-container" id="allNews">
             <div class="news-list">
                 <div class="news-item {{ idIsSelected(item.title) }}" *ngFor="let item of news" [attr.id]="buildId(item.title)" >
-                    <div class="item-content-container" (click)="selectNews(item.title)" >
+                    <div class="item-content-container" (click)="selectNews(item.title, false)" >
                         <div class="item-img"><img [src]="checkimg(item.img)"></div>
                         <div class="item-info">
                             <div class="item-title">{{ item.title }}</div>
                             <div class="item-date">{{ item.date | date: 'MMM dd yyyy' }}</div>
-                            <div class="item-content">{{ item.content }}</div>                            
+                            <div class="item-content">
+                                <span>{{ item.content }}</span>
+                                <span *ngIf="item.link != null"><br><a [href]="item.link.url" target="_blank">{{ item.link.text}}</a></span>
+                            </div>                            
                         </div>
                     </div>
                 </div>

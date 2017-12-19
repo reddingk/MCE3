@@ -12,7 +12,7 @@ import { MCEService } from '../../services/mceService';
     styleUrls: ['./events.less']
   })
   export class EventsComponent implements OnInit {
-    public backimg: String = "assets/images/site/empire.jpg"; 
+    public backimg: String = "assets/images/site/events.jpg"; 
     public coverimg: String = "assets/images/site/chords.jpg"; 
     public events: EventItem[] = [];
 

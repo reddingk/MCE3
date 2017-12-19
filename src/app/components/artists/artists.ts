@@ -12,7 +12,7 @@ import { MCEService } from '../../services/mceService';
     styleUrls: ['./artists.less']
   })
   export class ArtistsComponent implements OnInit {
-    public backimg: String = "assets/images/site/empire.jpg";    
+    public backimg: String = "assets/images/site/people.jpg";    
     public allArtists: ArtistItem[] = [];
 
     constructor(private mceService: MCEService){ }

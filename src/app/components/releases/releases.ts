@@ -19,7 +19,7 @@ import { SafePipe } from '../home/home';
   export class ReleasesComponent implements OnInit {
     @ViewChild(MatSort) sort: MatSort;
 
-    public backimg: String = "assets/images/site/empire.jpg"; 
+    public backimg: String = "assets/images/site/album.jpg"; 
     public allArtists: ArtistItem[] = [];
     public music: ReleaseItem[] = [];
     public mixtapes: ReleaseItem[] =[];

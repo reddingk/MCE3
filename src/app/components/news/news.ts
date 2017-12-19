@@ -15,7 +15,7 @@ import { setInterval } from 'timers';
     styleUrls: ['./news.less']
   })
   export class NewsComponent implements OnInit {
-    public backimg: String = "assets/images/site/empire.jpg";    
+    public backimg: String = "assets/images/site/release.jpg";    
     public news: NewsItem[] = [];
     private selectedId: String = null;
     private intervalId = null;
@@ -31,7 +31,7 @@ import { setInterval } from 'timers';
         clearInterval(this.intervalId);
     }
 
-    public scrollContainer(container: string, item: string){
+    public scrollContainer(container: string, item: string, recursive: boolean){
         var containerObj = $("#"+container);
         var itemObj = $("#"+item);
         var that = this;
@@ -41,7 +41,7 @@ import { setInterval } from 'timers';
           
           if(!itemObj[0].classList.contains("selected")){
             this.intervalId = setTimeout(function() {
-                that.scrollContainer(container, item);
+                that.scrollContainer(container, item, false);
             }, 400);
           }
           else {
@@ -55,6 +55,11 @@ import { setInterval } from 'timers';
                 }
               }, 500);            
           }
+        }
+        else if(recursive){
+            this.intervalId = setTimeout(function() {
+                that.scrollContainer(container, item, recursive);
+            }, 400);
         }
     }
 
@@ -73,7 +78,7 @@ import { setInterval } from 'timers';
         return '';
     }
     /* choose selected */
-    selectNews(title): void {
+    selectNews(title, recursive): void {
         var id = this.buildId(title);
 
         if( id != this.selectedId){          
@@ -81,11 +86,13 @@ import { setInterval } from 'timers';
             this.selectedId = id;
 
             // scroll news to top
-            this.scrollContainer('allNews',id);
+            this.scrollContainer('allNews',id, recursive);
         }
-        else {
-            this.selectedId = null;
-        }
+    }
+
+    /* Close Selected */
+    closeSelected(){
+        this.selectedId = null;
     }
 
     /* Get News Data */
@@ -105,7 +112,7 @@ import { setInterval } from 'timers';
         this.route.params.forEach((params: Params) => {
             if (params['id'] !== undefined) {
               const id = params['id'];
-              this.selectNews(id);
+              this.selectNews(id, true);
             }
             else {
               console.log("Invalid News Id");
