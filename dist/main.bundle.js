@@ -104,7 +104,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_7_angular2_fontawesome_angular2_fontawesome__["Angular2FontawesomeModule"],
                 __WEBPACK_IMPORTED_MODULE_9_ngx_carousel__["a" /* NgxCarouselModule */],
                 __WEBPACK_IMPORTED_MODULE_8__ng_bootstrap_ng_bootstrap__["a" /* NgbModule */].forRoot(),
-                __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* RouterModule */].forRoot(appRoutes, { enableTracing: true })
+                __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* RouterModule */].forRoot(appRoutes, { enableTracing: false })
             ],
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_11__components_app_app__["a" /* AppComponent */],
