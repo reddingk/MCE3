@@ -49,7 +49,7 @@ const appRoutes: Routes = [
       Angular2FontawesomeModule,
       NgxCarouselModule,
       NgbModule.forRoot(),
-      RouterModule.forRoot(appRoutes,{ enableTracing: true } )
+      RouterModule.forRoot(appRoutes,{ enableTracing: false } )
     ],
     declarations: [        
         AppComponent,
