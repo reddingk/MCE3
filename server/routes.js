@@ -216,8 +216,7 @@ module.exports = function (app) {
     getSpotlightContent(res);    
   });
 
-  app.post('/api/news', jsonParser, function (req, res) {
-    console.log(req.body);
+  app.post('/api/news', jsonParser, function (req, res) {    
     if(req.body != null){
       var query = req.body.query;
       getNews(query, res);
