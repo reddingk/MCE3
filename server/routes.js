@@ -203,11 +203,13 @@ module.exports = function (app) {
   app.post('/api/artist', jsonParser, function (req, res) {    
     if(req.body != null){
       var artistname = req.body.artistname;
+      res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
       getArtist(artistname, res);
     }
   });
 
   app.get('/api/allArtists', function (req, res) {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
     getAllArtists(res);    
   });
 
@@ -216,21 +218,24 @@ module.exports = function (app) {
     getSpotlightContent(res);    
   });
 
-  app.post('/api/news', jsonParser, function (req, res) {    
+  app.post('/api/news', jsonParser, function (req, res) {        
     if(req.body != null){
       var query = req.body.query;
+      res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
       getNews(query, res);
     }
   });
 
-  app.post('/api/events', jsonParser, function (req, res) {    
+  app.post('/api/events', jsonParser, function (req, res) {        
     if(req.body != null){
       var query = req.body.query;
+      res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
       getEvents(query, res);
     }
   });
 
   app.get('/api/allReleases', function (req, res) {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
     getAllReleases(res);    
   });
 }

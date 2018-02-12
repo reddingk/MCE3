@@ -3,10 +3,13 @@
         {
             "name":"Gandhi Ali",
             "bio":"As Mind Control's first solo artist we have grown around him as an artist.",
-            "img":"assets/images/artist/Gandhi_Ali/GandhiAli.jpg",
+            "img":"assets/images/artist/Gandhi_Ali/GandhiAli11.jpg",
             "bannerImg":"assets/images/artist/Gandhi_Ali/GandhiAli-banner.jpg",
-            "specialImg":"assets/images/artist/Gandhi_Ali/GandhiAli2.jpg",
-            "addImg":["assets/images/artist/Gandhi_Ali/GandhiAli.png", "assets/images/artist/Gandhi_Ali/GandhiAli1.jpg","assets/images/artist/Gandhi_Ali/GandhiAli2.jpg","assets/images/artist/Gandhi_Ali/GandhiAli3.jpg","assets/images/artist/Gandhi_Ali/GandhiAli4.jpg","assets/images/artist/Gandhi_Ali/GandhiAli5.jpg","assets/images/artist/Gandhi_Ali/GandhiAli6.jpg","assets/images/artist/Gandhi_Ali/GandhiAli7.jpg"],
+            "specialImg":"assets/images/artist/Gandhi_Ali/GandhiAli11.jpg",
+            "addImg":["assets/images/artist/Gandhi_Ali/GandhiAli8.jpg", "assets/images/artist/Gandhi_Ali/GandhiAli9.jpg", "assets/images/artist/Gandhi_Ali/GandhiAli10.jpg", "assets/images/artist/Gandhi_Ali/GandhiAli11.jpg",
+                "assets/images/artist/Gandhi_Ali/GandhiAli12.jpg","assets/images/artist/Gandhi_Ali/GandhiAli13.jpg","assets/images/artist/Gandhi_Ali/GandhiAli.png", "assets/images/artist/Gandhi_Ali/GandhiAli1.jpg",
+                "assets/images/artist/Gandhi_Ali/GandhiAli2.jpg","assets/images/artist/Gandhi_Ali/GandhiAli3.jpg", "assets/images/artist/Gandhi_Ali/GandhiAli4.jpg","assets/images/artist/Gandhi_Ali/GandhiAli5.jpg",
+                "assets/images/artist/Gandhi_Ali/GandhiAli6.jpg","assets/images/artist/Gandhi_Ali/GandhiAli7.jpg"],
             "social":[
                 {"site":"twitter","handle":"gandhi3x"},
                 {"site":"instagram","handle":"gandhi3x"},
@@ -28,13 +31,14 @@
                 {"title":"Radio Remix Vol 1: Jackin Beats", "type":"spinrilla-mixtape", "date":"2016-04-13", "url":"https://spinrilla.com/mixtapes/gandhi-ali_dmv-radio-remix-vol-1-jackin-beats-by-gandhi-ali/embed","text":"Radio Remix Vol 1. by Gandhi Ali","content":"<iframe width='100%' height='450px' style='border: 0' src='https://spinrilla.com/mixtapes/gandhi-ali_dmv-radio-remix-vol-1-jackin-beats-by-gandhi-ali/embed' allowtransparency='true'></iframe>"}                
             ],
             "videos":[
+                {"title":"Icey", "spotlight": true, "type":"youtube","date":"2018-02-09","urlcode":"_DY9LEO2BA0","text":"Gandhi Ali Icey"},
                 {"title":"Ready", "spotlight": true, "type":"youtube","date":"2018-01-11","urlcode":"cVl3G12ry2s","text":"Gandhi Ali Ready"},
                 {"title":"Bet It", "spotlight": true, "type":"youtube","date":"2018-01-07","urlcode":"_CtbzItbu7Y","text":"Gandhi Ali Bet It"},
                 {"title":"Never Mind Em", "spotlight": true, "type":"youtube","date":"2017-06-18","urlcode":"5WkiBOylzC0","text":"Gandhi Ali Never Mind Em"},                
                 {"title":"Five", "type":"youtube","date":"2016-09-15","urlcode":"8YyLoJkPYRI","text":"Gandhi Ali Five"},
                 {"title":"Riding", "spotlight": true, "type":"youtube","date":"2016-12-07","urlcode":"34YuaewcAzo","text":"Gandhi Ali Ridin' ft. King Kla$$"},
                 {"title":"Jumpman", "type":"youtube","date":"2015-12-12","urlcode":"bjMnCi8KEFg","text":"Jumpman"},
-                {"title":"Freestyle", "spotlight": true, "type":"youtube","date":"2017-04-15","urlcode":"BlCM6L4Gbss","text":"Freestyle  shot by: @ShotByRayGun"},
+                {"title":"Freestyle", "type":"youtube","date":"2017-04-15","urlcode":"BlCM6L4Gbss","text":"Freestyle  shot by: @ShotByRayGun"},
                 {"title":"Lucky", "type":"youtube","date":"2017-02-24","urlcode":"DJGjXKln8L8","text":"Lucky"},
                 {"title":"Dapper", "type":"youtube","date":"2016-08-13", "urlcode":"cy4Jhd16VJE","text":"'Dapper' video shot by TOA$T"},
                 {"title":"100%", "type":"youtube","date":"2016-06-17", "urlcode":"vKIc3P1o798","text":"'100%' video produced by DWJproductions"},
@@ -69,9 +73,11 @@
         { "name":"Radio Interview", "location":"Washington, DC: Eddie Kayne Show", "date":"2015-11-21 00:00:00", "artistname":"MIND CONTROL EMPIRE", "tags":[]}
     ],
     "news":[
+        {"title":"The New Mind Control Empire", "spotlight":true, "type":"slider","date":"2018-02-12 00:00:00", "img":"assets/images/site/MCE1.JPG", "content":"Welcome to the new Mind Control Empire website, the website was designed to make it easier to connect with MCE and our Artists", "link":{"url":"http://dwjproduction.com/", "text":"Website Designed by DWJ Production"} },
+        {"title":"New Video: 'Icey' by Gandhi Ali", "spotlight":true, "type":"wordOnTheStreet","date":"2018-02-09 00:00:00", "img":"assets/images/site/icey_img.jpg", "content":"Check out the new video 'Icey' by Gandhi Ali.", "link":{"url":"https://www.youtube.com/watch?v=_DY9LEO2BA0", "text":"Watch"}},
         {"title":"New Video: 'Ready' by Gandhi Ali", "spotlight":true, "type":"wordOnTheStreet","date":"2018-01-11 00:00:00", "img":"assets/images/site/ready.jpg", "content":"Check out the new video 'Ready' by Gandhi Ali.  Shot by @JugginFilms", "link":{"url":"https://www.youtube.com/watch?v=cVl3G12ry2s", "text":"Watch"}},
         {"title":"'CMOG' Release", "spotlight":true, "type":"wordOnTheStreet","date":"2017-12-01 00:00:00", "img":"assets/images/media/CMOG.jpeg", "content":"Listen to the new album 'C.M.O.G.' by Gandhi Ali.  With featured tracks: 'Day Ones', 'In the Way', & 'Bounce'", "link":{"url":"https://itunes.apple.com/us/album/c-m-o-g/1316836031", "text":"Listen On Itunes"}},
-        {"title":"Panda's Play House II: A Trippy Affair", "spotlight":true, "date":"2017-11-30 00:00:00", "img":"assets/images/site/panda1.jpeg", "content":"Come checkout Gandhi Ali at MilkBoy Arthouse out in College Park, MD. 12/1", "link":{"url":"https://www.ticketfly.com/event/1598104-pandas-playhouse-ii-live-college-park/", "text":"Purchase Tickets Here"}},            
+        {"title":"Panda's Play House II: A Trippy Affair", "date":"2017-11-30 00:00:00", "img":"assets/images/site/panda1.jpeg", "content":"Come checkout Gandhi Ali at MilkBoy Arthouse out in College Park, MD. 12/1", "link":{"url":"https://www.ticketfly.com/event/1598104-pandas-playhouse-ii-live-college-park/", "text":"Purchase Tickets Here"}},            
         {"title":"New Release: 'Trap Blues'", "date":"2017-11-30 00:00:00", "img":"assets/images/media/trapblues1.jpeg", "content":"Listen to Trap Blue's buy Gandhi Ali", "link":{"url":"https://soundcloud.com/gandhi3x/sets/trapblues", "text":"Listen Here"}},            
         {"title":"Gandhi Ali Back Live @ Basement Tuesdays", "type":"wordOnTheStreet", "date":"2017-11-21 00:00:00", "img":"assets/images/site/basement1.jpeg", "content":"Gandhi Ali will be performing Live at Pure Lounge's Basement Tuesday's.  This Tuesday, November 28 Doors open at 7pm, 21 and up, @ 1326 U Street, NW, DC", "tags":["GANDHI ALI","Basement Tuesday"]},
         {"title":"Gandhi Ali Back Performing @ Danksgiving Celebration", "type":"wordOnTheStreet","date":"2017-11-21 00:00:00", "img":"assets/images/site/danksgiving1.jpeg", "content":"Gandhi Ali will be performing Live Danksgiving Celebration (11/24).  HollyWood Hemp Museum - 6140 Hollywood Blvd., Los Angeles, CA.", "link":{"url":"https://www.eventbrite.com/e/danksgiving-tickets-39818657677", "text":"Purchase Tickets"}, "tags":["GANDHI ALI","Basement Tuesday"]},                      
